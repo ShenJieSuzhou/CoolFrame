@@ -201,7 +201,6 @@ didReceiveResponse:(NSURLResponse *)response
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *fpath = [paths objectAtIndex:0];
     
-    //拿到cache文件夹和文件名
     NSString *file = [fpath stringByAppendingPathComponent:response.suggestedFilename];
     NSLog(@"File Name:%@", file);
     NSFileManager *manager = [NSFileManager defaultManager];

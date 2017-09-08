@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "84FE34F2A0C71D7BE5C880CDE643E057954137CE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "298A55A7662A612CAFCABA11009A6DFC1B829C6A" : 9223372036854775807,
+    "84FE34F2A0C71D7BE5C880CDE643E057954137CE" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E6636C3D-A46E-4C26-9A69-79F4FDB155EB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "298A55A7662A612CAFCABA11009A6DFC1B829C6A" : "",
+    "84FE34F2A0C71D7BE5C880CDE643E057954137CE" : "CoolFrame\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CoolFrame",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CoolFrame.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ShenJieSuzhou\/Friday.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "298A55A7662A612CAFCABA11009A6DFC1B829C6A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ShenJieSuzhou\/CoolFrame.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "84FE34F2A0C71D7BE5C880CDE643E057954137CE"
+    }
+  ]
+}
