@@ -10,8 +10,9 @@
 #import "CustomViewController.h"
 #import "SearchViewController.h"
 
-@interface FirstViewController : CustomViewController
+@interface FirstViewController : CustomViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) UITableView *homeTableView;
 
 @property (nonatomic, strong) UILabel *label;
 

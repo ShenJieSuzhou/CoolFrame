@@ -21,6 +21,7 @@
 		440255771F29E395007F9428 /* me@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4402556F1F29E395007F9428 /* me@3x.png */; };
 		440255781F29E395007F9428 /* rank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 440255701F29E395007F9428 /* rank@2x.png */; };
 		440255791F29E395007F9428 /* rank@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 440255711F29E395007F9428 /* rank@3x.png */; };
+		443FBB941F63DDF800737028 /* HomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 443FBB931F63DDF800737028 /* HomePageController.m */; };
 		4483454C1F26F3A000E400F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4483454B1F26F3A000E400F6 /* main.m */; };
 		4483454F1F26F3A000E400F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4483454E1F26F3A000E400F6 /* AppDelegate.m */; };
 		448345521F26F3A000E400F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448345511F26F3A000E400F6 /* ViewController.m */; };
@@ -74,6 +75,9 @@
 		4402556F1F29E395007F9428 /* me@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me@3x.png"; sourceTree = "<group>"; };
 		440255701F29E395007F9428 /* rank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rank@2x.png"; sourceTree = "<group>"; };
 		440255711F29E395007F9428 /* rank@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rank@3x.png"; sourceTree = "<group>"; };
+		443FBB921F63DDF800737028 /* HomePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HomePageController.h; path = CoolFrame/HomePageController.h; sourceTree = "<group>"; };
+		443FBB931F63DDF800737028 /* HomePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HomePageController.m; path = CoolFrame/HomePageController.m; sourceTree = "<group>"; };
+		443FBB961F656B3E00737028 /* fakeData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fakeData.json; sourceTree = "<group>"; };
 		448345471F26F3A000E400F6 /* CoolFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4483454B1F26F3A000E400F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4483454D1F26F3A000E400F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -188,9 +192,20 @@
 			path = CoolFrame/CustomNavigationBar;
 			sourceTree = "<group>";
 		};
+		44232EE91F63DDA1004A9011 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				443FBB921F63DDF800737028 /* HomePageController.h */,
+				443FBB931F63DDF800737028 /* HomePageController.m */,
+				443FBB961F656B3E00737028 /* fakeData.json */,
+			);
+			name = HomePage;
+			sourceTree = "<group>";
+		};
 		4483453E1F26F39F00E400F6 = {
 			isa = PBXGroup;
 			children = (
+				44232EE91F63DDA1004A9011 /* HomePage */,
 				E5BFA6301F428E38004E5FED /* Download */,
 				E53FEACF1F3AF57D00E84C2F /* JSONKIT */,
 				44C703481F32CC0C00C73340 /* Search */,
@@ -429,6 +444,7 @@
 				448345671F26F44100E400F6 /* SecondViewController.m in Sources */,
 				E55207E01F38463B00F20997 /* NaviBarSearchController.m in Sources */,
 				E53FEAD21F3AF66000E84C2F /* JSONKit.m in Sources */,
+				443FBB941F63DDF800737028 /* HomePageController.m in Sources */,
 				448345781F2715A300E400F6 /* CustomTabBarItem.m in Sources */,
 				448345521F26F3A000E400F6 /* ViewController.m in Sources */,
 				4483456A1F26F44E00E400F6 /* ThirdViewController.m in Sources */,
