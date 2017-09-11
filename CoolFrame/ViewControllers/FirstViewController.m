@@ -9,6 +9,7 @@
 #import "FirstViewController.h"
 #import "SearchViewController.h"
 #import "HomePageController.h"
+#import "HomePageCell.h"
 
 
 @interface FirstViewController ()
@@ -79,15 +80,37 @@
 #pragma mark -tableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    //根据json模版 决定每个 section 要显示几行数据
+    //根据 json 模版 决定每个 section 要显示几行数据
     NSMutableDictionary *dic = [_tableDataArray objectAtIndex:section];
-    [dic get]
-    return [array count];
+    NSString *templateID = [dic objectForKey:@"cTemplateId"];
+    
+    switch ([templateID intValue]) {
+        case 1:
+        case 3:
+        case 6:return 1;    //模板显示一行
+            break;
+        case 2:
+        case 4:return 2;    //模板显示二行
+            break;
+        case 5:return 5;    //模板显示五行
+            break;
+        default:return 0;
+            break;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    HomePageCell *homeCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageCell"];
+//
+//    if(!homeCell){
+//        homeCell = [[HomePageCell alloc] initWithFrame:<#(CGRect)#>]
+//    }
+//    return nil;
     
-    return nil;
+    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"defaultCell"];
+    
+    return cell;
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -106,22 +129,19 @@
 
 // Variable height support
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 45;
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 45;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 45;
+    if([self tableView:tableView viewForHeaderInSection:section]){
+        return [self tableView:tableView viewForHeaderInSection:section].frame.size.height;
+    }else{
+        return 0.0;
+    }
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return nil;
-}
-
-- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     return nil;
 }
 
