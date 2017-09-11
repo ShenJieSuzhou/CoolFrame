@@ -10,4 +10,8 @@
 
 @interface HomePageController : NSObject
 
++ (HomePageController *)getInstance;
+
+- (NSMutableArray *)getHomePageData;
+
 @end
