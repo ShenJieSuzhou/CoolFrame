@@ -207,7 +207,6 @@
 		44232EE91F63DDA1004A9011 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				E5EB48DA1F67B4EC00FFA1E4 /* NewsBanner */,
 				443FBB921F63DDF800737028 /* HomePageController.h */,
 				443FBB931F63DDF800737028 /* HomePageController.m */,
 				E5EB48D71F668E2A00FFA1E4 /* HomePageCell.h */,
@@ -370,14 +369,6 @@
 			);
 			name = Util;
 			path = CoolFrame/Util;
-			sourceTree = "<group>";
-		};
-		E5EB48DA1F67B4EC00FFA1E4 /* NewsBanner */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = NewsBanner;
-			path = CoolFrame/NewsBanner;
 			sourceTree = "<group>";
 		};
 		E5EB48DB1F67B53300FFA1E4 /* Assets */ = {

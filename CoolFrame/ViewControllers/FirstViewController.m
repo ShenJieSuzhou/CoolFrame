@@ -108,24 +108,35 @@
         case 6:
             break;
         case 2:{
-            NSMutableArray *menuArray = [dic objectForKey:@"Menu"];
+            NSMutableArray *menuArray = [dic objectForKey:@"MenuData"];
+            NSMutableDictionary *dic = [menuArray objectAtIndex:indexPath.row];
+            NSArray *submenus = [dic objectForKey:@"subMenus"];
+            HomePageMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomePageMenuCell"];
+            if(!cell){
+                cell = [[HomePageMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageMenuCell"];
+            }
             
+            NSMutableArray *menuItems = [[NSMutableArray alloc] init];
+            
+            for (NSString *menuName in submenus) {
+                CustomMenuItem *item = [[CustomMenuItem alloc] init];
+                item.itemHeight = 45.0f;
+                [item setTitle:menuName];
+                [menuItems addObject:item];
+            }
+            
+            [cell setItems:menuItems];
+            return cell;
         }
             break;
         case 4:
             break;
         case 5:
             break;
-        default:return 0;
+        default:
+            return nil;
             break;
     }
-    
-//    HomePageCell *homeCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageCell"];
-//
-//    if(!homeCell){
-//        homeCell = [[HomePageCell alloc] initWithFrame:<#(CGRect)#>]
-//    }
-//    return nil;
     
     UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"defaultCell"];
     

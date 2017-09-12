@@ -5,6 +5,7 @@
 //  Created by shenjie on 2017/9/11.
 //  Copyright © 2017年 com.snailgames.coolframe. All rights reserved.
 //
+#define NQFONT(v) [UIFont fontWithName:@"HiraKakuProN-W3" size:v]
 #define RGB(r, g, b)                        [UIColor colorWithRed:(r)/255.f green:(g)/255.f blue:(b)/255.f alpha:1.f]
 #import "HomePageCell.h"
 
@@ -125,6 +126,15 @@
     _items = items;
     for(CustomMenuItem *item in items){
         [item addTarget:self action:@selector(menuItemWasSelected:) forControlEvents:UIControlEventTouchUpInside];
+        UIImage *finishedImage = [UIImage imageNamed:@"menu"];
+        UIImage *unfinishedImage = [UIImage imageNamed:@"menu"];
+        
+        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
+        [item setFinishedSelectedImage:finishedImage withFinishedUnselectedImage:unfinishedImage];
+        
+        item.unselectedTitleAttributes= @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(255, 255, 255),};
+        item.selectedTitleAttributes = @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(255, 255, 255),};
+
         [self addSubview:item];
     }
 }
