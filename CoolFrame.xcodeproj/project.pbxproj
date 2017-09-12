@@ -59,6 +59,8 @@
 		E5EB48D41F6684AF00FFA1E4 /* FileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EB48D31F6684AF00FFA1E4 /* FileUtil.m */; };
 		E5EB48D61F668AB900FFA1E4 /* fakeData.json in Resources */ = {isa = PBXBuildFile; fileRef = E5EB48D51F668AB800FFA1E4 /* fakeData.json */; };
 		E5EB48D91F668E2A00FFA1E4 /* HomePageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EB48D81F668E2A00FFA1E4 /* HomePageCell.m */; };
+		E5EB48DD1F67B53300FFA1E4 /* redarrowRighticon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5EB48DC1F67B53300FFA1E4 /* redarrowRighticon@2x.png */; };
+		E5EB48DF1F67BBAC00FFA1E4 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = E5EB48DE1F67BBAC00FFA1E4 /* menu.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +143,8 @@
 		E5EB48D51F668AB800FFA1E4 /* fakeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fakeData.json; sourceTree = "<group>"; };
 		E5EB48D71F668E2A00FFA1E4 /* HomePageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageCell.h; sourceTree = "<group>"; };
 		E5EB48D81F668E2A00FFA1E4 /* HomePageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageCell.m; sourceTree = "<group>"; };
+		E5EB48DC1F67B53300FFA1E4 /* redarrowRighticon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redarrowRighticon@2x.png"; sourceTree = "<group>"; };
+		E5EB48DE1F67BBAC00FFA1E4 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 		440255591F29B33F007F9428 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E5EB48DB1F67B53300FFA1E4 /* Assets */,
 				44C703501F3447E200C73340 /* Navi */,
 				4402555A1F29B33F007F9428 /* Tabbar */,
 			);
@@ -202,6 +207,7 @@
 		44232EE91F63DDA1004A9011 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				E5EB48DA1F67B4EC00FFA1E4 /* NewsBanner */,
 				443FBB921F63DDF800737028 /* HomePageController.h */,
 				443FBB931F63DDF800737028 /* HomePageController.m */,
 				E5EB48D71F668E2A00FFA1E4 /* HomePageCell.h */,
@@ -366,6 +372,23 @@
 			path = CoolFrame/Util;
 			sourceTree = "<group>";
 		};
+		E5EB48DA1F67B4EC00FFA1E4 /* NewsBanner */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NewsBanner;
+			path = CoolFrame/NewsBanner;
+			sourceTree = "<group>";
+		};
+		E5EB48DB1F67B53300FFA1E4 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E5EB48DE1F67BBAC00FFA1E4 /* menu.png */,
+				E5EB48DC1F67B53300FFA1E4 /* redarrowRighticon@2x.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -425,12 +448,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5EB48DF1F67BBAC00FFA1E4 /* menu.png in Resources */,
 				440255781F29E395007F9428 /* rank@2x.png in Resources */,
 				440255761F29E395007F9428 /* me@2x.png in Resources */,
 				E53FEADF1F3C4A0700E84C2F /* separator_line@2x.png in Resources */,
 				440255601F29B340007F9428 /* tabbar_back_normal@3x.png in Resources */,
 				440255751F29E395007F9428 /* latest@3x.png in Resources */,
 				E53FEAD51F3B144600E84C2F /* no_searchresult@2x.png in Resources */,
+				E5EB48DD1F67B53300FFA1E4 /* redarrowRighticon@2x.png in Resources */,
 				E53FEAE71F3C832C00E84C2F /* delete@3x.png in Resources */,
 				44C703551F34499300C73340 /* search_icon@2x.png in Resources */,
 				440255731F29E395007F9428 /* contest@3x.png in Resources */,

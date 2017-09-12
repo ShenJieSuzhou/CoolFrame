@@ -9,7 +9,6 @@
 #import "FirstViewController.h"
 #import "SearchViewController.h"
 #import "HomePageController.h"
-#import "HomePageCell.h"
 #import "GlobalDefine.h"
 
 
@@ -101,6 +100,26 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSMutableDictionary *dic = [_tableDataArray objectAtIndex:indexPath.section];
+    NSString *templateID = [dic objectForKey:@"cTemplateId"];
+    switch ([templateID intValue]) {
+        case 1:
+        case 3:
+        case 6:
+            break;
+        case 2:{
+            NSMutableArray *menuArray = [dic objectForKey:@"Menu"];
+            
+        }
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        default:return 0;
+            break;
+    }
+    
 //    HomePageCell *homeCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageCell"];
 //
 //    if(!homeCell){
@@ -205,6 +224,18 @@
 
 - (void)jumpToSpecficContent{
     NSLog(@"jumpToSpecficContent");
+    
+}
+
+#pragma mark - HomePageMenuCell Delegate
+
+- (BOOL)Menu:(HomePageMenuCell *)menu shouldSelectItemAtIndex:(NSInteger)index{
+    
+    return YES;
+}
+
+- (void)Menu:(HomePageMenuCell *)menu didSelectItemAtIndex:(NSInteger)index{
+    
     
 }
 

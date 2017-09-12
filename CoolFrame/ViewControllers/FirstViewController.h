@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "CustomViewController.h"
 #import "SearchViewController.h"
+#import "HomePageCell.h"
 
-@interface FirstViewController : CustomViewController<UITableViewDataSource, UITableViewDelegate>
+@interface FirstViewController : CustomViewController<UITableViewDataSource, UITableViewDelegate, CustomMenuDelegate>
 
 @property (nonatomic, strong) UITableView *homeTableView;
 
