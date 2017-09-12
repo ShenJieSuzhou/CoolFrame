@@ -10,6 +10,7 @@
 #import "SearchViewController.h"
 #import "HomePageController.h"
 #import "HomePageCell.h"
+#import "GlobalDefine.h"
 
 
 @interface FirstViewController ()
@@ -117,13 +118,13 @@
     return [_tableDataArray count];
 }
 
-- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return @"";
-}
-
-- (nullable NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
-    return @"";
-}
+//- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//    return @"";
+//}
+//
+//- (nullable NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
+//    return @"";
+//}
 
 #pragma mark -tableViewDelegate
 
@@ -142,10 +143,68 @@
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return nil;
+    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 42.0f)];
+    [headView setBackgroundColor:RGBA(240.0f, 240.0f, 240.0f, 1.0f)];
+    headView.layer.borderWidth = 1;
+    
+    UIImageView *arrowImage = [[UIImageView alloc] init];
+    arrowImage.contentMode = UIViewContentModeScaleAspectFit;
+    
+    UILabel *headviewTitle = [[UILabel alloc] init];
+    [headviewTitle setFont:[UIFont systemFontOfSize:15.0f]];
+    headviewTitle.backgroundColor = [UIColor clearColor];
+    
+//    UILabel *moreLabel = [[UILabel alloc] init];
+//    [moreLabel setFont:[UIFont systemFontOfSize:12.0f]];
+//    [moreLabel setBackgroundColor:[UIColor clearColor]];
+    //更多的跳转
+    UIButton *moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [moreBtn setBackgroundColor:[UIColor clearColor]];
+    [moreBtn addTarget:self action:@selector(jumpToSpecficContent) forControlEvents:UIControlEventTouchUpInside];
+    
+    //添加栏目名称
+    [headView addSubview:headviewTitle];
+    
+    NSMutableDictionary *columnDic = [self.tableDataArray objectAtIndex:section];
+    if([[columnDic objectForKey:@"cHeadlineShow"] intValue] < 1){
+        return nil;
+    }
+    
+    if([columnDic objectForKey:@"sTitle"]){
+        NSString *headTitle = [columnDic objectForKey:@"sTitle"];
+        [headviewTitle setFont:[UIFont systemFontOfSize:12.0f]];
+        [headviewTitle setFrame:CGRectMake(20, 12, 80, 20)];
+        [headviewTitle setText:headTitle];
+    }
+    
+    if([columnDic objectForKey:@"sSubtitle"]){
+        NSString *sSubtitle = [columnDic objectForKey:@"sSubtitle"];
+//        [moreLabel setFont:[UIFont systemFontOfSize:12.0f]];
+//        [moreLabel setFrame:CGRectMake(tableView.frame.size.width - 80, 12, 40, 20)];
+//        [moreLabel setText:sSubtitle];
+//        [headView addSubview:moreLabel];
+        
+        [moreBtn setFrame:CGRectMake(tableView.frame.size.width - 80, 12, 40, 20)];
+        [moreBtn setTitle:sSubtitle forState:UIControlStateNormal];
+        [headView addSubview:moreBtn];
+        
+        [arrowImage setFrame:CGRectMake(tableView.frame.size.width - 50, 12, 20, 20)];
+        [arrowImage setImage:[UIImage imageNamed:@"redarrowRighticon"]];
+        [headView addSubview:arrowImage];
+    }
+    
+    
+    return headView;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+#pragma mark - btn event
+
+- (void)jumpToSpecficContent{
+    NSLog(@"jumpToSpecficContent");
     
 }
 

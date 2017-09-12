@@ -1,12 +1,16 @@
 [
     {
+     "cHeadlineShow": "0",
     "cTemplateId":"1",
     "NewsBanner": [
                    "street",
                    "city",
                    "country"
-                   ]},
+                   ]
+ 
+     },
     {
+     "cHeadlineShow": "1",
     "cTemplateId":"2",
     "Menu": ["充值中心",
              "充值中心",
@@ -15,14 +19,20 @@
              "充值中心",
              "充值中心",
              "充值中心",
-             "充值中心"]},
+             "充值中心"]
+ 
+     },
     {
+     "cHeadlineShow": "1",
      "cTemplateId":"3",
     "FastLook": ["晚上8时，第十三届全运会闭幕式在天津体育馆举行",
                  "中共中央政治局常委、国务院总理李克强宣布，中华人民共和国第十三届运动会闭幕",
                  "伴随着第十三届全运会会歌的旋律，第十三届全运会会旗缓缓落下，燃烧了13天的主火炬渐渐熄灭",
-                 "刘延东、杨晶、艾力更·依明巴海、陈晓光，以及中央军委委员吴胜利出席闭幕式"]},
+                 "刘延东、杨晶、艾力更·依明巴海、陈晓光，以及中央军委委员吴胜利出席闭幕式"],
+      "sTitle":"新闻快报"
+   },
     {
+     "cHeadlineShow": "1",
      "cTemplateId":"4",
     "PkgRecommend": [
                      {
@@ -61,8 +71,12 @@
                      "ImgUrl": "http: //www.baidu.com",
                      "type": "norPkg"
                      }
-                     ]},
+                     ],
+         "sTitle":"资费包介绍",
+         "sSubtitle":"更多"
+     },
      {
+     "cHeadlineShow": "1",
      "cTemplateId":"5",
     "TodayTopic": [
                    {
@@ -84,9 +98,11 @@
                    {
                    "Title": "SoSo",
                    "ImgUrl": "http://www.SoSo.com"
-                   }
-                   ]},
+                   }],
+         "sTitle":"今日头条"
+     },
      {
+     "cHeadlineShow": "1",
      "cTemplateId":"6",
     "OriginalTopic": [
                       {
@@ -109,5 +125,7 @@
                       "Title": "SoSo",
                       "ImgUrl": "http://www.SoSo.com"
                       }
-                      ]}
+                      ],
+         "sTitle":"原创专题"
+     }
 ]
