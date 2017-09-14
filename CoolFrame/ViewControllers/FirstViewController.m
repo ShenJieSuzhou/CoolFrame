@@ -100,12 +100,16 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"defaultCell"];
+    
+    [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     NSMutableDictionary *dic = [_tableDataArray objectAtIndex:indexPath.section];
     NSString *templateID = [dic objectForKey:@"cTemplateId"];
     switch ([templateID intValue]) {
         case 1:
         case 3:
-        case 6:
+        case 6: return cell;
             break;
         case 2:{
             NSMutableArray *menuArray = [dic objectForKey:@"MenuData"];
@@ -116,11 +120,11 @@
                 cell = [[HomePageMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageMenuCell"];
             }
             
+            [cell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 80)];
             NSMutableArray *menuItems = [[NSMutableArray alloc] init];
             
             for (NSString *menuName in submenus) {
                 CustomMenuItem *item = [[CustomMenuItem alloc] init];
-                item.itemHeight = 45.0f;
                 [item setTitle:menuName];
                 [menuItems addObject:item];
             }
@@ -129,19 +133,31 @@
             return cell;
         }
             break;
-        case 4:
+        case 4:  return cell;
             break;
-        case 5:
+        case 5:{
+            NSMutableArray *topicArray = [dic objectForKey:@"TodayTopic"];
+            NSMutableDictionary *dic = [topicArray objectAtIndex:indexPath.row];
+            HomePageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomePageTodayTopicCell"];
+            if(!cell){
+                cell = [[HomePageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageTodayTopicCell"];
+            }
+            
+            //适配 iPhone 端大小，ipad端需另做设计
+            [cell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 100)];
+            NSString *topicTitle = [dic objectForKey:@"Title"];
+            UIImage *image = [UIImage imageNamed:@"topicImg.png"];
+            
+            [cell.textLabel setText:topicTitle];
+            [cell.imgView setImage:image];
+            
+            return cell;
+        }
             break;
         default:
-            return nil;
+            return return cell;;
             break;
     }
-    
-    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"defaultCell"];
-    
-    return cell;
-
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -174,8 +190,8 @@
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 42.0f)];
-    [headView setBackgroundColor:RGBA(240.0f, 240.0f, 240.0f, 1.0f)];
-    headView.layer.borderWidth = 1;
+    [headView setBackgroundColor:[UIColor clearColor]];
+    headView.layer.borderWidth = 0;
     
     UIImageView *arrowImage = [[UIImageView alloc] init];
     arrowImage.contentMode = UIViewContentModeScaleAspectFit;
@@ -184,9 +200,6 @@
     [headviewTitle setFont:[UIFont systemFontOfSize:15.0f]];
     headviewTitle.backgroundColor = [UIColor clearColor];
     
-//    UILabel *moreLabel = [[UILabel alloc] init];
-//    [moreLabel setFont:[UIFont systemFontOfSize:12.0f]];
-//    [moreLabel setBackgroundColor:[UIColor clearColor]];
     //更多的跳转
     UIButton *moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [moreBtn setBackgroundColor:[UIColor clearColor]];
@@ -202,9 +215,19 @@
     
     if([columnDic objectForKey:@"sTitle"]){
         NSString *headTitle = [columnDic objectForKey:@"sTitle"];
-        [headviewTitle setFont:[UIFont systemFontOfSize:12.0f]];
+        [headviewTitle setFont:[UIFont fontWithName:@"Helvetica-Bold" size:13]];
         [headviewTitle setFrame:CGRectMake(20, 12, 80, 20)];
         [headviewTitle setText:headTitle];
+        
+//        UIImageView *sep = [[UIImageView alloc] init];
+//        [sep setBackgroundColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1]];
+//        [sep setContentMode:UIViewContentModeBottom];
+//        sep.clipsToBounds = YES;
+//
+//        CGRect rcSep = CGRectMake(0, headView.frame.size.height - 1 , headView.frame.size.width, 1);
+//        sep.frame = rcSep;
+//
+//        [headView addSubview:sep];
     }
     
     if([columnDic objectForKey:@"sSubtitle"]){

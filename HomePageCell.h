@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) UIImageView *imgView;
 @property (strong, nonatomic) UILabel *textLabel;
+@property (strong, nonatomic) UIImageView *sep;
+
 
 @end
 

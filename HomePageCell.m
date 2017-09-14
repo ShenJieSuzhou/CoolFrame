@@ -12,6 +12,7 @@
 @implementation HomePageCell
 @synthesize textLabel = _textLabel;
 @synthesize imgView = _imgView;
+@synthesize sep = _sep;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -39,6 +40,12 @@
         [self.imgView setContentMode:UIViewContentModeScaleAspectFit];
         self.imgView.clipsToBounds = YES;
         [self.contentView addSubview:self.imgView];
+        
+        self.sep = [[UIImageView alloc] init];
+        [self.sep setBackgroundColor:RGB(220, 220, 220)];
+        [self.sep setContentMode:UIViewContentModeBottom];
+        self.sep.clipsToBounds = YES;
+        [self.contentView addSubview:self.sep];
     }
     
     return self;
@@ -47,19 +54,24 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
+    //两边边距 20 个像素
+    CGFloat margin = 20.0f;
+    
     CGRect rcCell = [self bounds];
     [self.textLabel sizeToFit];
-//    self.textLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.textLabel.numberOfLines = 0;
     CGRect rcName = self.textLabel.frame;
-    rcName.origin.x = 20;
-    rcName.origin.y = 15;
+    rcName.origin.x = margin;
+    rcName.origin.y = 0;
     rcName.size.height = 80;
-    rcName.size.width = rcCell.size.width/3*2 - 60;
+    rcName.size.width = (rcCell.size.width - 3*margin)/3*2;
     self.textLabel.frame = rcName;
     
-    CGRect rcImg= CGRectMake(rcCell.size.width, 15 , rcCell.size.width/3 - 40, 80);
+    CGRect rcImg= CGRectMake(rcName.size.width + 2*margin, 15 , (rcCell.size.width - 3*margin)/3, 80);
     self.imgView.frame = rcImg;
+    
+    CGRect rcSep = CGRectMake(0, 1 , rcCell.size.width, 1);
+    self.sep.frame = rcSep;
 }
 
 @end
@@ -96,7 +108,7 @@
     CGSize framesize = self.frame.size;
     CGFloat height = self.miniContentHeight;
     
-    [self.backgroundView setFrame:CGRectMake(0, framesize.height - height, framesize.width, framesize.height)];
+    [self.backgroundView setFrame:CGRectMake(0, 0, framesize.width, framesize.height)];
     [self setItemWidth:roundf(framesize.width / self.items.count)];
     
     int index = 0;
@@ -129,11 +141,11 @@
         UIImage *finishedImage = [UIImage imageNamed:@"menu"];
         UIImage *unfinishedImage = [UIImage imageNamed:@"menu"];
         
-        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
+//        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
         [item setFinishedSelectedImage:finishedImage withFinishedUnselectedImage:unfinishedImage];
         
-        item.unselectedTitleAttributes= @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(255, 255, 255),};
-        item.selectedTitleAttributes = @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(255, 255, 255),};
+        item.unselectedTitleAttributes= @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(0, 0, 0),};
+        item.selectedTitleAttributes = @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(0, 0, 0),};
 
         [self addSubview:item];
     }
@@ -204,7 +216,7 @@
     _titlePositionAdjustment = UIOffsetZero;
     _unselectedTitleAttributes = @{
                                    NSFontAttributeName: [UIFont systemFontOfSize:10],
-                                   NSForegroundColorAttributeName: RGB(0, 0, 0)
+                                   NSForegroundColorAttributeName: RGB(255, 255, 255)
                                    };
     _selectedTitleAttributes = [_unselectedTitleAttributes copy];
 }
@@ -262,7 +274,7 @@
         
         [_title drawInRect:CGRectMake(roundf(frameSize.width / 2 - titleSize.width / 2) +
                                       _titlePositionAdjustment.horizontal,
-                                      imageStartingY + imageSize.height + _titlePositionAdjustment.vertical,
+                                      imageStartingY + imageSize.height + _titlePositionAdjustment.vertical + 5,
                                       titleSize.width, titleSize.height)
             withAttributes:titleAttribute];
     }
