@@ -77,6 +77,29 @@
 @end
 
 
+@implementation HomePageProducts
+@synthesize newsBanner = _newsBanner;
+
+- (id)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if(self){
+       
+    }
+    
+    return self;
+}
+
+- (id)init{
+    return [self initWithFrame:CGRectZero];
+}
+
+- (void)layoutSubviews{
+    
+}
+
+@end
+
+
 @implementation HomePageMenuCell
 
 @synthesize delegate = _delegate;

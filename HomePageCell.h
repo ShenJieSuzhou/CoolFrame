@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewsBanner.h"
 /*
  * 用于主页当中新闻列表显示
  */
@@ -45,6 +46,8 @@
  * 用于主页当中产品推广显示
  */
 @interface HomePageProducts : UIView
+
+@property (strong, nonatomic) NewsBanner *newsBanner;
 
 @end
 

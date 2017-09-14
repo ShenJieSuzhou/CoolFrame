@@ -52,7 +52,8 @@
      */
     self.tableDataArray = [HomePageController getInstance].getHomePageData;
     
-    self.homeTableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+    self.homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.customNavbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    
     [self.homeTableView setBackgroundColor:[UIColor clearColor]];
     self.homeTableView.delegate = self;
     self.homeTableView.dataSource = self;
@@ -100,18 +101,26 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    /*
+     *  default cell pattern
+     */
     UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"defaultCell"];
     
     [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     NSMutableDictionary *dic = [_tableDataArray objectAtIndex:indexPath.section];
     NSString *templateID = [dic objectForKey:@"cTemplateId"];
     switch ([templateID intValue]) {
-        case 1:
+        case 1:{
+            
+            [cell setBackgroundColor:[UIColor redColor]];
+            return cell;
+        }
+            break;
         case 3:
         case 6: return cell;
             break;
         case 2:{
+            // Menu button loaded
             NSMutableArray *menuArray = [dic objectForKey:@"MenuData"];
             NSMutableDictionary *dic = [menuArray objectAtIndex:indexPath.row];
             NSArray *submenus = [dic objectForKey:@"subMenus"];
@@ -136,6 +145,7 @@
         case 4:  return cell;
             break;
         case 5:{
+            // news column
             NSMutableArray *topicArray = [dic objectForKey:@"TodayTopic"];
             NSMutableDictionary *dic = [topicArray objectAtIndex:indexPath.row];
             HomePageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomePageTodayTopicCell"];
@@ -146,6 +156,7 @@
             //适配 iPhone 端大小，ipad端需另做设计
             [cell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 100)];
             NSString *topicTitle = [dic objectForKey:@"Title"];
+            NSString *url = [dic objectForKey:@"ImgUrl"];
             UIImage *image = [UIImage imageNamed:@"topicImg.png"];
             
             [cell.textLabel setText:topicTitle];
@@ -155,7 +166,7 @@
         }
             break;
         default:
-            return return cell;;
+            return cell;
             break;
     }
 }
@@ -163,14 +174,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return [_tableDataArray count];
 }
-
-//- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-//    return @"";
-//}
-//
-//- (nullable NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
-//    return @"";
-//}
 
 #pragma mark -tableViewDelegate
 
