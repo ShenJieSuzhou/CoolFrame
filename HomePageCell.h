@@ -45,7 +45,7 @@
 /*
  * 用于主页当中产品推广显示
  */
-@interface HomePageProducts : UIView
+@interface HomePageProducts : UITableViewCell
 
 @property (strong, nonatomic) NewsBanner *newsBanner;
 

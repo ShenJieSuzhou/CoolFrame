@@ -52,12 +52,12 @@
      */
     self.tableDataArray = [HomePageController getInstance].getHomePageData;
     
-    self.homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.customNavbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    _homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.customNavbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     
-    [self.homeTableView setBackgroundColor:[UIColor clearColor]];
-    self.homeTableView.delegate = self;
-    self.homeTableView.dataSource = self;
-    [self.view addSubview:self.homeTableView];
+    [_homeTableView setBackgroundColor:[UIColor clearColor]];
+    _homeTableView.delegate = self;
+    _homeTableView.dataSource = self;
+    [self.view addSubview:_homeTableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,20 +84,33 @@
     //根据 json 模版 决定每个 section 要显示几行数据
     NSMutableDictionary *dic = [_tableDataArray objectAtIndex:section];
     NSString *templateID = [dic objectForKey:@"cTemplateId"];
+    int tid = [templateID intValue];
+    int rows = 0;
     
-    switch ([templateID intValue]) {
-        case 1:
-        case 3:
-        case 6:return 1;    //模板显示一行
-            break;
-        case 2:
-        case 4:return 2;    //模板显示二行
-            break;
-        case 5:return 5;    //模板显示五行
-            break;
-        default:return 0;
-            break;
+    if(tid == 1 || tid == 3 || tid == 6){
+        rows = 1;
+    }else if(tid == 2 || tid == 4){
+        rows = 2;
+    }else if(tid == 5){
+        rows = 5;
     }
+    
+    return rows;
+//    switch (tid) {
+//        case 1:{
+//            rows = 1
+//        }
+//        case 3:
+//        case 6:return 1;    //模板显示一行
+//            break;
+//        case 2:
+//        case 4:return 2;    //模板显示二行
+//            break;
+//        case 5:return 5;    //模板显示五行
+//            break;
+//        default:return 0;
+//            break;
+//    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -111,9 +124,16 @@
     NSString *templateID = [dic objectForKey:@"cTemplateId"];
     switch ([templateID intValue]) {
         case 1:{
+            NSMutableArray *newsArray = [dic objectForKey:@"NewsBanner"];
+            HomePageProducts *productCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageProducts"];
+            if(!productCell){
+                productCell = [[HomePageProducts alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageProducts"];
+                [productCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 160)];
+            }
             
-            [cell setBackgroundColor:[UIColor redColor]];
-            return cell;
+            UIView *view = [[NewsBanner getInstance] createNewsBanner:newsArray frame:productCell.frame];
+            [productCell addSubview:view];
+            return productCell;
         }
             break;
         case 3:
@@ -275,5 +295,6 @@
     
     
 }
+
 
 @end

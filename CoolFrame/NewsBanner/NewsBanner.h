@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@interface NewsBanner : NSObject<UIScrollViewDelegate, UIPageViewControllerDelegate, UIPageViewControllerDataSource>
+@interface NewsBanner : NSObject<UIScrollViewDelegate>
 
 @property (strong, nonatomic) UIView *newsView;
 
@@ -22,7 +22,21 @@
 //页面控制
 @property (strong, nonatomic) UIPageControl *pageControl;
 
-//创建一个 NewsBanner
-- (UIView *)createNewsBanner:(NSMutableArray *)products;
+//当前页索引标记
+@property (assign, nonatomic) int currentIndex;
 
+@property (strong, nonatomic) UIImageView *imgVLeft;
+@property (strong, nonatomic) UIImageView *imgVCenter;
+@property (strong, nonatomic) UIImageView *imgVRight;
+
++ (NewsBanner *)getInstance;
+
+//创建一个 NewsBanner
+- (void)createNewsBanner:(NSMutableArray *)products  frame:(CGRect)rect;
+
+- (void)setNewsBannerFrame:(CGRect)rect;
+
+- (void)setNewsBannerInfo:(NSMutableArray *)products;
+
+- (UIView *)getNewsBanner;
 @end
