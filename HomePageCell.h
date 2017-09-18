@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomNewsBanner.h"
+
 /*
  * 用于主页当中新闻列表显示
  */
@@ -46,6 +48,7 @@
  */
 @interface HomePageProducts : UITableViewCell
 
+@property (strong, nonatomic) CustomNewsBanner *newsBanner;
 
 @end
 

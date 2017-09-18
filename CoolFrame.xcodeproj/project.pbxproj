@@ -22,6 +22,7 @@
 		440255781F29E395007F9428 /* rank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 440255701F29E395007F9428 /* rank@2x.png */; };
 		440255791F29E395007F9428 /* rank@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 440255711F29E395007F9428 /* rank@3x.png */; };
 		443C029F1F6FFE9F00C8B0FB /* CustomNewsBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 443C029E1F6FFE9F00C8B0FB /* CustomNewsBanner.m */; };
+		443C02A31F70047100C8B0FB /* CustomHorizSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 443C02A21F70047100C8B0FB /* CustomHorizSlider.m */; };
 		443FBB941F63DDF800737028 /* HomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 443FBB931F63DDF800737028 /* HomePageController.m */; };
 		4483454C1F26F3A000E400F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4483454B1F26F3A000E400F6 /* main.m */; };
 		4483454F1F26F3A000E400F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4483454E1F26F3A000E400F6 /* AppDelegate.m */; };
@@ -89,6 +90,8 @@
 		440255711F29E395007F9428 /* rank@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rank@3x.png"; sourceTree = "<group>"; };
 		443C029D1F6FFE9F00C8B0FB /* CustomNewsBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNewsBanner.h; sourceTree = "<group>"; };
 		443C029E1F6FFE9F00C8B0FB /* CustomNewsBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNewsBanner.m; sourceTree = "<group>"; };
+		443C02A11F70047100C8B0FB /* CustomHorizSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomHorizSlider.h; sourceTree = "<group>"; };
+		443C02A21F70047100C8B0FB /* CustomHorizSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomHorizSlider.m; sourceTree = "<group>"; };
 		443FBB921F63DDF800737028 /* HomePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HomePageController.h; path = CoolFrame/HomePageController.h; sourceTree = "<group>"; };
 		443FBB931F63DDF800737028 /* HomePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HomePageController.m; path = CoolFrame/HomePageController.m; sourceTree = "<group>"; };
 		448345471F26F3A000E400F6 /* CoolFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +225,7 @@
 		44232EE91F63DDA1004A9011 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				443C02A01F70043200C8B0FB /* Slider */,
 				E5285D661F6A7BC300B3F295 /* NewsBanner */,
 				443FBB921F63DDF800737028 /* HomePageController.h */,
 				443FBB931F63DDF800737028 /* HomePageController.m */,
@@ -229,6 +233,16 @@
 				E5EB48D81F668E2A00FFA1E4 /* HomePageCell.m */,
 			);
 			name = HomePage;
+			sourceTree = "<group>";
+		};
+		443C02A01F70043200C8B0FB /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				443C02A11F70047100C8B0FB /* CustomHorizSlider.h */,
+				443C02A21F70047100C8B0FB /* CustomHorizSlider.m */,
+			);
+			name = Slider;
+			path = CoolFrame/Slider;
 			sourceTree = "<group>";
 		};
 		4483453E1F26F39F00E400F6 = {
@@ -542,6 +556,7 @@
 				440255691F29CF33007F9428 /* CustomNavBar.m in Sources */,
 				443C029F1F6FFE9F00C8B0FB /* CustomNewsBanner.m in Sources */,
 				448345641F26F43200E400F6 /* FirstViewController.m in Sources */,
+				443C02A31F70047100C8B0FB /* CustomHorizSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
