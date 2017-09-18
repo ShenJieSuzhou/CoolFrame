@@ -78,7 +78,6 @@
 
 
 @implementation HomePageProducts
-@synthesize newsBanner = _newsBanner;
 
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];

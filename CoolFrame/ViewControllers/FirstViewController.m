@@ -10,7 +10,7 @@
 #import "SearchViewController.h"
 #import "HomePageController.h"
 #import "GlobalDefine.h"
-//#import "CustomNewsBanner.h"
+#import "CustomNewsBanner.h"
 
 
 @interface FirstViewController ()
@@ -132,12 +132,13 @@
                 [productCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 160)];
             }
             
-            NewsBanner *newsBanner = [[NewsBanner alloc] initWithFrame:productCell.frame];
-            [newsBanner setNewsBannerInfo:newsArray];
-                                      
+//            NewsBanner *newsBanner = [[NewsBanner alloc] initWithFrame:productCell.frame];
 //            [newsBanner setNewsBannerInfo:newsArray];
+//            [newsBanner setNewsBannerInfo:newsArray];
+            
+            CustomNewsBanner *newsBanner = [[CustomNewsBanner alloc] initWithFrame:productCell.frame];
+            [newsBanner setNewsBannerInfo:newsArray];
             [productCell addSubview:newsBanner];
-
             return productCell;
         }
             break;
