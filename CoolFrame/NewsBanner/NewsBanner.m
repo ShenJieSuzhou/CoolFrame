@@ -8,9 +8,29 @@
 
 #import "NewsBanner.h"
 
+@interface NewsBanner() <UIScrollViewDelegate>
+
+//存储待显示产品的数组
+@property (strong, nonatomic) NSMutableArray *productsArray;
+
+//左右滑动
+@property (strong, nonatomic) UIScrollView *scrollView;
+
+//页面控制
+@property (strong, nonatomic) UIPageControl *pageControl;
+
+//当前页索引标记
+@property (assign, nonatomic) int currentIndex;
+
+@property (strong, nonatomic) UIImageView *imgVLeft;
+@property (strong, nonatomic) UIImageView *imgVCenter;
+@property (strong, nonatomic) UIImageView *imgVRight;
+
+@end
+
+
 @implementation NewsBanner
 
-@synthesize newsView = _newsView;
 @synthesize productsArray = _productsArray;
 @synthesize scrollView = _scrollView;
 @synthesize pageControl = _pageControl;
@@ -19,45 +39,42 @@
 @synthesize imgVRight = _imgVRight;
 @synthesize imgVCenter = _imgVCenter;
 
-+ (NewsBanner *)getInstance{
-    static NewsBanner *_instance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _instance = [[NewsBanner alloc] init];
-    });
-    
-    return _instance;
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+    }
+    return self;
 }
 
-- (void)createNewsBanner:(NSMutableArray *)products frame:(CGRect)rect{
+- (void)createNewsBanner{
     _currentIndex = 0;
-    [self setProductsArray:products];
-    [self initUIWithFrame:rect];
+    [self initUIWithFrame];
     [self setDefaultImage];
 }
 
-- (void)setNewsBannerFrame:(CGRect)rect;
-
-- (void)setNewsBannerInfo:(NSMutableArray *)products；
-
-
-- (UIView *)getNewsBanner{
-    return _newsView;
+- (void)setNewsBannerInfo:(NSMutableArray *)products{
+    if(!products){
+        return;
+    }
+    
+    _productsArray = [products copy];
+    [self createNewsBanner];
 }
 
-- (void)initUIWithFrame:(CGRect)rect{
-    _newsView = [[UIView alloc] initWithFrame:rect];
+- (void)initUIWithFrame{
+    CGRect rect = self.frame;
     
     //1.创建 UIScrollView
+    _scrollView.delegate = self;
     _scrollView = [[UIScrollView alloc] initWithFrame:rect];
     _scrollView.backgroundColor = [UIColor clearColor];
     _scrollView.contentSize = CGSizeMake(rect.size.width * 3, rect.size.height);
-//    _scrollView.scrollEnabled = YES;
     _scrollView.pagingEnabled = YES;
-    _scrollView.contentOffset = CGPointMake(rect.size.width, 0);
+    [_scrollView setContentOffset:CGPointMake(rect.size.width, 0) animated:NO];
     _scrollView.showsHorizontalScrollIndicator = NO;
-//    _scrollView.showsVerticalScrollIndicator = NO;
-    _scrollView.delegate = self;
+    
     
     //图片视图；左边
     _imgVLeft = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, rect.size.width, rect.size.height)];
@@ -79,69 +96,67 @@
     CGSize size= [_pageControl sizeForNumberOfPages:[_productsArray count]];
     _pageControl.bounds = CGRectMake(0.0, 0.0, size.width, size.height);
     _pageControl.center = CGPointMake(rect.size.width / 2.0, rect.size.height - 20.0);
-//    _pageControl.backgroundColor = [UIColor clearColor];
     _pageControl.numberOfPages = [_productsArray count];
-    //只有一页的时候隐藏
-//    _pageControl.hidesForSinglePage = YES;
+
     //设置当前页指示器的颜色
     _pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
     //设置指示器的颜色
     _pageControl.pageIndicatorTintColor = [UIColor whiteColor];
     
     //3.添加到视图
-    [_newsView addSubview:_scrollView];
-    [_newsView addSubview:_pageControl];
-}
-
-- (void)setProductsArray:(NSMutableArray *)productsArray{
-    if(!productsArray) return;
-    
-    _productsArray = [productsArray copy];
+    [self addSubview:_scrollView];
+    [self addSubview:_pageControl];
 }
 
 - (void)reloadImage{
-    CGPoint contentOffset = [_scrollView contentOffset];
-    NSInteger imageCount = [_productsArray count];
     int leftImageIndex, rightImageIndex;
+    NSInteger imageCount = [_productsArray count];
     
+    CGPoint contentOffset = [_scrollView contentOffset];
+
     //向右滑动
-    if(contentOffset.x > _newsView.frame.size.width){
+    if(contentOffset.x > self.frame.size.width){
         _currentIndex = (int)(_currentIndex + 1) % imageCount;
-    }else if(contentOffset.x < _newsView.frame.size.width){
+    }else if(contentOffset.x < self.frame.size.width){
         _currentIndex = (int)(_currentIndex - 1 + imageCount) % imageCount;
     }
-
+    
     NSString *url = [_productsArray objectAtIndex:_currentIndex];
-    NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
-    _imgVCenter.image = [UIImage imageWithData:imgData];
+//    NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+//    _imgVCenter.image = [UIImage imageWithData:imgData];
+    [_imgVCenter setImage:[UIImage imageNamed:url]];
     
     //重新设置左右图片
     leftImageIndex = (int)(_currentIndex+imageCount-1)%imageCount;
     rightImageIndex = (int)(_currentIndex+1)%imageCount;
     
     NSString *url1 = [_productsArray objectAtIndex:leftImageIndex];
-    NSData *imgData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:url1]];
+//    NSData *imgData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:url1]];
+//     _imgVLeft.image=[UIImage imageWithData:imgData1];
+    [_imgVLeft setImage:[UIImage imageNamed:url1]];
     
     NSString *url2 = [_productsArray objectAtIndex:rightImageIndex];
-    NSData *imgData2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:url2]];
-    
-    _imgVLeft.image=[UIImage imageWithData:imgData1];
-    _imgVRight.image=[UIImage imageWithData:imgData2];
+//    NSData *imgData2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:url2]];
+//    _imgVRight.image=[UIImage imageWithData:imgData2];
+     [_imgVRight setImage:[UIImage imageNamed:url2]];
 }
 
 - (void)setDefaultImage{
     int count = (int)[_productsArray count];
     NSString *url = [_productsArray objectAtIndex:count - 1];
-    NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
-    _imgVLeft.image = [UIImage imageWithData:imgData];
+//    NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+//    _imgVLeft.image = [UIImage imageWithData:imgData];
+    [_imgVLeft setImage:[UIImage imageNamed:url]];
 
     NSString *url1 = [_productsArray objectAtIndex:0];
-    NSData *imgData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:url1]];
-    _imgVCenter.image = [UIImage imageWithData:imgData1];
+//    NSData *imgData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:url1]];
+//    _imgVCenter.image = [UIImage imageWithData:imgData1];
+    [_imgVCenter setImage:[UIImage imageNamed:url1]];
 
     NSString *url2 = [_productsArray objectAtIndex:1];
-    NSData *imgData2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:url2]];
-    _imgVRight.image = [UIImage imageWithData:imgData2];
+//    NSData *imgData2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:url2]];
+//    _imgVRight.image = [UIImage imageWithData:imgData2];
+    [_imgVRight setImage:[UIImage imageNamed:url2]];
     
     _currentIndex = 0;
     _pageControl.currentPage = _currentIndex;
@@ -149,43 +164,24 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    //NSLog(@"%f", scrollView.contentOffset.x);
-}
-
-// called on start of dragging (may require some time and or distance to move)
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    
-}
-
-// called on finger up if the user dragged. velocity is in points/millisecond. targetContentOffset may be changed to adjust where the scroll view comes to rest
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
-    
-}
-
-// called on finger up if the user dragged. decelerate is true if it will continue moving afterwards
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-
-}
-
-// called on finger up as we are moving
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
-    
+//    //设置分页
+//    NSInteger page = scrollView.contentOffset.x / self.frame.size.width;
+//    _pageControl.currentPage = page;
 }
 
 // called when scroll view grinds to a halt
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     NSLog(@"%f", scrollView.contentOffset.x);
+    NSLog(@"%f", _scrollView.contentOffset.x);
+    
     //重新加载图片
     [self reloadImage];
+
     //移动到中间
-    [_scrollView setContentOffset:CGPointMake(_newsView.frame.size.width, 0) animated:NO];
-    //设置分页
+    [_scrollView setContentOffset:CGPointMake(self.frame.size.width, 0) animated:NO];
+    
     _pageControl.currentPage = _currentIndex;
 }
 
-// called when setContentOffset/scrollRectVisible:animated: finishes. not called if not animating
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
-    
-}
 
 @end
