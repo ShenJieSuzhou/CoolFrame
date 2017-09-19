@@ -8,8 +8,15 @@
 
 #import "CustomNewsBanner.h"
 
-
 @implementation CustomNewsBanner
+
+@synthesize productsArray = _productsArray;
+@synthesize scrollView = _scrollView;
+@synthesize pageControl = _pageControl;
+@synthesize currentIndex = _currentIndex;
+@synthesize imgVLeft = _imgVLeft;
+@synthesize imgVRight = _imgVRight;
+@synthesize imgVCenter = _imgVCenter;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -20,106 +27,121 @@
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super initWithCoder:aDecoder]) {
-
-    }
-    return self;
-}
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
-    NSArray *subViews = self.subviews;
-    [subViews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    
-    [self initialize];
-}
-
-- (void)setDatasourceImages:(NSArray *)datasourceImages{
-    _datasourceImages = [datasourceImages copy];
-}
-
-- (void)initialize {
-    self.clipsToBounds = YES;
-    
-    [self initializeScrollView];
-    [self initializePageControl];
-    
-    [self loadData];
-}
-
-- (void)initializeScrollView {
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
-    _scrollView.delegate = self;
-    _scrollView.pagingEnabled = YES;
-    _scrollView.showsHorizontalScrollIndicator = NO;
-    _scrollView.showsVerticalScrollIndicator = NO;
-    _scrollView.autoresizingMask = self.autoresizingMask;
-    _scrollView.autoresizesSubviews = NO;
-    [self addSubview:_scrollView];
-}
-
-- (void)initializePageControl {
-    CGRect pageControlFrame = CGRectMake(0, 0, CGRectGetWidth(_scrollView.frame), 30);
-    _pageControl = [[UIPageControl alloc] initWithFrame:pageControlFrame];
-    _pageControl.center = CGPointMake(CGRectGetWidth(_scrollView.frame)*0.5, CGRectGetHeight(_scrollView.frame) - 12.);
-    _pageControl.userInteractionEnabled = NO;
-    [self addSubview:_pageControl];
-}
-
-- (void)loadData {
-    if (_datasourceImages.count == 0) {
-        //显示默认页，无数据页面
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(_scrollView.frame), CGRectGetHeight(_scrollView.frame))];
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
-        imageView.backgroundColor = [UIColor clearColor];
-        [_scrollView addSubview:imageView];
+- (void)setNewsBannerInfo:(NSMutableArray *)products{
+    if(!products){
         return;
     }
     
-    _pageControl.numberOfPages = _datasourceImages.count;
-    _pageControl.currentPage = 0;
-    CGSize realSize = [_pageControl sizeForNumberOfPages:_pageControl.numberOfPages];
-    _pageControl.bounds = CGRectMake(0.0, 0.0, realSize.width, realSize.height);
-    _pageControl.center = CGPointMake(_scrollView.frame.size.width / 2.0, _scrollView.frame.size.height - 20.0);
+    _productsArray = [products copy];
     
-    CGFloat contentWidth = CGRectGetWidth(_scrollView.frame);
-    CGFloat contentHeight = CGRectGetHeight(_scrollView.frame);
-    
-    _scrollView.contentSize = CGSizeMake(contentWidth * _datasourceImages.count, contentHeight);
-    
-    for (NSInteger i = 0; i < _datasourceImages.count; i++) {
-        CGRect imgRect = CGRectMake(contentWidth * i, 0, contentWidth, contentHeight);
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:imgRect];
-        imageView.backgroundColor = [UIColor clearColor];
-        imageView.clipsToBounds = YES;
-        id imageSource = [_datasourceImages objectAtIndex:i];
-        if ([imageSource isKindOfClass:[NSString class]]) {
-            imageView.image = [UIImage imageNamed:imageSource];
-        }
+    _currentIndex = 0;
+    [self initUIWithFrame];
+    [self setDefaultImage];
+}
 
-        [_scrollView addSubview:imageView];
+- (void)initUIWithFrame{
+    CGRect rect = self.frame;
+    
+    //1.创建 UIScrollView
+    _scrollView = [[UIScrollView alloc] initWithFrame:rect];
+    _scrollView.delegate = self;
+    _scrollView.backgroundColor = [UIColor clearColor];
+    _scrollView.contentSize = CGSizeMake(rect.size.width * 3, rect.size.height);
+    _scrollView.pagingEnabled = YES;
+    [_scrollView setContentOffset:CGPointMake(rect.size.width, 0) animated:NO];
+    _scrollView.showsHorizontalScrollIndicator = NO;
+    
+    
+    //图片视图；左边
+    _imgVLeft = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, rect.size.width, rect.size.height)];
+    _imgVLeft.contentMode = UIViewContentModeScaleAspectFill;
+    [_scrollView addSubview:_imgVLeft];
+    
+    //图片视图；中间
+    _imgVCenter = [[UIImageView alloc] initWithFrame:CGRectMake(rect.size.width, 0.0, rect.size.width, rect.size.height)];
+    _imgVCenter.contentMode = UIViewContentModeScaleAspectFill;
+    [_scrollView addSubview:_imgVCenter];
+    
+    //图片视图；右边
+    _imgVRight = [[UIImageView alloc] initWithFrame:CGRectMake(rect.size.width * 2, 0.0, rect.size.width, rect.size.height)];
+    _imgVRight.contentMode = UIViewContentModeScaleAspectFill;
+    [_scrollView addSubview:_imgVRight];
+    
+    //2.创建 UIPageControl
+    _pageControl = [[UIPageControl alloc] init];
+    CGSize size= [_pageControl sizeForNumberOfPages:[_productsArray count]];
+    _pageControl.bounds = CGRectMake(0.0, 0.0, size.width, size.height);
+    _pageControl.center = CGPointMake(rect.size.width / 2.0, rect.size.height - 20.0);
+    _pageControl.numberOfPages = [_productsArray count];
+    
+    //设置当前页指示器的颜色
+    _pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    //设置指示器的颜色
+    _pageControl.pageIndicatorTintColor = [UIColor whiteColor];
+    
+    //3.添加到视图
+    [self addSubview:_scrollView];
+    [self addSubview:_pageControl];
+}
+
+- (void)reloadImage{
+    int leftImageIndex, rightImageIndex;
+    NSInteger imageCount = [_productsArray count];
+    
+    CGPoint contentOffset = [_scrollView contentOffset];
+    
+    //向右滑动
+    if(contentOffset.x > self.frame.size.width){
+        _currentIndex = (int)(_currentIndex + 1) % imageCount;
+    }else if(contentOffset.x < self.frame.size.width){
+        _currentIndex = (int)(_currentIndex - 1 + imageCount) % imageCount;
     }
+    
+    NSString *url = [_productsArray objectAtIndex:_currentIndex];
+    NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+    _imgVCenter.image = [UIImage imageWithData:imgData];
+    
+    //重新设置左右图片
+    leftImageIndex = (int)(_currentIndex+imageCount-1)%imageCount;
+    rightImageIndex = (int)(_currentIndex+1)%imageCount;
+    
+    NSString *url1 = [_productsArray objectAtIndex:leftImageIndex];
+    NSData *imgData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:url1]];
+     _imgVLeft.image=[UIImage imageWithData:imgData1];
+    
+    NSString *url2 = [_productsArray objectAtIndex:rightImageIndex];
+    NSData *imgData2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:url2]];
+    _imgVRight.image=[UIImage imageWithData:imgData2];
+}
+
+- (void)setDefaultImage{
+    int count = (int)[_productsArray count];
+    NSString *url = [_productsArray objectAtIndex:count - 1];
+    NSData *imgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+    _imgVLeft.image = [UIImage imageWithData:imgData];
+    
+    NSString *url1 = [_productsArray objectAtIndex:0];
+    NSData *imgData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:url1]];
+    _imgVCenter.image = [UIImage imageWithData:imgData1];
+    
+    NSString *url2 = [_productsArray objectAtIndex:1];
+    NSData *imgData2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:url2]];
+    _imgVRight.image = [UIImage imageWithData:imgData2];
+    
+    _currentIndex = 0;
+    _pageControl.currentPage = _currentIndex;
 }
 
 #pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSInteger currentPage = scrollView.contentOffset.x / self.frame.size.width;
-    _pageControl.currentPage = currentPage - 1;// 分页控制当前页数，跟scrollView当前显示的图片的页数同步.
-    
-    if (currentPage == _datasourceImages.count) { // 到第6张的时候返回0页
-        _pageControl.currentPage = 0;
-        scrollView.contentOffset = CGPointMake(self.frame.size.width, 0); // scrollView偏移量
-        
-    }else if (currentPage == 0) {   // 到0张的时候返回5页
-        _pageControl.currentPage = _datasourceImages.count;
-        scrollView.contentOffset = CGPointMake(_pageControl.currentPage * self.frame.size.width, 0);
-    }
+
+// called when scroll view grinds to a halt
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    //重新加载图片
+    [self reloadImage];
+    //移动到中间
+    [_scrollView setContentOffset:CGPointMake(self.frame.size.width, 0) animated:NO];
+    //页码设置
+    _pageControl.currentPage = _currentIndex;
 }
 
 @end

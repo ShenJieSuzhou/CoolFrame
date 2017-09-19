@@ -21,6 +21,8 @@
 		440255771F29E395007F9428 /* me@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4402556F1F29E395007F9428 /* me@3x.png */; };
 		440255781F29E395007F9428 /* rank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 440255701F29E395007F9428 /* rank@2x.png */; };
 		440255791F29E395007F9428 /* rank@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 440255711F29E395007F9428 /* rank@3x.png */; };
+		443C029F1F6FFE9F00C8B0FB /* CustomNewsBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 443C029E1F6FFE9F00C8B0FB /* CustomNewsBanner.m */; };
+		443C02A31F70047100C8B0FB /* CustomHorizSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 443C02A21F70047100C8B0FB /* CustomHorizSlider.m */; };
 		443FBB941F63DDF800737028 /* HomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 443FBB931F63DDF800737028 /* HomePageController.m */; };
 		4483454C1F26F3A000E400F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4483454B1F26F3A000E400F6 /* main.m */; };
 		4483454F1F26F3A000E400F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4483454E1F26F3A000E400F6 /* AppDelegate.m */; };
@@ -42,7 +44,6 @@
 		44C703561F34499300C73340 /* search_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C703541F34499300C73340 /* search_icon@3x.png */; };
 		44C703591F344B5700C73340 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C703581F344B5700C73340 /* SearchViewController.m */; };
 		E5285D651F6A351E00B3F295 /* topicImg.png in Resources */ = {isa = PBXBuildFile; fileRef = E5285D641F6A351E00B3F295 /* topicImg.png */; };
-		E5285D691F6A7BE600B3F295 /* NewsBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = E5285D681F6A7BE600B3F295 /* NewsBanner.m */; };
 		E53FEACE1F3AE90E00E84C2F /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = E53FEACD1F3AE90E00E84C2F /* data.plist */; };
 		E53FEAD21F3AF66000E84C2F /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E53FEAD11F3AF66000E84C2F /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E53FEAD51F3B144600E84C2F /* no_searchresult@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E53FEAD31F3B144600E84C2F /* no_searchresult@2x.png */; };
@@ -87,6 +88,10 @@
 		4402556F1F29E395007F9428 /* me@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me@3x.png"; sourceTree = "<group>"; };
 		440255701F29E395007F9428 /* rank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rank@2x.png"; sourceTree = "<group>"; };
 		440255711F29E395007F9428 /* rank@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rank@3x.png"; sourceTree = "<group>"; };
+		443C029D1F6FFE9F00C8B0FB /* CustomNewsBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNewsBanner.h; sourceTree = "<group>"; };
+		443C029E1F6FFE9F00C8B0FB /* CustomNewsBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNewsBanner.m; sourceTree = "<group>"; };
+		443C02A11F70047100C8B0FB /* CustomHorizSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomHorizSlider.h; sourceTree = "<group>"; };
+		443C02A21F70047100C8B0FB /* CustomHorizSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomHorizSlider.m; sourceTree = "<group>"; };
 		443FBB921F63DDF800737028 /* HomePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HomePageController.h; path = CoolFrame/HomePageController.h; sourceTree = "<group>"; };
 		443FBB931F63DDF800737028 /* HomePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HomePageController.m; path = CoolFrame/HomePageController.m; sourceTree = "<group>"; };
 		448345471F26F3A000E400F6 /* CoolFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,8 +129,6 @@
 		44C703571F344B5700C73340 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = ../CustomNavigationBar/SearchViewController.h; sourceTree = "<group>"; };
 		44C703581F344B5700C73340 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = ../CustomNavigationBar/SearchViewController.m; sourceTree = "<group>"; };
 		E5285D641F6A351E00B3F295 /* topicImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topicImg.png; sourceTree = "<group>"; };
-		E5285D671F6A7BE600B3F295 /* NewsBanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsBanner.h; sourceTree = "<group>"; };
-		E5285D681F6A7BE600B3F295 /* NewsBanner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsBanner.m; sourceTree = "<group>"; };
 		E53FEACD1F3AE90E00E84C2F /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
 		E53FEAD01F3AF66000E84C2F /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		E53FEAD11F3AF66000E84C2F /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
@@ -222,6 +225,7 @@
 		44232EE91F63DDA1004A9011 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				443C02A01F70043200C8B0FB /* Slider */,
 				E5285D661F6A7BC300B3F295 /* NewsBanner */,
 				443FBB921F63DDF800737028 /* HomePageController.h */,
 				443FBB931F63DDF800737028 /* HomePageController.m */,
@@ -229,6 +233,16 @@
 				E5EB48D81F668E2A00FFA1E4 /* HomePageCell.m */,
 			);
 			name = HomePage;
+			sourceTree = "<group>";
+		};
+		443C02A01F70043200C8B0FB /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				443C02A11F70047100C8B0FB /* CustomHorizSlider.h */,
+				443C02A21F70047100C8B0FB /* CustomHorizSlider.m */,
+			);
+			name = Slider;
+			path = CoolFrame/Slider;
 			sourceTree = "<group>";
 		};
 		4483453E1F26F39F00E400F6 = {
@@ -352,8 +366,8 @@
 		E5285D661F6A7BC300B3F295 /* NewsBanner */ = {
 			isa = PBXGroup;
 			children = (
-				E5285D671F6A7BE600B3F295 /* NewsBanner.h */,
-				E5285D681F6A7BE600B3F295 /* NewsBanner.m */,
+				443C029D1F6FFE9F00C8B0FB /* CustomNewsBanner.h */,
+				443C029E1F6FFE9F00C8B0FB /* CustomNewsBanner.m */,
 			);
 			name = NewsBanner;
 			path = CoolFrame/NewsBanner;
@@ -540,8 +554,9 @@
 				4483456D1F26F46000E400F6 /* FouthViewController.m in Sources */,
 				448345711F26F54100E400F6 /* CustomTabBarController.m in Sources */,
 				440255691F29CF33007F9428 /* CustomNavBar.m in Sources */,
-				E5285D691F6A7BE600B3F295 /* NewsBanner.m in Sources */,
+				443C029F1F6FFE9F00C8B0FB /* CustomNewsBanner.m in Sources */,
 				448345641F26F43200E400F6 /* FirstViewController.m in Sources */,
+				443C02A31F70047100C8B0FB /* CustomHorizSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
