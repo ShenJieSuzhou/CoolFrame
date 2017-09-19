@@ -22,4 +22,5 @@
 
 #define RGB_TitleNormal                     RGB(255.0f, 255.0f, 255.0f)
 #define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+#define RGB(r, g, b)                        [UIColor colorWithRed:(r)/255.f green:(g)/255.f blue:(b)/255.f alpha:1.f]
 #endif /* GlobalDefine_h */

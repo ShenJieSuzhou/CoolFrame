@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface productPaneView : UIView
+@interface ProductPaneView : UIView
 
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) UILabel *label;
@@ -22,6 +22,5 @@
 
 @property (strong, nonatomic) NSMutableArray *productArray;
 
-@property (strong, nonatomic) UIView *productPane;
 
 @end

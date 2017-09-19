@@ -6,9 +6,9 @@
 //  Copyright © 2017年 com.snailgames.coolframe. All rights reserved.
 //
 #define NQFONT(v) [UIFont fontWithName:@"HiraKakuProN-W3" size:v]
-#define RGB(r, g, b)                        [UIColor colorWithRed:(r)/255.f green:(g)/255.f blue:(b)/255.f alpha:1.f]
-#import "HomePageCell.h"
 
+#import "HomePageCell.h"
+#import "GlobalDefine.h"
 @implementation HomePageCell
 @synthesize textLabel = _textLabel;
 @synthesize imgView = _imgView;
@@ -29,7 +29,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if(self){
-        [self setBackgroundColor:[UIColor clearColor]];
+        [self setBackgroundColor:[UIColor whiteColor]];
         self.textLabel = [[UILabel alloc] init];
         [self.textLabel setTextColor:[UIColor blackColor]];
         [self.textLabel setFont:[UIFont systemFontOfSize:17]];
@@ -124,6 +124,7 @@
 }
 
 - (void)commonInitlization{
+    [self setBackgroundColor:[UIColor whiteColor]];
     self.backgroundView = [[UIView alloc] init];
     [self addSubview:self.backgroundView];
 }

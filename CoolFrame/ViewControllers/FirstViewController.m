@@ -11,7 +11,8 @@
 #import "HomePageController.h"
 #import "GlobalDefine.h"
 #import "CustomNewsBanner.h"
-
+#import "CustomHorizSlider.h"
+#import "GlobalDefine.h"
 
 @interface FirstViewController ()
 
@@ -26,16 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"A";
-    [self.view setBackgroundColor:[UIColor whiteColor]];
-    
-//    [[self label] setFrame:CGRectMake(roundf(self.view.frame.size.width - 100)/2, roundf(self.view.frame.size.height - 100)/2, 100, 100)];
-//
-//    [self.label setTextAlignment:NSTextAlignmentCenter];
-//    [self.label setFont:[UIFont fontWithName:@"HiraKakuProN-W3" size:40.0f]];
-//    [self.label setText:@"A"];
-//
-//    [self.view addSubview:[self label]];
+    [self.view setBackgroundColor:[UIColor clearColor]];
     
     /*
      * 主页搜索框设置
@@ -53,9 +45,9 @@
      */
     self.tableDataArray = [HomePageController getInstance].getHomePageData;
     
-    _homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.customNavbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    _homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.customNavbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.customNavbar.frame.size.height) style:UITableViewStyleGrouped];
     
-    [_homeTableView setBackgroundColor:[UIColor clearColor]];
+    [_homeTableView setBackgroundColor:RGB(220, 220, 220)];
     _homeTableView.delegate = self;
     _homeTableView.dataSource = self;
     [self.view addSubview:_homeTableView];
@@ -132,18 +124,26 @@
                 [productCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 160)];
             }
             
-//            NewsBanner *newsBanner = [[NewsBanner alloc] initWithFrame:productCell.frame];
-//            [newsBanner setNewsBannerInfo:newsArray];
-//            [newsBanner setNewsBannerInfo:newsArray];
-            
             CustomNewsBanner *newsBanner = [[CustomNewsBanner alloc] initWithFrame:productCell.frame];
             [newsBanner setNewsBannerInfo:newsArray];
             [productCell addSubview:newsBanner];
             return productCell;
         }
             break;
-        case 3:
-        case 6: return cell;
+        case 3: return cell;
+        case 6:{
+            NSMutableArray *originalArray = [dic objectForKey:@"OriginalTopic"];
+            HomePageProducts *productCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageProducts6"];
+            if(!productCell){
+                productCell = [[HomePageProducts alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageProducts6"];
+                [productCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 200)];
+            }
+            
+            CustomHorizSlider *slider = [[CustomHorizSlider alloc] initWithFrame:productCell.frame];
+            [slider setProductArray:originalArray];
+            [productCell addSubview:slider];
+            return productCell;
+        }
             break;
         case 2:{
             // Menu button loaded
@@ -219,7 +219,7 @@
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 42.0f)];
-    [headView setBackgroundColor:[UIColor clearColor]];
+    [headView setBackgroundColor:[UIColor whiteColor]];
     headView.layer.borderWidth = 0;
     
     UIImageView *arrowImage = [[UIImageView alloc] init];
@@ -279,9 +279,39 @@
     return headView;
 }
 
+//section底部间距
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    NSMutableDictionary *dic = [_tableDataArray objectAtIndex:section];
+    NSString *templateID = [dic objectForKey:@"cTemplateId"];
+    int tid = [templateID intValue];
+    if(tid == 1 || tid == 2){
+        return 0;
+    }
+    return 5;
+}
+
+//section底部视图
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 5)];
+    view.backgroundColor = [UIColor clearColor];
+
+    NSMutableDictionary *dic = [_tableDataArray objectAtIndex:section];
+    NSString *templateID = [dic objectForKey:@"cTemplateId"];
+    int tid = [templateID intValue];
+    if(tid == 1 || tid == 2){
+        return nil;
+    }
+
+    return view;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
+
+
 
 #pragma mark - btn event
 

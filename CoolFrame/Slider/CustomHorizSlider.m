@@ -9,12 +9,22 @@
 #import "CustomHorizSlider.h"
 #define PRODUCT_COUNT  [_productArray count]
 
-@implementation productPaneView
+@implementation ProductPaneView
 
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if(self){
+        [self setBackgroundColor:[UIColor clearColor]];
+        _label = [[UILabel alloc] init];
+        [_label setTextColor:[UIColor blackColor]];
+        [_label setFont:[UIFont systemFontOfSize:15]];
+        [self addSubview:_label];
         
+        _imageView = [[UIImageView alloc] init];
+        [_imageView setBackgroundColor:[UIColor clearColor]];
+        [_imageView setContentMode:UIViewContentModeScaleToFill];
+        _imageView.clipsToBounds = YES;
+        [self addSubview:_imageView];
     }
     
     return self;
@@ -29,19 +39,19 @@
     
     //两边边距 20 个像素
     CGFloat margin = 10.0f;
-    
     CGRect rcCell = [self bounds];
+    
+    CGRect rcImg= CGRectMake(margin, margin , rcCell.size.width - margin*2, rcCell.size.height - 3*margin - 50);
+    self.imageView.frame = rcImg;
+    
     [self.label sizeToFit];
     self.label.numberOfLines = 0;
     CGRect rcName = self.label.frame;
     rcName.origin.x = margin;
-    rcName.origin.y = margin;
+    rcName.origin.y = rcCell.size.height - 50 - 10 - 10;
     rcName.size.height = 50;
     rcName.size.width = rcCell.size.width - margin*2;
     self.label.frame = rcName;
-    
-    CGRect rcImg= CGRectMake(margin, margin , rcCell.size.width - margin*2, rcCell.size.height - 3*margin - 50);
-    self.imageView.frame = rcImg;
 }
 
 @end
@@ -50,13 +60,14 @@
 @implementation CustomHorizSlider
 @synthesize scrollView = _scrollView;
 @synthesize productArray = _productArray;
-@synthesize productPane = _productPane;
+
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+
     }
     return self;
 }
@@ -67,13 +78,20 @@
     }
     
     _productArray = [productArray copy];
+    [self addScrollView];
+    [self loadProductView];
 }
 
 - (void)loadProductView{
     for(int i = 0; i < PRODUCT_COUNT; i++){
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i * self.frame.size.width, 0, self.frame.size.width, self.frame.size.height)];
-        UIImageView *imageV = [[UIImageView alloc] initWithFrame:self.frame];
-        UILabel *label = [[UILabel alloc] ]
+        ProductPaneView *productpane = [[ProductPaneView alloc] initWithFrame:CGRectMake(self.frame.size.width * i, 0, self.frame.size.width, self.frame.size.height)];
+        [_scrollView addSubview:productpane];
+        NSDictionary *dic = [_productArray objectAtIndex:i];
+        NSURL *url = [NSURL URLWithString:[dic objectForKey:@"ImgUrl"]];
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+        NSString *text = [dic objectForKey:@"Title"];
+        [productpane.imageView setImage:image];
+        [productpane.label setText:text];
     }
 }
 
@@ -85,6 +103,7 @@
     _scrollView.pagingEnabled = YES;
     [_scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
     _scrollView.showsHorizontalScrollIndicator = NO;
+    [self addSubview:_scrollView];
 }
 
 

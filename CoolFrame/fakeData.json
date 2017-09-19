@@ -3,11 +3,11 @@
   "cHeadlineShow": "0",
   "cTemplateId":"1",
   "NewsBanner": [
-                 "1.png",
-                 "2.png",
-                 "3.png",
-                 "4.png",
-                 "5.png"
+                 "https://pic2.zhimg.com/aa4e7ce802d12e688e6b17f40719f871_b.jpg",
+                 "https://pic3.zhimg.com/31bf6123c17d64726669d588a12989ba_b.jpg",
+                 "https://pic1.zhimg.com/17857d826dec90369fc8cc10e798170c_b.jpg",
+                 "https://pic2.zhimg.com/7556c5335948b8360f713e8044e19d99_b.jpg",
+                 "https://pic3.zhimg.com/75cef3aa67d10fe0adaa6ff31f7a06c2_b.jpg"
                  ]
   
   },
@@ -113,24 +113,24 @@
   "cTemplateId":"6",
   "OriginalTopic": [
                     {
-                    "Title": "Google",
-                    "ImgUrl": "http://www.google.com"
+                    "Title": "battle block theater，横版过关游戏，不过是有友方伤害的",
+                    "ImgUrl": "https://pic4.zhimg.com/94a3d8477835d94320952991a2cdeabb_b.jpg"
                     },
                     {
-                    "Title": "Baidu",
-                    "ImgUrl": "http://www.baidu.com"
+                    "Title": "Guacamelee：当时是ps4上面免费了才试着和朋友玩了下，画风因人而异吧，我还是挺喜欢的。也是横版过关（晕3d的我）。",
+                    "ImgUrl": "https://pic1.zhimg.com/25fdb92038f77fb691a10105f8a2eb5c_b.jpg"
                     },
                     {
-                    "Title": "SoSo",
-                    "ImgUrl": "http://www.SoSo.com"
+                    "Title": "画风比较奇怪，不过玩起来还是很有意思的哦",
+                    "ImgUrl": "https://pic4.zhimg.com/a7a310b64c4f9e4696b3d6c40f6adddb_b.jpg"
                     },
                     {
-                    "Title": "SoSo",
-                    "ImgUrl": "http://www.SoSo.com"
+                    "Title": "可以试着玩玩看，双人组队合作",
+                    "ImgUrl": "https://pic2.zhimg.com/dbad705dc4bb48982dbae0ec3e53db01_b.jpg"
                     },
                     {
-                    "Title": "SoSo",
-                    "ImgUrl": "http://www.SoSo.com"
+                    "Title": "上面说的几个都是强烈推荐的，亲身体会效果很好。下面再说说更general的一些思路。",
+                    "ImgUrl": "https://pic4.zhimg.com/229997afbf495283d20524028e200aeb_b.jpg"
                     }
                     ],
   "sTitle":"原创专题"
