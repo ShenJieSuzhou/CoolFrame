@@ -52,6 +52,18 @@
 
 @end
 
+
+/*
+ * 用于显示主页中格子布局较多的控件
+ */
+@interface HomePageCubeCell : UITableViewCell<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+
+@property (strong, nonatomic) UICollectionView *collectionView;
+@property (strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
+@property (strong, nonatomic) NSMutableArray *itemArray;
+
+@end
+
 /*
  * 自定义菜单按钮
  */

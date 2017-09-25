@@ -13,6 +13,7 @@
 #import "CustomNewsBanner.h"
 #import "CustomHorizSlider.h"
 #import "GlobalDefine.h"
+#import "CustomVeriSlider.h"
 
 @interface FirstViewController ()
 
@@ -130,7 +131,21 @@
             return productCell;
         }
             break;
-        case 3: return cell;
+        case 3:{
+            NSMutableArray *tnewsArray = [dic objectForKey:@"FastLook"];
+            
+            HomePageProducts *tCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageFastLook"];
+            if(!tCell){
+                tCell = [[HomePageProducts alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageFastLook"];
+                [tCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 45)];
+            }
+            
+            CustomVeriSlider *veriSlider = [[CustomVeriSlider alloc] initWithFrame:tCell.frame];
+            [veriSlider setProductArray:tnewsArray];
+            [tCell addSubview:veriSlider];
+            return tCell;
+        }
+            break;
         case 6:{
             NSMutableArray *originalArray = [dic objectForKey:@"OriginalTopic"];
             HomePageProducts *productCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageProducts6"];

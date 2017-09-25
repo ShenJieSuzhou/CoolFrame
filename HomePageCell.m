@@ -96,7 +96,89 @@
     
 }
 
+@end
 
+
+@implementation HomePageCubeCell
+@synthesize collectionView = _collectionView;
+@synthesize flowLayout = _flowLayout;
+@synthesize itemArray = _itemArray;
+
+- (id)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if(self){
+        _itemArray = [[NSMutableArray alloc] init];
+        
+        //初始化布局
+        _flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        
+        _collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:_flowLayout];
+        [_collectionView setBackgroundColor:[UIColor clearColor]];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        //注册cell 这一步必须要实现
+        [_collectionView registerClass:[CustomMenuItem class] forCellWithReuseIdentifier:@"CustomMenuItem"];
+        
+        [self addSubview:_collectionView];
+    }
+    
+    return self;
+}
+
+- (id)init{
+    return [self initWithFrame:CGRectZero];
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 2;
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CustomMenuItem" forIndexPath:indexPath];
+    
+//    CustomMenuItem *item = (CustomMenuItem *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CustomMenuItem" forIndexPath:indexPath];
+//
+//    UIImage *finishedImage = [UIImage imageNamed:@"menu"];
+//    UIImage *unfinishedImage = [UIImage imageNamed:@"menu"];
+//
+//    //        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
+//    [item setFinishedSelectedImage:finishedImage withFinishedUnselectedImage:unfinishedImage];
+//
+//    item.unselectedTitleAttributes= @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(0, 0, 0),};
+//    item.selectedTitleAttributes = @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(0, 0, 0),};
+    
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return CGSizeMake(0, 0);
+}
+
+/*
+ * 上左下右间距
+ */
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    
+    return UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+/*
+ *  item space
+ */
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    
+    return 0;
+}
+
+/*
+ * 行距 0
+ */
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+    
+    return 0;
+}
 
 @end
 
