@@ -113,11 +113,11 @@
         _flowLayout = [[UICollectionViewFlowLayout alloc] init];
         
         _collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:_flowLayout];
-        [_collectionView setBackgroundColor:[UIColor clearColor]];
+        [_collectionView setBackgroundColor:[UIColor blueColor]];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         //注册cell 这一步必须要实现
-        [_collectionView registerClass:[CustomMenuItem class] forCellWithReuseIdentifier:@"CustomMenuItem"];
+//        [_collectionView registerClass:[CustomMenuItem class] forCellWithReuseIdentifier:@"CustomMenuItem"];
         
         [self addSubview:_collectionView];
     }
@@ -130,23 +130,27 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 2;
+    
+    return 3;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CustomMenuItem" forIndexPath:indexPath];
+//    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CustomMenuItem" forIndexPath:indexPath];
+//
+////    CustomMenuItem *item = (CustomMenuItem *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CustomMenuItem" forIndexPath:indexPath];
+////
+////    UIImage *finishedImage = [UIImage imageNamed:@"menu"];
+////    UIImage *unfinishedImage = [UIImage imageNamed:@"menu"];
+////
+////    //        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
+////    [item setFinishedSelectedImage:finishedImage withFinishedUnselectedImage:unfinishedImage];
+////
+////    item.unselectedTitleAttributes= @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(0, 0, 0),};
+////    item.selectedTitleAttributes = @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(0, 0, 0),};
     
-//    CustomMenuItem *item = (CustomMenuItem *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CustomMenuItem" forIndexPath:indexPath];
-//
-//    UIImage *finishedImage = [UIImage imageNamed:@"menu"];
-//    UIImage *unfinishedImage = [UIImage imageNamed:@"menu"];
-//
-//    //        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
-//    [item setFinishedSelectedImage:finishedImage withFinishedUnselectedImage:unfinishedImage];
-//
-//    item.unselectedTitleAttributes= @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(0, 0, 0),};
-//    item.selectedTitleAttributes = @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(0, 0, 0),};
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CellIdentifier" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor redColor];
     
     return cell;
 }

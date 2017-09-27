@@ -2,12 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>New item</key>
+	<key>provisioningProfiles</key>
 	<dict>
-		<key>teamID</key>
-		<string>WSSN499SLU</string>
-		<key>method</key>
-		<string>app-store</string>
+		<key>com.xxxxx.bundleID</key>
+		<string>UniversalDis</string>
 	</dict>
+	<key>method</key>
+	<string>enterprise</string>
+	<key>teamID</key>
+	<string>XXXXXXXXX</string>
 </dict>
 </plist>

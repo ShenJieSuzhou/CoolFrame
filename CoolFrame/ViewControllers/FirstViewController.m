@@ -183,7 +183,15 @@
             return cell;
         }
             break;
-        case 4:  return cell;
+        case 4:{
+            //collectionUI pattern
+            HomePageCubeCell *cubeCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageCubeCell"];
+            if(!cubeCell){
+                cubeCell = [[HomePageCubeCell alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 160)];
+            }
+            
+            return cubeCell;
+        }
             break;
         case 5:{
             // news column

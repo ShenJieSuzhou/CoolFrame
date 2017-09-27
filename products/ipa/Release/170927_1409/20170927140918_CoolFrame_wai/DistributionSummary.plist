@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CoolFrame.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>armv7</string>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>54B442BCBEA5C9E5203BCA8F4A4B487F24BC1C0C</string>
+				<key>dateExpires</key>
+				<string>2018/8/21</string>
+				<key>type</key>
+				<string>iOS Distribution</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>8SRP47XFRN.com.snailgames.coolframe</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>8SRP47XFRN</string>
+				<key>get-task-allow</key>
+				<false/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>8SRP47XFRN.com.snailgames.coolframe</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>CoolFrame.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>758157bd-e5dd-4c9b-9562-684b392d368c</string>
+				<key>name</key>
+				<string>UniversalSnailGamesEntDis</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>8SRP47XFRN</string>
+				<key>name</key>
+				<string></string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
