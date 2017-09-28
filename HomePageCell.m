@@ -104,20 +104,27 @@
 @synthesize flowLayout = _flowLayout;
 @synthesize itemArray = _itemArray;
 
-- (id)initWithFrame:(CGRect)frame{
-    self = [super initWithFrame:frame];
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
     if(self){
         _itemArray = [[NSMutableArray alloc] init];
-        
         //初始化布局
         _flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        _flowLayout.itemSize = CGSizeMake(120, 80);
+        // 设置列的最小间距
+        _flowLayout.minimumInteritemSpacing = 10;
+        // 设置最小行间距
+        _flowLayout.minimumLineSpacing = 15;
+        // 设置布局的内边距
+        _flowLayout.sectionInset = UIEdgeInsetsMake(15, 15, 15, 15);
         
-        _collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:_flowLayout];
-        [_collectionView setBackgroundColor:[UIColor blueColor]];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_flowLayout];
+        [_collectionView setBackgroundColor:[UIColor clearColor]];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         //注册cell 这一步必须要实现
-//        [_collectionView registerClass:[CustomMenuItem class] forCellWithReuseIdentifier:@"CustomMenuItem"];
+        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CustomMenuItem"];
         
         [self addSubview:_collectionView];
     }
@@ -129,9 +136,18 @@
     return [self initWithFrame:CGRectZero];
 }
 
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    [_collectionView setFrame:self.bounds];
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
     return 3;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -149,40 +165,40 @@
 ////    item.unselectedTitleAttributes= @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(0, 0, 0),};
 ////    item.selectedTitleAttributes = @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(0, 0, 0),};
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CellIdentifier" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CustomMenuItem" forIndexPath:indexPath];
+    [cell setBackgroundColor:[UIColor redColor]];
     
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return CGSizeMake(0, 0);
-}
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+//
+//    return CGSizeMake(0, 0);
+//}
 
-/*
- * 上左下右间距
- */
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    
-    return UIEdgeInsetsMake(0, 0, 0, 0);
-}
-
-/*
- *  item space
- */
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    
-    return 0;
-}
-
-/*
- * 行距 0
- */
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    
-    return 0;
-}
+///*
+// * 上左下右间距
+// */
+//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+//
+//    return UIEdgeInsetsMake(0, 0, 0, 0);
+//}
+//
+///*
+// *  item space
+// */
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+//
+//    return 0;
+//}
+//
+///*
+// * 行距 0
+// */
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+//
+//    return 0;
+//}
 
 @end
 

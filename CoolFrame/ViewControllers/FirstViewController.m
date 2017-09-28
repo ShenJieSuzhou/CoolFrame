@@ -24,6 +24,10 @@
 @synthesize tableDataArray = _tableDataArray;
 @synthesize homeTableView = _homeTableView;
 
+- (id)init{
+    
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -107,12 +111,14 @@
 //    }
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     /*
      *  default cell pattern
      */
-    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"defaultCell"];
-    
     [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     NSMutableDictionary *dic = [_tableDataArray objectAtIndex:indexPath.section];
     NSString *templateID = [dic objectForKey:@"cTemplateId"];
@@ -130,7 +136,6 @@
             [productCell addSubview:newsBanner];
             return productCell;
         }
-            break;
         case 3:{
             NSMutableArray *tnewsArray = [dic objectForKey:@"FastLook"];
             
@@ -145,7 +150,6 @@
             [tCell addSubview:veriSlider];
             return tCell;
         }
-            break;
         case 6:{
             NSMutableArray *originalArray = [dic objectForKey:@"OriginalTopic"];
             HomePageProducts *productCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageProducts6"];
@@ -159,7 +163,6 @@
             [productCell addSubview:slider];
             return productCell;
         }
-            break;
         case 2:{
             // Menu button loaded
             NSMutableArray *menuArray = [dic objectForKey:@"MenuData"];
@@ -182,14 +185,13 @@
             [cell setItems:menuItems];
             return cell;
         }
-            break;
         case 4:{
             //collectionUI pattern
             HomePageCubeCell *cubeCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageCubeCell"];
             if(!cubeCell){
-                cubeCell = [[HomePageCubeCell alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 160)];
+                cubeCell = [[HomePageCubeCell alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 100)];
             }
-            
+
             return cubeCell;
         }
             break;
@@ -213,14 +215,17 @@
             
             return cell;
         }
-            break;
-        default:
+        default:{
+             UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"defaultCell"];
             return cell;
-            break;
+        }
     }
+    
+    return nil;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    NSLog(@"%d", [_tableDataArray count]);
     return [_tableDataArray count];
 }
 
