@@ -94,21 +94,6 @@
     }
     
     return rows;
-//    switch (tid) {
-//        case 1:{
-//            rows = 1
-//        }
-//        case 3:
-//        case 6:return 1;    //模板显示一行
-//            break;
-//        case 2:
-//        case 4:return 2;    //模板显示二行
-//            break;
-//        case 5:return 5;    //模板显示五行
-//            break;
-//        default:return 0;
-//            break;
-//    }
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -187,15 +172,16 @@
         }
         case 4:{
             //collectionUI pattern
+            NSMutableArray *pkgArray = [dic objectForKey:@"PkgRecommend"];
             HomePageCubeCell *cubeCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageCubeCell"];
             if(!cubeCell){
                 cubeCell = [[HomePageCubeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageCubeCell_section4"];
             }
 
-            [cubeCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 200)];
+            [cubeCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 120)];
+            [cubeCell setItemArray:pkgArray];
             return cubeCell;
         }
-            break;
         case 5:{
             // News column
             NSMutableArray *topicArray = [dic objectForKey:@"TodayTopic"];

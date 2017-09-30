@@ -13,6 +13,8 @@
 
 @property (strong, nonatomic) NSMutableArray *mainPageConfigArray;
 
+@property (strong, nonatomic) NSMutableArray *packageArray;
+
 @end
 
 @implementation HomePageController
@@ -48,4 +50,9 @@
     return _mainPageConfigArray;
 }
 
+- (NSMutableArray *)getPackageData{
+
+//    PkgRecommend
+    return nil;
+}
 @end

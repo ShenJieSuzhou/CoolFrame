@@ -15,7 +15,9 @@
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if(self){
-
+        self.backgroundColor = [UIColor whiteColor];
+        [_menuItem setFrame:frame];
+        [self addSubview:_menuItem];
     }
     
     return self;

@@ -14,4 +14,6 @@
 
 - (NSMutableArray *)getHomePageData;
 
+- (NSMutableArray *)getPackageData;
+
 @end

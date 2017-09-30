@@ -45,37 +45,49 @@
                    {
                    "name": "1G流量加油包",
                    "desc": "仅当月使用50元/次",
-                   "ImgUrl": "http://www.google.com",
+                   "ImgUrl": "hostModel0.png",
                    "type": "hotPkg"
                    },
                    {
-                   "name": "1G流量包月包",
+                   "name": "1G流量包",
                    "desc": "仅当月使用50元/次",
-                   "ImgUrl": "http://www.baidu.com",
+                   "ImgUrl": "hostModel1.png",
                    "type": "hotPkg"
                    },
                    {
-                   "name": "1G流量包月包",
+                   "name": "1G流量包",
                    "desc": "仅当月使用50元/次",
-                   "ImgUrl": "http: //www.baidu.com",
+                   "ImgUrl": "hostModel2.png",
                    "type": "norPkg"
                    },
                    {
-                   "name": "1G流量包月包",
+                   "name": "1G流量包",
                    "desc": "仅当月使用50元/次",
-                   "ImgUrl": "http: //www.baidu.com",
+                   "ImgUrl": "hostModel3.png",
                    "type": "norPkg"
                    },
                    {
-                   "name": "1G流量包月包",
+                   "name": "1G流量包",
                    "desc": "仅当月使用50元/次",
-                   "ImgUrl": "http: //www.baidu.com",
+                   "ImgUrl": "hostModel4.png",
                    "type": "norPkg"
                    },
                    {
-                   "name": "1G流量包月包",
+                   "name": "1G流量包",
                    "desc": "仅当月使用50元/次",
-                   "ImgUrl": "http: //www.baidu.com",
+                   "ImgUrl": "hostModel5.png",
+                   "type": "norPkg"
+                   },
+                   {
+                   "name": "1G流量包",
+                   "desc": "仅当月使用50元/次",
+                   "ImgUrl": "hostModel6.png",
+                   "type": "norPkg"
+                   },
+                   {
+                   "name": "1G流量包",
+                   "desc": "仅当月使用50元/次",
+                   "ImgUrl": "hostModel7.png",
                    "type": "norPkg"
                    }
                    ],

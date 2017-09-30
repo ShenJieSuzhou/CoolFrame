@@ -10,6 +10,7 @@
 #import "HomePageCell.h"
 #import "GlobalDefine.h"
 #import "CustomCollectionViewCell.h"
+#import "CustomFlowLayout.h"
 
 
 @implementation HomePageCell
@@ -104,7 +105,6 @@
 
 @implementation HomePageCubeCell
 @synthesize collectionView = _collectionView;
-@synthesize flowLayout = _flowLayout;
 @synthesize itemArray = _itemArray;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -113,23 +113,15 @@
     if(self){
         _itemArray = [[NSMutableArray alloc] init];
         //初始化布局
-        _flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        _flowLayout.itemSize = CGSizeMake(120, 80);
-//        // 设置列的最小间距
-//        _flowLayout.minimumInteritemSpacing = 10;
-//        // 设置最小行间距
-//        _flowLayout.minimumLineSpacing = 15;
-//        // 设置布局的内边距
-//        _flowLayout.sectionInset = UIEdgeInsetsMake(15, 15, 15, 15);
+        CustomFlowLayout *flowLayout = [[CustomFlowLayout alloc] init];
         
         
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_flowLayout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         [_collectionView setBackgroundColor:[UIColor clearColor]];
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
         //注册cell 这一步必须要实现
         [_collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"CustomCollectionViewCell"];
-        
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
         [self addSubview:_collectionView];
     }
     
@@ -145,26 +137,44 @@
     [_collectionView setFrame:self.bounds];
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    if (section == 0) {
-        return 2;
-    }else if(section == 1){
-        return 4;
-    }
+- (void)setItemArray:(NSMutableArray *)itemArray{
     
-    return 0;
+    for (int i = 0; i < [itemArray count]; i++) {
+        NSDictionary *dic = [itemArray objectAtIndex:i];
+        
+        CustomMenuItem *item = [[CustomMenuItem alloc] init];
+        UIImage *finishedImage = [UIImage imageNamed:[dic objectForKey:@"ImgUrl"]];
+        UIImage *unfinishedImage = [UIImage imageNamed:[dic objectForKey:@"ImgUrl"]];
+        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
+        [item setFinishedSelectedImage:finishedImage withFinishedUnselectedImage:unfinishedImage];
+        [item setTitle:[dic objectForKey:@"name"]];
+        item.unselectedTitleAttributes= @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(255, 255, 255),};
+        item.selectedTitleAttributes = @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(255, 255, 255),};
+        
+        [_itemArray addObject:item];
+    }
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 1;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 2;
+    return _itemArray.count;
 }
 
-// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CustomCollectionViewCell" forIndexPath:indexPath];
-    [cell setBackgroundColor:[UIColor redColor]];
+    
+    cell.menuItem = [_itemArray objectAtIndex:indexPath.row];
     
     return cell;
+}
+
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%@", indexPath);
 }
 
 @end
