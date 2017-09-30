@@ -189,14 +189,15 @@
             //collectionUI pattern
             HomePageCubeCell *cubeCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageCubeCell"];
             if(!cubeCell){
-                cubeCell = [[HomePageCubeCell alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 100)];
+                cubeCell = [[HomePageCubeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageCubeCell_section4"];
             }
 
+            [cubeCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 200)];
             return cubeCell;
         }
             break;
         case 5:{
-            // news column
+            // News column
             NSMutableArray *topicArray = [dic objectForKey:@"TodayTopic"];
             NSMutableDictionary *dic = [topicArray objectAtIndex:indexPath.row];
             HomePageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomePageTodayTopicCell"];
@@ -275,24 +276,10 @@
         [headviewTitle setFont:[UIFont fontWithName:@"Helvetica-Bold" size:13]];
         [headviewTitle setFrame:CGRectMake(20, 12, 80, 20)];
         [headviewTitle setText:headTitle];
-        
-//        UIImageView *sep = [[UIImageView alloc] init];
-//        [sep setBackgroundColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1]];
-//        [sep setContentMode:UIViewContentModeBottom];
-//        sep.clipsToBounds = YES;
-//
-//        CGRect rcSep = CGRectMake(0, headView.frame.size.height - 1 , headView.frame.size.width, 1);
-//        sep.frame = rcSep;
-//
-//        [headView addSubview:sep];
     }
     
     if([columnDic objectForKey:@"sSubtitle"]){
         NSString *sSubtitle = [columnDic objectForKey:@"sSubtitle"];
-//        [moreLabel setFont:[UIFont systemFontOfSize:12.0f]];
-//        [moreLabel setFrame:CGRectMake(tableView.frame.size.width - 80, 12, 40, 20)];
-//        [moreLabel setText:sSubtitle];
-//        [headView addSubview:moreLabel];
         
         [moreBtn setFrame:CGRectMake(tableView.frame.size.width - 80, 12, 40, 20)];
         [moreBtn setTitle:sSubtitle forState:UIControlStateNormal];
@@ -302,7 +289,6 @@
         [arrowImage setImage:[UIImage imageNamed:@"redarrowRighticon"]];
         [headView addSubview:arrowImage];
     }
-    
     
     return headView;
 }
@@ -316,6 +302,7 @@
     if(tid == 1 || tid == 2){
         return 0;
     }
+    
     return 5;
 }
 

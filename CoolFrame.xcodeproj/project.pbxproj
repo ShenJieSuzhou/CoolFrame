@@ -43,7 +43,10 @@
 		44C703551F34499300C73340 /* search_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C703531F34499300C73340 /* search_icon@2x.png */; };
 		44C703561F34499300C73340 /* search_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C703541F34499300C73340 /* search_icon@3x.png */; };
 		44C703591F344B5700C73340 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C703581F344B5700C73340 /* SearchViewController.m */; };
+		BB0F63914DC5A97C0416A10B /* libPods-CoolFrame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FDB8BDBD61321465ECB8F5D /* libPods-CoolFrame.a */; };
 		E50E44351F78D77E00B2FB20 /* CustomVeriSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E50E44341F78D77E00B2FB20 /* CustomVeriSlider.m */; };
+		E50E44BA1F7DE7BA00B2FB20 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E50E44B91F7DE7BA00B2FB20 /* Stickers.xcassets */; };
+		E50E44C61F7E23DE00B2FB20 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E50E44C51F7E23DE00B2FB20 /* CustomCollectionViewCell.m */; };
 		E5285D651F6A351E00B3F295 /* topicImg.png in Resources */ = {isa = PBXBuildFile; fileRef = E5285D641F6A351E00B3F295 /* topicImg.png */; };
 		E53FEACE1F3AE90E00E84C2F /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = E53FEACD1F3AE90E00E84C2F /* data.plist */; };
 		E53FEAD21F3AF66000E84C2F /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E53FEAD11F3AF66000E84C2F /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -73,6 +76,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11BAA4C4696240A288A78EB8 /* Pods-CoolFrame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolFrame.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoolFrame/Pods-CoolFrame.release.xcconfig"; sourceTree = "<group>"; };
 		4402555B1F29B33F007F9428 /* tabbar_back_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_back_normal@2x.png"; sourceTree = "<group>"; };
 		4402555C1F29B33F007F9428 /* tabbar_back_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_back_normal@3x.png"; sourceTree = "<group>"; };
 		4402555D1F29B33F007F9428 /* tabbar_back_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_back_selected@2x.png"; sourceTree = "<group>"; };
@@ -129,8 +133,15 @@
 		44C703541F34499300C73340 /* search_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search_icon@3x.png"; sourceTree = "<group>"; };
 		44C703571F344B5700C73340 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = ../CustomNavigationBar/SearchViewController.h; sourceTree = "<group>"; };
 		44C703581F344B5700C73340 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = ../CustomNavigationBar/SearchViewController.m; sourceTree = "<group>"; };
+		68BD05494C916ACA8B897988 /* Pods-CoolFrame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolFrame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoolFrame/Pods-CoolFrame.debug.xcconfig"; sourceTree = "<group>"; };
+		8FDB8BDBD61321465ECB8F5D /* libPods-CoolFrame.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CoolFrame.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50E44331F78D77E00B2FB20 /* CustomVeriSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomVeriSlider.h; sourceTree = "<group>"; };
 		E50E44341F78D77E00B2FB20 /* CustomVeriSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomVeriSlider.m; sourceTree = "<group>"; };
+		E50E44B71F7DE7BA00B2FB20 /* imessage.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = imessage.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E50E44B91F7DE7BA00B2FB20 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
+		E50E44BB1F7DE7BA00B2FB20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E50E44C41F7E23DE00B2FB20 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
+		E50E44C51F7E23DE00B2FB20 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
 		E5285D641F6A351E00B3F295 /* topicImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topicImg.png; sourceTree = "<group>"; };
 		E53FEACD1F3AE90E00E84C2F /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
 		E53FEAD01F3AF66000E84C2F /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -173,12 +184,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB0F63914DC5A97C0416A10B /* libPods-CoolFrame.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91441EFB518C1CCBA6E0123A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BEA68543BFE497518837DEC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				68BD05494C916ACA8B897988 /* Pods-CoolFrame.debug.xcconfig */,
+				11BAA4C4696240A288A78EB8 /* Pods-CoolFrame.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		440255591F29B33F007F9428 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +256,7 @@
 		44232EE91F63DDA1004A9011 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				E50E44C31F7E23AA00B2FB20 /* CustomCollectionCell */,
 				443C02A01F70043200C8B0FB /* Slider */,
 				E5285D661F6A7BC300B3F295 /* NewsBanner */,
 				443FBB921F63DDF800737028 /* HomePageController.h */,
@@ -262,7 +291,10 @@
 				4483456E1F26F52300E400F6 /* CustomUITabbar */,
 				448345611F26F41800E400F6 /* ViewControllers */,
 				448345491F26F3A000E400F6 /* CoolFrame */,
+				E50E44B81F7DE7BA00B2FB20 /* imessage */,
 				448345481F26F3A000E400F6 /* Products */,
+				2BEA68543BFE497518837DEC /* Pods */,
+				5D7ED77C5FC2FF38E81DF5FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -270,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				448345471F26F3A000E400F6 /* CoolFrame.app */,
+				E50E44B71F7DE7BA00B2FB20 /* imessage.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -368,6 +401,33 @@
 			path = Navi;
 			sourceTree = "<group>";
 		};
+		5D7ED77C5FC2FF38E81DF5FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8FDB8BDBD61321465ECB8F5D /* libPods-CoolFrame.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E50E44B81F7DE7BA00B2FB20 /* imessage */ = {
+			isa = PBXGroup;
+			children = (
+				E50E44B91F7DE7BA00B2FB20 /* Stickers.xcassets */,
+				E50E44BB1F7DE7BA00B2FB20 /* Info.plist */,
+			);
+			path = imessage;
+			sourceTree = "<group>";
+		};
+		E50E44C31F7E23AA00B2FB20 /* CustomCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				E50E44C41F7E23DE00B2FB20 /* CustomCollectionViewCell.h */,
+				E50E44C51F7E23DE00B2FB20 /* CustomCollectionViewCell.m */,
+			);
+			name = CustomCollectionCell;
+			path = CoolFrame/CustomCollectionCell;
+			sourceTree = "<group>";
+		};
 		E5285D661F6A7BC300B3F295 /* NewsBanner */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,9 +498,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4483455E1F26F3A100E400F6 /* Build configuration list for PBXNativeTarget "CoolFrame" */;
 			buildPhases = (
+				9C19542225D14968779F0CDC /* [CP] Check Pods Manifest.lock */,
 				448345431F26F3A000E400F6 /* Sources */,
 				448345441F26F3A000E400F6 /* Frameworks */,
 				448345451F26F3A000E400F6 /* Resources */,
+				6BBF044CF88CB4E8BB65B027 /* [CP] Embed Pods Frameworks */,
+				2E7F6F6824FB5464EAC17E9A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -450,6 +513,22 @@
 			productName = CoolFrame;
 			productReference = 448345471F26F3A000E400F6 /* CoolFrame.app */;
 			productType = "com.apple.product-type.application";
+		};
+		E50E44B61F7DE7BA00B2FB20 /* imessage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E50E44BF1F7DE7BA00B2FB20 /* Build configuration list for PBXNativeTarget "imessage" */;
+			buildPhases = (
+				E50E44B51F7DE7BA00B2FB20 /* Resources */,
+				91441EFB518C1CCBA6E0123A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = imessage;
+			productName = imessage;
+			productReference = E50E44B71F7DE7BA00B2FB20 /* imessage.appex */;
+			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
 		};
 /* End PBXNativeTarget section */
 
@@ -462,6 +541,11 @@
 				TargetAttributes = {
 					448345461F26F3A000E400F6 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = WSSN499SLU;
+						ProvisioningStyle = Manual;
+					};
+					E50E44B61F7DE7BA00B2FB20 = {
+						CreatedOnToolsVersion = 9.0;
 						DevelopmentTeam = WSSN499SLU;
 						ProvisioningStyle = Manual;
 					};
@@ -481,6 +565,7 @@
 			projectRoot = "";
 			targets = (
 				448345461F26F3A000E400F6 /* CoolFrame */,
+				E50E44B61F7DE7BA00B2FB20 /* imessage */,
 			);
 		};
 /* End PBXProject section */
@@ -528,13 +613,73 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E50E44B51F7DE7BA00B2FB20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E50E44BA1F7DE7BA00B2FB20 /* Stickers.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E7F6F6824FB5464EAC17E9A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoolFrame/Pods-CoolFrame-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BBF044CF88CB4E8BB65B027 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoolFrame/Pods-CoolFrame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C19542225D14968779F0CDC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoolFrame-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		448345431F26F3A000E400F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E50E44C61F7E23DE00B2FB20 /* CustomCollectionViewCell.m in Sources */,
 				448345671F26F44100E400F6 /* SecondViewController.m in Sources */,
 				E55207E01F38463B00F20997 /* NaviBarSearchController.m in Sources */,
 				E53FEAD21F3AF66000E84C2F /* JSONKit.m in Sources */,
@@ -680,8 +825,10 @@
 		};
 		4483455F1F26F3A100E400F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68BD05494C916ACA8B897988 /* Pods-CoolFrame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = WSSN499SLU;
@@ -697,8 +844,10 @@
 		};
 		448345601F26F3A100E400F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11BAA4C4696240A288A78EB8 /* Pods-CoolFrame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = WSSN499SLU;
@@ -709,6 +858,64 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "81d45378-bb33-4d4f-86af-4427b2f9b3ce";
 				PROVISIONING_PROFILE_SPECIFIER = UniversalSnailDev;
+			};
+			name = Release;
+		};
+		E50E44C01F7DE7BA00B2FB20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = WSSN499SLU;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = imessage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5136751c-dfa7-4265-97e7-043daa57225f";
+				PROVISIONING_PROFILE_SPECIFIER = panda2iMsgDis;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E50E44C11F7DE7BA00B2FB20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = WSSN499SLU;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = imessage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "81d45378-bb33-4d4f-86af-4427b2f9b3ce";
+				PROVISIONING_PROFILE_SPECIFIER = UniversalSnailDev;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -729,6 +936,15 @@
 			buildConfigurations = (
 				4483455F1F26F3A100E400F6 /* Debug */,
 				448345601F26F3A100E400F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E50E44BF1F7DE7BA00B2FB20 /* Build configuration list for PBXNativeTarget "imessage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E50E44C01F7DE7BA00B2FB20 /* Debug */,
+				E50E44C11F7DE7BA00B2FB20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
