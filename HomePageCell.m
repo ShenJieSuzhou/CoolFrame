@@ -113,6 +113,7 @@
     if(self){
         _itemArray = [[NSMutableArray alloc] init];
         //初始化布局
+<<<<<<< Updated upstream
         CustomFlowLayout *flowLayout = [[CustomFlowLayout alloc] init];
         
         
@@ -122,6 +123,37 @@
         [_collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"CustomCollectionViewCell"];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
+=======
+<<<<<<< HEAD
+        _flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        _flowLayout.itemSize = CGSizeMake(120, 60);
+        // 设置列的最小间距
+        _flowLayout.minimumInteritemSpacing = 10;
+        // 设置最小行间距
+        _flowLayout.minimumLineSpacing = 15;
+        // 设置布局的内边距
+        _flowLayout.sectionInset = UIEdgeInsetsMake(15, 15, 15, 15);
+        
+        
+        _collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:_flowLayout];
+        [_collectionView setBackgroundColor:[UIColor clearColor]];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        //注册cell 这一步必须要实现
+        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CustomMenuItem"];
+        
+=======
+        CustomFlowLayout *flowLayout = [[CustomFlowLayout alloc] init];
+        
+        
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        [_collectionView setBackgroundColor:[UIColor clearColor]];
+        //注册cell 这一步必须要实现
+        [_collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"CustomCollectionViewCell"];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+>>>>>>> origin/master
+>>>>>>> Stashed changes
         [self addSubview:_collectionView];
     }
     
@@ -132,6 +164,7 @@
     return [self initWithFrame:CGRectZero];
 }
 
+<<<<<<< Updated upstream
 - (void)layoutSubviews{
     [super layoutSubviews];
     [_collectionView setFrame:self.bounds];
@@ -171,6 +204,76 @@
     return cell;
 }
 
+=======
+<<<<<<< HEAD
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    
+    return 2;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+//    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CustomMenuItem" forIndexPath:indexPath];
+//
+////    CustomMenuItem *item = (CustomMenuItem *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CustomMenuItem" forIndexPath:indexPath];
+////
+////    UIImage *finishedImage = [UIImage imageNamed:@"menu"];
+////    UIImage *unfinishedImage = [UIImage imageNamed:@"menu"];
+////
+////    //        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
+////    [item setFinishedSelectedImage:finishedImage withFinishedUnselectedImage:unfinishedImage];
+////
+////    item.unselectedTitleAttributes= @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(0, 0, 0),};
+////    item.selectedTitleAttributes = @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(0, 0, 0),};
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CustomMenuItem" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor redColor];
+=======
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    [_collectionView setFrame:self.bounds];
+}
+
+- (void)setItemArray:(NSMutableArray *)itemArray{
+>>>>>>> origin/master
+    
+    for (int i = 0; i < [itemArray count]; i++) {
+        NSDictionary *dic = [itemArray objectAtIndex:i];
+        
+        CustomMenuItem *item = [[CustomMenuItem alloc] init];
+        UIImage *finishedImage = [UIImage imageNamed:[dic objectForKey:@"ImgUrl"]];
+        UIImage *unfinishedImage = [UIImage imageNamed:[dic objectForKey:@"ImgUrl"]];
+        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
+        [item setFinishedSelectedImage:finishedImage withFinishedUnselectedImage:unfinishedImage];
+        [item setTitle:[dic objectForKey:@"name"]];
+        item.unselectedTitleAttributes= @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(255, 255, 255),};
+        item.selectedTitleAttributes = @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(255, 255, 255),};
+        
+        [_itemArray addObject:item];
+    }
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 1;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return _itemArray.count;
+}
+
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CustomCollectionViewCell" forIndexPath:indexPath];
+    
+    cell.menuItem = [_itemArray objectAtIndex:indexPath.row];
+    
+    return cell;
+}
+
+>>>>>>> Stashed changes
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
