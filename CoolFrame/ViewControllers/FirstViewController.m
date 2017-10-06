@@ -49,7 +49,6 @@
      * 主页界面设置，tableview 初始化
      */
     self.tableDataArray = [HomePageController getInstance].getHomePageData;
-    
     _homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.customNavbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.customNavbar.frame.size.height) style:UITableViewStyleGrouped];
     
     [_homeTableView setBackgroundColor:RGB(220, 220, 220)];
@@ -85,9 +84,9 @@
     int tid = [templateID intValue];
     int rows = 0;
     
-    if(tid == 1 || tid == 3 || tid == 6){
+    if(tid == 1 || tid == 3 || tid == 6 || tid == 4){
         rows = 1;
-    }else if(tid == 2 || tid == 4){
+    }else if(tid == 2){
         rows = 2;
     }else if(tid == 5){
         rows = 5;
@@ -173,13 +172,12 @@
         case 4:{
             //collectionUI pattern
             NSMutableArray *pkgArray = [dic objectForKey:@"PkgRecommend"];
-            HomePageCubeCell *cubeCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageCubeCell"];
+            HomePageMenuPattarnTwo *cubeCell = [tableView dequeueReusableCellWithIdentifier:@"HostMenuCell_section4"];
             if(!cubeCell){
-                cubeCell = [[HomePageCubeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageCubeCell_section4"];
+                cubeCell = [[HomePageMenuPattarnTwo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HostMenuCell_section4"];
             }
-
-            [cubeCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 120)];
-            [cubeCell setItemArray:pkgArray];
+            [cubeCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 240)];
+            [cubeCell setItemsArray:pkgArray];
             return cubeCell;
         }
         case 5:{

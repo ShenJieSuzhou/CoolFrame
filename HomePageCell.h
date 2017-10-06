@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomNewsBanner.h"
+#import "CustomCollectionView.h"
 
 /*
  * 用于主页当中新闻列表显示
@@ -52,15 +53,10 @@
 
 @end
 
+@interface HomePageMenuPattarnTwo : UITableViewCell
 
-/*
- * 用于显示主页中格子布局较多的控件
- */
-@interface HomePageCubeCell : UITableViewCell<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
-
-@property (strong, nonatomic) UICollectionView *collectionView;
-@property (strong, nonatomic) NSMutableArray *itemArray;
-
+@property (strong, nonatomic) NSMutableArray *itemsArray;
+@property (strong, nonatomic) CustomCollectionView *collectionView;
 @end
 
 /*

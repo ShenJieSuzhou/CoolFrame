@@ -10,26 +10,30 @@
 
 @implementation CustomCollectionViewCell
 
-@synthesize menuItem = _menuItem;
+//@synthesize menuItem = _menuItem;
 
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if(self){
-        self.backgroundColor = [UIColor whiteColor];
-        [_menuItem setFrame:frame];
-        [self addSubview:_menuItem];
+        self.backgroundColor = [UIColor clearColor];
+        _menuItem = [[CustomMenuItem alloc] init];
+        [self.contentView addSubview:_menuItem];
     }
     
     return self;
 }
 
-- (id)init{
-    return [self initWithFrame:CGRectZero];
-}
-
 - (void)layoutSubviews{
     [super layoutSubviews];
-    
+    [_menuItem setFrame:self.bounds];
+}
+
+- (void)setMenuItem:(CustomMenuItem *)menuItem{
+    if(!menuItem){
+        return;
+    }
+    _menuItem = menuItem;
+    [self.contentView addSubview:menuItem];
 }
 
 @end

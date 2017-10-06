@@ -43,7 +43,7 @@
   "cTemplateId":"4",
   "PkgRecommend": [
                    {
-                   "name": "1G流量加油包",
+                   "name": "1G流量包",
                    "desc": "仅当月使用50元/次",
                    "ImgUrl": "hostModel0.png",
                    "type": "hotPkg"

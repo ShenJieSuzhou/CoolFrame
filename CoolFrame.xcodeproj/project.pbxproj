@@ -37,6 +37,8 @@
 		448345711F26F54100E400F6 /* CustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448345701F26F54100E400F6 /* CustomTabBarController.m */; };
 		448345751F270FA600E400F6 /* CustomTarbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 448345741F270FA600E400F6 /* CustomTarbar.m */; };
 		448345781F2715A300E400F6 /* CustomTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 448345771F2715A300E400F6 /* CustomTabBarItem.m */; };
+		4486DB111F8277C300C105EF /* CustomCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4486DB101F8277C300C105EF /* CustomCollectionView.m */; };
+		449E58F61F85C7F200083423 /* HomePageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 449E58F51F85C7F200083423 /* HomePageCell.m */; };
 		44C7034B1F32F01200C73340 /* CustomNaviBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C7034A1F32F01200C73340 /* CustomNaviBarView.m */; };
 		44C7034F1F33236100C73340 /* CustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C7034E1F33236100C73340 /* CustomViewController.m */; };
 		44C703521F3447E200C73340 /* nav_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C703511F3447E200C73340 /* nav_bg@2x.png */; };
@@ -79,7 +81,6 @@
 		E5D9AF8A1F6FA079009BA9DC /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D9AF851F6FA079009BA9DC /* 4.png */; };
 		E5EB48D41F6684AF00FFA1E4 /* FileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EB48D31F6684AF00FFA1E4 /* FileUtil.m */; };
 		E5EB48D61F668AB900FFA1E4 /* fakeData.json in Resources */ = {isa = PBXBuildFile; fileRef = E5EB48D51F668AB800FFA1E4 /* fakeData.json */; };
-		E5EB48D91F668E2A00FFA1E4 /* HomePageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EB48D81F668E2A00FFA1E4 /* HomePageCell.m */; };
 		E5EB48DD1F67B53300FFA1E4 /* redarrowRighticon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5EB48DC1F67B53300FFA1E4 /* redarrowRighticon@2x.png */; };
 		E5EB48DF1F67BBAC00FFA1E4 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = E5EB48DE1F67BBAC00FFA1E4 /* menu.png */; };
 /* End PBXBuildFile section */
@@ -132,6 +133,10 @@
 		448345741F270FA600E400F6 /* CustomTarbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTarbar.m; sourceTree = "<group>"; };
 		448345761F2715A300E400F6 /* CustomTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarItem.h; sourceTree = "<group>"; };
 		448345771F2715A300E400F6 /* CustomTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarItem.m; sourceTree = "<group>"; };
+		4486DB0F1F8277C300C105EF /* CustomCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCollectionView.h; sourceTree = "<group>"; };
+		4486DB101F8277C300C105EF /* CustomCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionView.m; sourceTree = "<group>"; };
+		449E58F41F85C7F200083423 /* HomePageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageCell.h; sourceTree = "<group>"; };
+		449E58F51F85C7F200083423 /* HomePageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageCell.m; sourceTree = "<group>"; };
 		44C703491F32F01200C73340 /* CustomNaviBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNaviBarView.h; sourceTree = "<group>"; };
 		44C7034A1F32F01200C73340 /* CustomNaviBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNaviBarView.m; sourceTree = "<group>"; };
 		44C7034C1F32F63800C73340 /* GlobalDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalDefine.h; sourceTree = "<group>"; };
@@ -193,8 +198,6 @@
 		E5EB48D21F6684AF00FFA1E4 /* FileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtil.h; sourceTree = "<group>"; };
 		E5EB48D31F6684AF00FFA1E4 /* FileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtil.m; sourceTree = "<group>"; };
 		E5EB48D51F668AB800FFA1E4 /* fakeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fakeData.json; sourceTree = "<group>"; };
-		E5EB48D71F668E2A00FFA1E4 /* HomePageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageCell.h; sourceTree = "<group>"; };
-		E5EB48D81F668E2A00FFA1E4 /* HomePageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageCell.m; sourceTree = "<group>"; };
 		E5EB48DC1F67B53300FFA1E4 /* redarrowRighticon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redarrowRighticon@2x.png"; sourceTree = "<group>"; };
 		E5EB48DE1F67BBAC00FFA1E4 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -276,13 +279,13 @@
 		44232EE91F63DDA1004A9011 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				449E58F41F85C7F200083423 /* HomePageCell.h */,
+				449E58F51F85C7F200083423 /* HomePageCell.m */,
 				E50E44C31F7E23AA00B2FB20 /* CustomCollectionCell */,
 				443C02A01F70043200C8B0FB /* Slider */,
 				E5285D661F6A7BC300B3F295 /* NewsBanner */,
 				443FBB921F63DDF800737028 /* HomePageController.h */,
 				443FBB931F63DDF800737028 /* HomePageController.m */,
-				E5EB48D71F668E2A00FFA1E4 /* HomePageCell.h */,
-				E5EB48D81F668E2A00FFA1E4 /* HomePageCell.m */,
 			);
 			name = HomePage;
 			sourceTree = "<group>";
@@ -446,6 +449,8 @@
 				E50E44C51F7E23DE00B2FB20 /* CustomCollectionViewCell.m */,
 				E5D2610D1F7F83BD0071711C /* CustomFlowLayout.h */,
 				E5D2610E1F7F83BD0071711C /* CustomFlowLayout.m */,
+				4486DB0F1F8277C300C105EF /* CustomCollectionView.h */,
+				4486DB101F8277C300C105EF /* CustomCollectionView.m */,
 			);
 			name = CustomCollectionCell;
 			path = CoolFrame/CustomCollectionCell;
@@ -726,6 +731,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4486DB111F8277C300C105EF /* CustomCollectionView.m in Sources */,
+				449E58F61F85C7F200083423 /* HomePageCell.m in Sources */,
 				E50E44C61F7E23DE00B2FB20 /* CustomCollectionViewCell.m in Sources */,
 				448345671F26F44100E400F6 /* SecondViewController.m in Sources */,
 				E55207E01F38463B00F20997 /* NaviBarSearchController.m in Sources */,
@@ -742,7 +749,6 @@
 				448345751F270FA600E400F6 /* CustomTarbar.m in Sources */,
 				E53FEAD91F3C06CD00E84C2F /* HotSearchCell.m in Sources */,
 				E53FEAE31F3C7CF500E84C2F /* SearchResultCell.m in Sources */,
-				E5EB48D91F668E2A00FFA1E4 /* HomePageCell.m in Sources */,
 				4483454C1F26F3A000E400F6 /* main.m in Sources */,
 				E50E44351F78D77E00B2FB20 /* CustomVeriSlider.m in Sources */,
 				E55207E31F3855AA00F20997 /* CustomUISearchBar.m in Sources */,

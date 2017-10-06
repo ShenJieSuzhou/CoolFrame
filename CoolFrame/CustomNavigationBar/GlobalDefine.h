@@ -19,6 +19,7 @@
 #define Size(w, h)                          CGSizeMake(w, h)
 #define Point(x, y)                         CGPointMake(x, y)
 
+#define NQFONT(v) [UIFont fontWithName:@"HiraKakuProN-W3" size:v]
 
 #define RGB_TitleNormal                     RGB(255.0f, 255.0f, 255.0f)
 #define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
