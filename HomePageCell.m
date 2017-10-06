@@ -80,22 +80,30 @@
 
 
 @implementation HomePageProducts
+@synthesize newsArray = _newsArray;
+@synthesize newsBanner = _newsBanner;
 
-- (id)initWithFrame:(CGRect)frame{
-    self = [super initWithFrame:frame];
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self){
-       
+        [self setBackgroundColor:[UIColor whiteColor]];
+        _newsBanner = [[CustomNewsBanner alloc] initWithFrame:CGRectZero];
+        [self addSubview:_newsBanner];
     }
-    
+
     return self;
 }
 
-- (id)init{
-    return [self initWithFrame:CGRectZero];
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    [_newsBanner setFrame:self.bounds];
 }
 
-- (void)layoutSubviews{
-    
+- (void)setNewsArray:(NSMutableArray *)newsArray{
+    if(!newsArray){
+        return;
+    }
+    [_newsBanner setProductsArray:newsArray];
 }
 
 @end

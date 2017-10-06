@@ -7,6 +7,7 @@
 //
 
 #import "CustomHorizSlider.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #define PRODUCT_COUNT  [_productArray count]
 
 @implementation ProductPaneView
@@ -88,9 +89,9 @@
         [_scrollView addSubview:productpane];
         NSDictionary *dic = [_productArray objectAtIndex:i];
         NSURL *url = [NSURL URLWithString:[dic objectForKey:@"ImgUrl"]];
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+        [productpane.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"default_icon"] options:SDWebImageProgressiveDownload];
+        
         NSString *text = [dic objectForKey:@"Title"];
-        [productpane.imageView setImage:image];
         [productpane.label setText:text];
     }
 }

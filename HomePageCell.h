@@ -50,6 +50,7 @@
 @interface HomePageProducts : UITableViewCell
 
 @property (strong, nonatomic) CustomNewsBanner *newsBanner;
+@property (strong, nonatomic) NSMutableArray *newsArray;
 
 @end
 

@@ -112,12 +112,9 @@
             HomePageProducts *productCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageProducts"];
             if(!productCell){
                 productCell = [[HomePageProducts alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageProducts"];
-                [productCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 160)];
             }
-            
-            CustomNewsBanner *newsBanner = [[CustomNewsBanner alloc] initWithFrame:productCell.frame];
-            [newsBanner setNewsBannerInfo:newsArray];
-            [productCell addSubview:newsBanner];
+            [productCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 160)];
+            [productCell setNewsArray:newsArray];
             return productCell;
         }
         case 3:{
@@ -210,7 +207,6 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    NSLog(@"%d", [_tableDataArray count]);
     return [_tableDataArray count];
 }
 
