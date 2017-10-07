@@ -12,8 +12,8 @@
 #import "GlobalDefine.h"
 #import "CustomNewsBanner.h"
 #import "CustomHorizSlider.h"
-#import "GlobalDefine.h"
 #import "CustomVeriSlider.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface FirstViewController ()
 
@@ -49,7 +49,7 @@
      * 主页界面设置，tableview 初始化
      */
     self.tableDataArray = [HomePageController getInstance].getHomePageData;
-    _homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.customNavbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.customNavbar.frame.size.height) style:UITableViewStyleGrouped];
+    _homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.customNavbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.customNavbar.frame.size.height - 40) style:UITableViewStyleGrouped];
     
     [_homeTableView setBackgroundColor:RGB(220, 220, 220)];
     _homeTableView.delegate = self;
@@ -112,17 +112,17 @@
             HomePageProducts *productCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageProducts"];
             if(!productCell){
                 productCell = [[HomePageProducts alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageProducts"];
+                [productCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 160)];
             }
-            [productCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 160)];
+            
             [productCell setNewsArray:newsArray];
             return productCell;
         }
         case 3:{
             NSMutableArray *tnewsArray = [dic objectForKey:@"FastLook"];
-            
-            HomePageProducts *tCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageFastLook"];
+            UITableViewCell *tCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageFastLook"];
             if(!tCell){
-                tCell = [[HomePageProducts alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageFastLook"];
+                tCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageFastLook"];
                 [tCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 45)];
             }
             
@@ -133,9 +133,9 @@
         }
         case 6:{
             NSMutableArray *originalArray = [dic objectForKey:@"OriginalTopic"];
-            HomePageProducts *productCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageProducts6"];
+            UITableViewCell *productCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageProducts6"];
             if(!productCell){
-                productCell = [[HomePageProducts alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageProducts6"];
+                productCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageProducts6"];
                 [productCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 200)];
             }
             
@@ -152,11 +152,11 @@
             HomePageMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomePageMenuCell"];
             if(!cell){
                 cell = [[HomePageMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageMenuCell"];
+                [cell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 80)];
             }
             
-            [cell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 80)];
-            NSMutableArray *menuItems = [[NSMutableArray alloc] init];
             
+            NSMutableArray *menuItems = [[NSMutableArray alloc] init];
             for (NSString *menuName in submenus) {
                 CustomMenuItem *item = [[CustomMenuItem alloc] init];
                 [item setTitle:menuName];
@@ -172,8 +172,9 @@
             HomePageMenuPattarnTwo *cubeCell = [tableView dequeueReusableCellWithIdentifier:@"HostMenuCell_section4"];
             if(!cubeCell){
                 cubeCell = [[HomePageMenuPattarnTwo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HostMenuCell_section4"];
+                [cubeCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 240)];
             }
-            [cubeCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 240)];
+            
             [cubeCell setItemsArray:pkgArray];
             return cubeCell;
         }
@@ -184,21 +185,20 @@
             HomePageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomePageTodayTopicCell"];
             if(!cell){
                 cell = [[HomePageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageTodayTopicCell"];
+                //适配 iPhone 端大小，ipad端需另做设计
+                [cell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 100)];
             }
             
-            //适配 iPhone 端大小，ipad端需另做设计
-            [cell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 100)];
             NSString *topicTitle = [dic objectForKey:@"Title"];
             NSString *url = [dic objectForKey:@"ImgUrl"];
-            UIImage *image = [UIImage imageNamed:@"topicImg.png"];
-            
             [cell.textLabel setText:topicTitle];
-            [cell.imgView setImage:image];
+            [cell.imgView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"default_icon"] options:SDWebImageProgressiveDownload];
             
             return cell;
         }
         default:{
-             UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"defaultCell"];
+            UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"defaultCell"];
+            
             return cell;
         }
     }

@@ -24,6 +24,7 @@
         _imageView = [[UIImageView alloc] init];
         [_imageView setBackgroundColor:[UIColor clearColor]];
         [_imageView setContentMode:UIViewContentModeScaleToFill];
+        [_imageView.layer setCornerRadius:10.0];
         _imageView.clipsToBounds = YES;
         [self addSubview:_imageView];
     }
@@ -42,7 +43,7 @@
     CGFloat margin = 10.0f;
     CGRect rcCell = [self bounds];
     
-    CGRect rcImg= CGRectMake(margin, margin , rcCell.size.width - margin*2, rcCell.size.height - 3*margin - 50);
+    CGRect rcImg= CGRectMake(margin, margin , rcCell.size.width - margin, rcCell.size.height - 3*margin - 50);
     self.imageView.frame = rcImg;
     
     [self.label sizeToFit];
@@ -51,7 +52,7 @@
     rcName.origin.x = margin;
     rcName.origin.y = rcCell.size.height - 50 - 10 - 10;
     rcName.size.height = 50;
-    rcName.size.width = rcCell.size.width - margin*2;
+    rcName.size.width = rcCell.size.width - margin;
     self.label.frame = rcName;
 }
 
@@ -85,7 +86,7 @@
 
 - (void)loadProductView{
     for(int i = 0; i < PRODUCT_COUNT; i++){
-        ProductPaneView *productpane = [[ProductPaneView alloc] initWithFrame:CGRectMake(self.frame.size.width * i, 0, self.frame.size.width, self.frame.size.height)];
+        ProductPaneView *productpane = [[ProductPaneView alloc] initWithFrame:CGRectMake((self.frame.size.width - 100) * i, 0, self.frame.size.width - 100, self.frame.size.height)];
         [_scrollView addSubview:productpane];
         NSDictionary *dic = [_productArray objectAtIndex:i];
         NSURL *url = [NSURL URLWithString:[dic objectForKey:@"ImgUrl"]];
@@ -100,7 +101,7 @@
     _scrollView = [[UIScrollView alloc] initWithFrame:self.frame];
     _scrollView.delegate = self;
     _scrollView.backgroundColor = [UIColor clearColor];
-    _scrollView.contentSize = CGSizeMake(self.frame.size.width * PRODUCT_COUNT, self.frame.size.height);
+    _scrollView.contentSize = CGSizeMake((self.frame.size.width - 100) * PRODUCT_COUNT, self.frame.size.height);
     _scrollView.pagingEnabled = YES;
     [_scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
     _scrollView.showsHorizontalScrollIndicator = NO;

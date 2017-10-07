@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CustomNewsBanner.h"
 #import "CustomCollectionView.h"
+#import "CustomVeriSlider.h"
 
 /*
  * 用于主页当中新闻列表显示
