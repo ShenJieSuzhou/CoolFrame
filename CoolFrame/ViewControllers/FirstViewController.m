@@ -87,7 +87,7 @@
     if(tid == 1 || tid == 3 || tid == 6 || tid == 4){
         rows = 1;
     }else if(tid == 2){
-        rows = 2;
+        rows = 1;
     }else if(tid == 5){
         rows = 5;
     }
@@ -146,25 +146,34 @@
         }
         case 2:{
             // Menu button loaded
-            NSMutableArray *menuArray = [dic objectForKey:@"MenuData"];
-            NSMutableDictionary *dic = [menuArray objectAtIndex:indexPath.row];
-            NSArray *submenus = [dic objectForKey:@"subMenus"];
-            HomePageMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomePageMenuCell"];
-            if(!cell){
-                cell = [[HomePageMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageMenuCell"];
-                [cell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 80)];
+//            NSMutableArray *menuArray = [dic objectForKey:@"MenuData"];
+//            NSMutableDictionary *dic = [menuArray objectAtIndex:indexPath.row];
+//            NSArray *submenus = [dic objectForKey:@"subMenus"];
+//            HomePageMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomePageMenuCell"];
+//            if(!cell){
+//                cell = [[HomePageMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageMenuCell"];
+//                [cell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 80)];
+//            }
+//
+//
+//            NSMutableArray *menuItems = [[NSMutableArray alloc] init];
+//            for (NSString *menuName in submenus) {
+//                CustomMenuItem *item = [[CustomMenuItem alloc] init];
+//                [item setTitle:menuName];
+//                [menuItems addObject:item];
+//            }
+//
+//            [cell setItems:menuItems];
+//            return cell;
+            NSMutableArray *pkgArray = [dic objectForKey:@"MenuData"];
+            HomePageMenuPattarnTwo *cubeCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageMenuCell"];
+            if(!cubeCell){
+                cubeCell = [[HomePageMenuPattarnTwo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageMenuCell"];
+                [cubeCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 180)];
             }
             
-            
-            NSMutableArray *menuItems = [[NSMutableArray alloc] init];
-            for (NSString *menuName in submenus) {
-                CustomMenuItem *item = [[CustomMenuItem alloc] init];
-                [item setTitle:menuName];
-                [menuItems addObject:item];
-            }
-            
-            [cell setItems:menuItems];
-            return cell;
+            [cubeCell setItemsArray:pkgArray];
+            return cubeCell;
         }
         case 4:{
             //collectionUI pattern

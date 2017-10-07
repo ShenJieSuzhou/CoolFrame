@@ -25,7 +25,7 @@
 {
     [super prepareLayout];
     //计算所有item的属性
-    CGFloat itemWH = self.collectionView.frame.size.width / 4;
+    CGFloat itemWH = self.collectionView.frame.size.width / 5;
     self.itemSize = CGSizeMake(itemWH, itemWH);
     
 //    self.scrollDirection = UICollectionViewScrollDirectionHorizontal; // 设置滚动方向

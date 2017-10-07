@@ -49,21 +49,22 @@
 }
 
 - (void)setItemArray:(NSMutableArray *)itemArray{
-    [_itemArray removeAllObjects];
-    for (int i = 0; i < [itemArray count]; i++) {
-        NSDictionary *dic = [itemArray objectAtIndex:i];
-        
-        CustomMenuItem *item = [[CustomMenuItem alloc] init];
-        UIImage *finishedImage = [UIImage imageNamed:[dic objectForKey:@"ImgUrl"]];
-        UIImage *unfinishedImage = [UIImage imageNamed:[dic objectForKey:@"ImgUrl"]];
-        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
-        [item setFinishedSelectedImage:finishedImage withFinishedUnselectedImage:unfinishedImage];
-        [item setTitle:[dic objectForKey:@"name"]];
-        item.unselectedTitleAttributes= @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(0, 0, 0),};
-        item.selectedTitleAttributes = @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(0, 0, 0),};
-        
-        [_itemArray addObject:item];
-    }
+    _itemArray = [itemArray copy];
+//    [_itemArray removeAllObjects];
+//    for (int i = 0; i < [itemArray count]; i++) {
+//        NSDictionary *dic = [itemArray objectAtIndex:i];
+//
+//        CustomMenuItem *item = [[CustomMenuItem alloc] init];
+//        UIImage *finishedImage = [UIImage imageNamed:[dic objectForKey:@"ImgUrl"]];
+//        UIImage *unfinishedImage = [UIImage imageNamed:[dic objectForKey:@"ImgUrl"]];
+//        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
+//        [item setFinishedSelectedImage:finishedImage withFinishedUnselectedImage:unfinishedImage];
+//        [item setTitle:[dic objectForKey:@"name"]];
+//        item.unselectedTitleAttributes= @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(0, 0, 0),};
+//        item.selectedTitleAttributes = @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(0, 0, 0),};
+//
+//        [_itemArray addObject:item];
+//    }
 }
 
 #pragma mark - collectionViewDelegate
@@ -83,8 +84,22 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
     CustomCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CustomPkgCell" forIndexPath:indexPath];
-    [cell setMenuItem:[_itemArray objectAtIndex:indexPath.row]];
+    
+    for (int i = 0; i < [_itemArray count]; i++) {
+        NSDictionary *dic = [_itemArray objectAtIndex:indexPath.row];
+        UIImage *icon = [UIImage imageNamed:[dic objectForKey:@"ImgUrl"]];
+        NSString *menuName = [dic objectForKey:@"name"];
+        
+        [cell.iconImgV setImage:icon];
+        [cell.menuName setText:menuName];
+//        [cell setIconImgV:[[UIImageView alloc] initWithImage:icon]];
+//        UILabel *menu = [[UILabel alloc] init];
+//        [menu setText:menuName];
+//        [cell setMenuName:menu];
+    }
+   
     return cell;
 }
 

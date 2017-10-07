@@ -7,17 +7,19 @@
 //
 
 #import "CustomCollectionViewCell.h"
+#import "GlobalDefine.h"
 
 @implementation CustomCollectionViewCell
 
-//@synthesize menuItem = _menuItem;
+@synthesize menuName = _menuName;
+@synthesize iconImgV = _iconImgV;
 
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if(self){
         self.backgroundColor = [UIColor clearColor];
-        _menuItem = [[CustomMenuItem alloc] init];
-        [self.contentView addSubview:_menuItem];
+        [self.contentView addSubview:[self iconImgV]];
+        [self.contentView addSubview:[self menuName]];
     }
     
     return self;
@@ -25,15 +27,30 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    [_menuItem setFrame:self.bounds];
+    CGRect rect = self.frame;
+    [_menuName setFrame:CGRectMake(15, rect.size.height - 15, rect.size.width - 30, 15)];
+    
+    [_iconImgV setFrame:CGRectMake(15 , 10, rect.size.width - 30, rect.size.width - 30)];
 }
 
-- (void)setMenuItem:(CustomMenuItem *)menuItem{
-    if(!menuItem){
-        return;
+- (UILabel *)menuName{
+    if(!_menuName){
+        _menuName = [[UILabel alloc] init];
+        [_menuName setTextAlignment:NSTextAlignmentCenter];
+        [_menuName setTextColor:RGB(0, 0, 0)];
+        [_menuName setFont:NQFONT(10)];
     }
-    _menuItem = menuItem;
-    [self.contentView addSubview:menuItem];
+    
+    return _menuName;
 }
+
+- (UIImageView *)iconImgV{
+    if(!_iconImgV){
+        _iconImgV = [[UIImageView alloc] init];
+    }
+    
+    return _iconImgV;
+}
+
 
 @end

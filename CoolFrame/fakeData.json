@@ -16,16 +16,44 @@
   "cTemplateId":"2",
   "MenuData": [
                {
-               "subMenus":["充值中心",
-                           "充值中心",
-                           "充值中心",
-                           "充值中心"]
+               "name": "天猫",
+               "ImgUrl": "moon.png"
                },
                {
-               "subMenus":["充值中心",
-                           "充值中心",
-                           "充值中心",
-                           "充值中心"]
+               "name": "聚划算",
+               "ImgUrl": "nong.png"
+               },
+               {
+               "name": "天猫国际",
+               "ImgUrl": "qing.png"
+               },
+               {
+               "name": "外卖",
+               "ImgUrl": "zhong.png"
+               },
+               {
+               "name": "天猫超市",
+               "ImgUrl": "qiu.png"
+               },
+               {
+               "name": "充值中心",
+               "ImgUrl": "huan.png"
+               },
+               {
+               "name": "飞猪旅行",
+               "ImgUrl": "le.png"
+               },
+               {
+               "name": "领金币",
+               "ImgUrl": "guo.png"
+               },
+               {
+               "name": "拍卖",
+               "ImgUrl": "qin.png"
+               },
+               {
+               "name": "分类",
+               "ImgUrl": "china.png"
                }
                ]
   },
