@@ -114,7 +114,7 @@
 }
 
 - (void)newsBanner:(CustomNewsBanner *)newsBanner didSelectItemAtIndex:(NSInteger)index{
-    NSLog(@"you click the item: %d", index);
+    NSLog(@"you click the item: %ld", index);
 }
 
 @end
@@ -257,6 +257,7 @@
     if(self){
         [self setBackgroundColor:[UIColor whiteColor]];
         _collectionView = [[CustomCollectionView alloc] initWithFrame:CGRectZero];
+        _collectionView.delegate = self;
         [self addSubview:_collectionView];
     }
     
@@ -274,6 +275,10 @@
     }
     
     [_collectionView setItemArray:itemsArray];
+}
+
+- (void)collectionView:(CustomCollectionView *)collectionView didSelectItemAtIndex:(NSInteger)index{
+    NSLog(@"you click the collectionView at index:%ld", index);
 }
 
 @end

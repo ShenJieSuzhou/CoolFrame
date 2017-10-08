@@ -55,7 +55,7 @@
 
 @end
 
-@interface HomePageMenuPattarnTwo : UITableViewCell
+@interface HomePageMenuPattarnTwo : UITableViewCell<CustomCollectionViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *itemsArray;
 @property (strong, nonatomic) CustomCollectionView *collectionView;
