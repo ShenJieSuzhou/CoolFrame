@@ -88,6 +88,7 @@
     if(self){
         [self setBackgroundColor:[UIColor whiteColor]];
         _newsBanner = [[CustomNewsBanner alloc] initWithFrame:CGRectZero];
+        _newsBanner.delegate = self;
         [self addSubview:_newsBanner];
     }
 
@@ -104,6 +105,16 @@
         return;
     }
     [_newsBanner setProductsArray:newsArray];
+}
+
+#pragma mark - CustomNewsBannerDelegate
+
+- (BOOL)newsBanner:(CustomNewsBanner *)newsBanner shouldSelectItemAtIndex:(NSInteger)index{
+    return YES;
+}
+
+- (void)newsBanner:(CustomNewsBanner *)newsBanner didSelectItemAtIndex:(NSInteger)index{
+    NSLog(@"you click the item: %d", index);
 }
 
 @end

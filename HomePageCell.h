@@ -48,7 +48,7 @@
 /*
  * 用于主页当中产品推广显示
  */
-@interface HomePageProducts : UITableViewCell
+@interface HomePageProducts : UITableViewCell<CustomNewsBannerDelegate>
 
 @property (strong, nonatomic) CustomNewsBanner *newsBanner;
 @property (strong, nonatomic) NSMutableArray *newsArray;

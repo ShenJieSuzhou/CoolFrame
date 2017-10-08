@@ -11,6 +11,7 @@
 
 @implementation CustomNewsBanner
 
+@synthesize delegate = _delegate;
 @synthesize productsArray = _productsArray;
 @synthesize scrollView = _scrollView;
 @synthesize pageControl = _pageControl;
@@ -28,12 +29,15 @@
         _scrollView = [[UIScrollView alloc] init];
         
         _imgVLeft = [[UIImageView alloc] init];
+        _imgVLeft.userInteractionEnabled = YES;
         [_scrollView addSubview:_imgVLeft];
         
         _imgVCenter = [[UIImageView alloc] init];
+        _imgVCenter.userInteractionEnabled = YES;
         [_scrollView addSubview:_imgVCenter];
         
         _imgVRight = [[UIImageView alloc] init];
+        _imgVRight.userInteractionEnabled = YES;
         [_scrollView addSubview:_imgVRight];
         
         //2.创建 UIPageControl
@@ -42,6 +46,12 @@
         //3.添加到视图
         [self addSubview:_scrollView];
         [self addSubview:_pageControl];
+        
+        //4.添加点击事件
+        UITapGestureRecognizer *tapGestureRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureRecognizer:)];
+        tapGestureRecognize.delegate = self;
+        tapGestureRecognize.numberOfTapsRequired = 1;
+        [_scrollView addGestureRecognizer:tapGestureRecognize];
     }
     return self;
 }
@@ -154,6 +164,21 @@
     [_scrollView setContentOffset:CGPointMake(self.frame.size.width, 0) animated:NO];
     //页码设置
     _pageControl.currentPage = _currentIndex;
+}
+
+#pragma mark - click callback
+- (void)singleTapGestureRecognizer:(UITapGestureRecognizer *)tapGesture {
+    if([[self delegate] respondsToSelector:@selector(newsBanner:shouldSelectItemAtIndex:)]){
+        if(![[self delegate] newsBanner:self shouldSelectItemAtIndex:_currentIndex]){
+            return;
+        }
+    }
+    
+    if([[self delegate] respondsToSelector:@selector(newsBanner:didSelectItemAtIndex:)]){
+        [_delegate newsBanner:self didSelectItemAtIndex:_currentIndex];
+    }
+//    [_delegate newsBanner:self didSelectItemAtIndex:_currentIndex];
+
 }
 
 @end

@@ -52,5 +52,4 @@
     return _iconImgV;
 }
 
-
 @end
