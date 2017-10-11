@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomNewsBanner : UIView<UIScrollViewDelegate>
+@protocol CustomNewsBannerDelegate;
+@interface CustomNewsBanner : UIView<UIScrollViewDelegate, UIGestureRecognizerDelegate>
+
+@property (strong, nonatomic) id<CustomNewsBannerDelegate> delegate;
 
 //存储待显示产品的数组
 @property (strong, nonatomic) NSMutableArray *productsArray;
@@ -26,6 +29,8 @@
 @property (strong, nonatomic) UIImageView *imgVCenter;
 @property (strong, nonatomic) UIImageView *imgVRight;
 
-
 @end
 
+@protocol CustomNewsBannerDelegate<NSObject>
+- (void)newsbanner:(CustomNewsBanner *)newsbanner didSelectItemAtIndex:(NSInteger)index;
+@end

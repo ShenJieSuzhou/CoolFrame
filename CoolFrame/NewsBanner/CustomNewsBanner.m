@@ -18,6 +18,7 @@
 @synthesize imgVLeft = _imgVLeft;
 @synthesize imgVRight = _imgVRight;
 @synthesize imgVCenter = _imgVCenter;
+@synthesize delegate = _delegate;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -56,6 +57,11 @@
         [self addSubview:_scrollView];
         [self addSubview:_pageControl];
         
+        //4.添加点击响应
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleTap:)];
+        [_scrollView addGestureRecognizer:tap];
+        [_scrollView setUserInteractionEnabled:YES];
+
     }
     return self;
 }
@@ -147,6 +153,13 @@
     [_scrollView setContentOffset:CGPointMake(self.frame.size.width, 0) animated:NO];
     //页码设置
     _pageControl.currentPage = _currentIndex;
+}
+
+#pragma mark - UITapGestureRecognizer
+-(void)handleTap:(id)sender{
+    if([[self delegate] respondsToSelector:@selector(newsbanner:didSelectItemAtIndex:)]){
+        [_delegate newsbanner:self didSelectItemAtIndex:_currentIndex];
+    }
 }
 
 @end

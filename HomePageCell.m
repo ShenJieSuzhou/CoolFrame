@@ -109,9 +109,15 @@
 - (CustomNewsBanner *)newsBanner{
     if(!_newsBanner){
         _newsBanner = [[CustomNewsBanner alloc] initWithFrame:CGRectZero];
+        _newsBanner.delegate = self;
     }
     
     return _newsBanner;
+}
+
+#pragma mark - CustomNewsBannerDelegate
+- (void)newsbanner:(CustomNewsBanner *)newsbanner didSelectItemAtIndex:(NSInteger)index{
+    NSLog(@"you just tap the newsbanner , the index is %ld", index);
 }
 
 @end
