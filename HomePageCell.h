@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CustomNewsBanner.h"
 #import "CustomCollectionView.h"
+#import "GoodsCollectionView.h"
 
 /*
  * 用于主页当中新闻列表显示
@@ -70,7 +71,7 @@
  */
 @interface HomePageCollectionPattarnTwo : UITableViewCell
 
-@property (strong, nonatomic) UICollectionView *collectionView;
+@property (strong, nonatomic) GoodsCollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray *itemArray;
 
 @end

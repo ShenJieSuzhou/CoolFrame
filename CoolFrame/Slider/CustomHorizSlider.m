@@ -20,7 +20,6 @@
         _label = [[UILabel alloc] init];
         [_label setTextColor:[UIColor blackColor]];
         [_label setFont:[UIFont systemFontOfSize:15]];
-//        [_label setTextAlignment:NSTextAlignmentCenter];
         [self addSubview:_label];
         
         _imageView = [[UIImageView alloc] init];
@@ -45,7 +44,7 @@
     CGFloat margin = 10.0f;
     CGRect rcCell = [self bounds];
     
-    CGRect rcImg= CGRectMake(margin, margin , rcCell.size.width - margin*2, rcCell.size.height - 2*margin - 50);
+    CGRect rcImg= CGRectMake(margin, 10 , rcCell.size.width - margin*2, rcCell.size.height - 2*margin - 50);
     self.imageView.frame = rcImg;
     
     [self.label sizeToFit];

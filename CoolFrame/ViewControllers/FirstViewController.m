@@ -12,8 +12,8 @@
 #import "GlobalDefine.h"
 #import "CustomNewsBanner.h"
 #import "CustomHorizSlider.h"
-#import "GlobalDefine.h"
 #import "CustomVeriSlider.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface FirstViewController ()
 
@@ -156,16 +156,16 @@
             return menuCell;
         }
         case 4:{
-            //collectionUI pattern
+            //goods loaded
             NSMutableArray *pkgArray = [dic objectForKey:@"PkgRecommend"];
-            HomePageCollectionPattarnOne *menuCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageCubeCell_section4"];
-            if(!menuCell){
-                menuCell = [[HomePageCollectionPattarnOne alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageCubeCell_section4"];
+            HomePageCollectionPattarnTwo *goodsCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageCubeCell_section4"];
+            if(!goodsCell){
+                goodsCell = [[HomePageCollectionPattarnTwo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageCubeCell_section4"];
             }
 
-            [menuCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 240)];
-            [menuCell setItemArray:pkgArray];
-            return menuCell;
+            [goodsCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 270)];
+            [goodsCell setItemArray:pkgArray];
+            return goodsCell;
         }
         case 5:{
             // News column
@@ -180,10 +180,9 @@
             [cell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 100)];
             NSString *topicTitle = [dic objectForKey:@"Title"];
             NSString *url = [dic objectForKey:@"ImgUrl"];
-            UIImage *image = [UIImage imageNamed:@"topicImg.png"];
             
             [cell.textLabel setText:topicTitle];
-            [cell.imgView setImage:image];
+            [cell.imgView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"default_icon"] options:SDWebImageProgressiveDownload];
             
             return cell;
         }
@@ -197,7 +196,6 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    NSLog(@"%d", [_tableDataArray count]);
     return [_tableDataArray count];
 }
 
@@ -252,11 +250,13 @@
     if([columnDic objectForKey:@"sSubtitle"]){
         NSString *sSubtitle = [columnDic objectForKey:@"sSubtitle"];
         
-        [moreBtn setFrame:CGRectMake(tableView.frame.size.width - 80, 12, 40, 20)];
+        [moreBtn setFrame:CGRectMake(tableView.frame.size.width - 65, 12, 40, 20)];
         [moreBtn setTitle:sSubtitle forState:UIControlStateNormal];
+        [moreBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [moreBtn.titleLabel setFont:[UIFont systemFontOfSize:12]];
         [headView addSubview:moreBtn];
         
-        [arrowImage setFrame:CGRectMake(tableView.frame.size.width - 50, 12, 20, 20)];
+        [arrowImage setFrame:CGRectMake(tableView.frame.size.width - 30, 15, 13, 13)];
         [arrowImage setImage:[UIImage imageNamed:@"redarrowRighticon"]];
         [headView addSubview:arrowImage];
     }
@@ -297,12 +297,10 @@
     
 }
 
-
-
-#pragma mark - btn event
+#pragma mark - more button event
 
 - (void)jumpToSpecficContent{
-    NSLog(@"jumpToSpecficContent");
+    NSLog(@"you click the more btn, jumpToSpecficContent");
     
 }
 

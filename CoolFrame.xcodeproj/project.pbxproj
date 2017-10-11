@@ -73,6 +73,11 @@
 		E53FEAE71F3C832C00E84C2F /* delete@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E53FEAE51F3C832C00E84C2F /* delete@3x.png */; };
 		E55207E01F38463B00F20997 /* NaviBarSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55207DF1F38463B00F20997 /* NaviBarSearchController.m */; };
 		E55207E31F3855AA00F20997 /* CustomUISearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E55207E21F3855AA00F20997 /* CustomUISearchBar.m */; };
+		E56F5EEF1F8E077A0034F1ED /* placehold1.png in Resources */ = {isa = PBXBuildFile; fileRef = E56F5EEB1F8E077A0034F1ED /* placehold1.png */; };
+		E56F5EF01F8E077A0034F1ED /* placehold2.png in Resources */ = {isa = PBXBuildFile; fileRef = E56F5EEC1F8E077A0034F1ED /* placehold2.png */; };
+		E56F5EF11F8E077A0034F1ED /* placehold3.png in Resources */ = {isa = PBXBuildFile; fileRef = E56F5EED1F8E077A0034F1ED /* placehold3.png */; };
+		E56F5EF21F8E077A0034F1ED /* placehold4.png in Resources */ = {isa = PBXBuildFile; fileRef = E56F5EEE1F8E077A0034F1ED /* placehold4.png */; };
+		E56F5EF51F8E08A70034F1ED /* GoodsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E56F5EF41F8E08A70034F1ED /* GoodsCollectionView.m */; };
 		E57935721F4C5B4C00375692 /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57935711F4C5B4C00375692 /* exportOptions.plist */; };
 		E5BFA6331F428E38004E5FED /* DownloadUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BFA6321F428E38004E5FED /* DownloadUtil.m */; };
 		E5D2610F1F7F83BD0071711C /* CustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D2610E1F7F83BD0071711C /* CustomFlowLayout.m */; };
@@ -190,6 +195,12 @@
 		E55207DF1F38463B00F20997 /* NaviBarSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NaviBarSearchController.m; path = ../CustomNavigationBar/NaviBarSearchController.m; sourceTree = "<group>"; };
 		E55207E11F3855AA00F20997 /* CustomUISearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomUISearchBar.h; path = ../CustomNavigationBar/CustomUISearchBar.h; sourceTree = "<group>"; };
 		E55207E21F3855AA00F20997 /* CustomUISearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomUISearchBar.m; path = ../CustomNavigationBar/CustomUISearchBar.m; sourceTree = "<group>"; };
+		E56F5EEB1F8E077A0034F1ED /* placehold1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placehold1.png; sourceTree = "<group>"; };
+		E56F5EEC1F8E077A0034F1ED /* placehold2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placehold2.png; sourceTree = "<group>"; };
+		E56F5EED1F8E077A0034F1ED /* placehold3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placehold3.png; sourceTree = "<group>"; };
+		E56F5EEE1F8E077A0034F1ED /* placehold4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placehold4.png; sourceTree = "<group>"; };
+		E56F5EF31F8E08A70034F1ED /* GoodsCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsCollectionView.h; sourceTree = "<group>"; };
+		E56F5EF41F8E08A70034F1ED /* GoodsCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsCollectionView.m; sourceTree = "<group>"; };
 		E57935711F4C5B4C00375692 /* exportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
 		E5BFA6311F428E38004E5FED /* DownloadUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadUtil.h; sourceTree = "<group>"; };
 		E5BFA6321F428E38004E5FED /* DownloadUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadUtil.m; sourceTree = "<group>"; };
@@ -476,6 +487,8 @@
 				E5D2610E1F7F83BD0071711C /* CustomFlowLayout.m */,
 				4486DB0F1F8277C300C105EF /* CustomCollectionView.h */,
 				4486DB101F8277C300C105EF /* CustomCollectionView.m */,
+				E56F5EF31F8E08A70034F1ED /* GoodsCollectionView.h */,
+				E56F5EF41F8E08A70034F1ED /* GoodsCollectionView.m */,
 			);
 			name = CustomCollectionCell;
 			path = CoolFrame/CustomCollectionCell;
@@ -509,6 +522,17 @@
 			path = CoolFrame/JSONKIT;
 			sourceTree = "<group>";
 		};
+		E56F5EEA1F8E077A0034F1ED /* goods */ = {
+			isa = PBXGroup;
+			children = (
+				E56F5EEB1F8E077A0034F1ED /* placehold1.png */,
+				E56F5EEC1F8E077A0034F1ED /* placehold2.png */,
+				E56F5EED1F8E077A0034F1ED /* placehold3.png */,
+				E56F5EEE1F8E077A0034F1ED /* placehold4.png */,
+			);
+			path = goods;
+			sourceTree = "<group>";
+		};
 		E5BFA6301F428E38004E5FED /* Download */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,6 +564,7 @@
 		E5EB48DB1F67B53300FFA1E4 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E56F5EEA1F8E077A0034F1ED /* goods */,
 				449E58FE1F88B9E400083423 /* menus */,
 				449E58FC1F875F4400083423 /* default_icon.png */,
 				E5D261151F7F929E0071711C /* hostModel0.png */,
@@ -653,6 +678,7 @@
 				440255751F29E395007F9428 /* latest@3x.png in Resources */,
 				E53FEAD51F3B144600E84C2F /* no_searchresult@2x.png in Resources */,
 				449E59101F88B9E400083423 /* qing.png in Resources */,
+				E56F5EEF1F8E077A0034F1ED /* placehold1.png in Resources */,
 				E5EB48DD1F67B53300FFA1E4 /* redarrowRighticon@2x.png in Resources */,
 				449E590A1F88B9E400083423 /* guo.png in Resources */,
 				E53FEAE71F3C832C00E84C2F /* delete@3x.png in Resources */,
@@ -661,9 +687,11 @@
 				E5D2611E1F7F929E0071711C /* hostModel2.png in Resources */,
 				440255731F29E395007F9428 /* contest@3x.png in Resources */,
 				440255621F29B340007F9428 /* tabbar_back_selected@3x.png in Resources */,
+				E56F5EF21F8E077A0034F1ED /* placehold4.png in Resources */,
 				440255771F29E395007F9428 /* me@3x.png in Resources */,
 				44C703521F3447E200C73340 /* nav_bg@2x.png in Resources */,
 				4483455A1F26F3A100E400F6 /* LaunchScreen.storyboard in Resources */,
+				E56F5EF01F8E077A0034F1ED /* placehold2.png in Resources */,
 				440255721F29E395007F9428 /* contest@2x.png in Resources */,
 				E5D2611A1F7F929E0071711C /* hostModel4.png in Resources */,
 				E53FEAE61F3C832C00E84C2F /* delete@2x.png in Resources */,
@@ -683,6 +711,7 @@
 				E5EB48D61F668AB900FFA1E4 /* fakeData.json in Resources */,
 				E53FEAD61F3B144600E84C2F /* no_searchresult@3x.png in Resources */,
 				E57935721F4C5B4C00375692 /* exportOptions.plist in Resources */,
+				E56F5EF11F8E077A0034F1ED /* placehold3.png in Resources */,
 				448345551F26F3A100E400F6 /* Main.storyboard in Resources */,
 				E5D2611C1F7F929E0071711C /* hostModel5.png in Resources */,
 				E53FEACE1F3AE90E00E84C2F /* data.plist in Resources */,
@@ -774,6 +803,7 @@
 				E53FEAD91F3C06CD00E84C2F /* HotSearchCell.m in Sources */,
 				E53FEAE31F3C7CF500E84C2F /* SearchResultCell.m in Sources */,
 				4483454C1F26F3A000E400F6 /* main.m in Sources */,
+				E56F5EF51F8E08A70034F1ED /* GoodsCollectionView.m in Sources */,
 				E50E44351F78D77E00B2FB20 /* CustomVeriSlider.m in Sources */,
 				E55207E31F3855AA00F20997 /* CustomUISearchBar.m in Sources */,
 				E53FEADC1F3C071400E84C2F /* SearchHistoryCell.m in Sources */,

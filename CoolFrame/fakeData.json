@@ -70,56 +70,12 @@
   "cHeadlineShow": "1",
   "cTemplateId":"4",
   "PkgRecommend": [
-                   {
-                   "name": "1G流量加油包",
-                   "desc": "仅当月使用50元/次",
-                   "ImgUrl": "hostModel0.png",
-                   "type": "hotPkg"
-                   },
-                   {
-                   "name": "1G流量包",
-                   "desc": "仅当月使用50元/次",
-                   "ImgUrl": "hostModel1.png",
-                   "type": "hotPkg"
-                   },
-                   {
-                   "name": "1G流量包",
-                   "desc": "仅当月使用50元/次",
-                   "ImgUrl": "hostModel2.png",
-                   "type": "norPkg"
-                   },
-                   {
-                   "name": "1G流量包",
-                   "desc": "仅当月使用50元/次",
-                   "ImgUrl": "hostModel3.png",
-                   "type": "norPkg"
-                   },
-                   {
-                   "name": "1G流量包",
-                   "desc": "仅当月使用50元/次",
-                   "ImgUrl": "hostModel4.png",
-                   "type": "norPkg"
-                   },
-                   {
-                   "name": "1G流量包",
-                   "desc": "仅当月使用50元/次",
-                   "ImgUrl": "hostModel5.png",
-                   "type": "norPkg"
-                   },
-                   {
-                   "name": "1G流量包",
-                   "desc": "仅当月使用50元/次",
-                   "ImgUrl": "hostModel6.png",
-                   "type": "norPkg"
-                   },
-                   {
-                   "name": "1G流量包",
-                   "desc": "仅当月使用50元/次",
-                   "ImgUrl": "hostModel7.png",
-                   "type": "norPkg"
-                   }
+                   "placehold1.png",
+                   "placehold2.png",
+                   "placehold3.png",
+                   "placehold4.png"
                    ],
-  "sTitle":"资费包介绍",
+  "sTitle":"精品推荐",
   "sSubtitle":"更多"
   },
   {
@@ -128,23 +84,23 @@
   "TodayTopic": [
                  {
                  "Title": "习近平同普京向深圳北理莫斯科大学致贺辞",
-                 "ImgUrl": "http://www.google.com"
+                 "ImgUrl": "https://pic4.zhimg.com/50/v2-7430838f500ae01ec5163d7026a4587b_hd.png"
                  },
                  {
                  "Title": "婚恋网站乱象丛生 网络征婚行业遭遇诚信危机",
-                 "ImgUrl": "http://www.baidu.com"
+                 "ImgUrl": "https://pic2.zhimg.com/50/v2-124da579c14dd76eae947165b44c2ced_hd.png"
                  },
                  {
                  "Title": "太湖开捕引发连锁反应 苏州湖鲜量增价跌",
-                 "ImgUrl": "http://www.SoSo.com"
+                 "ImgUrl": "https://pic4.zhimg.com/50/v2-785644e7fcc0907b47898a1258aed6c7_hd.png"
                  },
                  {
                  "Title": "欧冠-C罗2球贝尔送助攻 拉莫斯倒勾破门皇马3-0",
-                 "ImgUrl": "http://www.SoSo.com"
+                 "ImgUrl": "https://pic2.zhimg.com/50/v2-bc7f724aee22bf3b64adbe07b776d5a1_hd.png"
                  },
                  {
                  "Title": "林良铭第二次首发后兴奋晒合影:两连胜!找回感觉",
-                 "ImgUrl": "http://www.SoSo.com"
+                 "ImgUrl": "https://pic2.zhimg.com/50/v2-e20333187384114edcf54cf3910400c9_hd.png"
                  }],
   "sTitle":"今日头条"
   },

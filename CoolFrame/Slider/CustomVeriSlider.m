@@ -46,10 +46,10 @@
     [_newsText sizeToFit];
     _newsText.numberOfLines = 0;
     CGRect rcName = _newsText.frame;
-    rcName.origin.x = 10;
+    rcName.origin.x = 20;
     rcName.origin.y = 10;
     rcName.size.height = 20;
-    rcName.size.width = rcCell.size.width - 20;
+    rcName.size.width = rcCell.size.width - 40;
     _newsText.frame = rcName;
 }
 
@@ -66,9 +66,23 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        _scrollView = [[UIScrollView alloc] init];
+        _scrollView.delegate = self;
+        _scrollView.backgroundColor = [UIColor clearColor];
+        _scrollView.pagingEnabled = YES;
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        [self addSubview:_scrollView];
         
     }
     return self;
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    [_scrollView setFrame:self.bounds];
+    _scrollView.contentSize = CGSizeMake(self.bounds.size.height * PRODUCT_COUNT, self.bounds.size.width);
+    [_scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
+
 }
 
 - (void)setProductArray:(NSMutableArray *)productArray{
@@ -77,29 +91,17 @@
     }
     
     _productArray = [productArray copy];
-    [self addScrollView];
     [self loadProductView];
 }
 
 - (void)loadProductView{
     for(int i = 0; i < PRODUCT_COUNT; i++){
-        
+
         NewsPaneView *productpane = [[NewsPaneView alloc] initWithFrame:CGRectMake(0, self.frame.size.height * i, self.frame.size.width, self.frame.size.height)];
         [_scrollView addSubview:productpane];
         NSString *text = [_productArray objectAtIndex:i];
         [productpane.newsText setText:text];
     }
-}
-
-- (void)addScrollView{
-    _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-    _scrollView.delegate = self;
-    _scrollView.backgroundColor = [UIColor clearColor];
-    _scrollView.contentSize = CGSizeMake(self.frame.size.height * PRODUCT_COUNT, self.frame.size.width);
-    _scrollView.pagingEnabled = YES;
-    [_scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
-    _scrollView.showsHorizontalScrollIndicator = NO;
-    [self addSubview:_scrollView];
 }
 
 @end

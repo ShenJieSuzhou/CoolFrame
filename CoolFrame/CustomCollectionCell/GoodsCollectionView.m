@@ -1,18 +1,18 @@
 //
-//  CustomCollectionView.m
+//  GoodsCollectionView.m
 //  CoolFrame
 //
-//  Created by silicon on 2017/10/2.
+//  Created by shenjie on 2017/10/11.
 //  Copyright © 2017年 com.snailgames.coolframe. All rights reserved.
 //
 
-#import "CustomCollectionView.h"
-#import "CustomFlowLayout.h"
-#import "CustomCollectionViewCell.h"
-#import "GlobalDefine.h"
+#import "GoodsCollectionView.h"
 
-@implementation CustomCollectionView
-@synthesize delegate = _delegate;
+@implementation GoodsCollectionView
+
+@synthesize itemArray = _itemArray;
+@synthesize collectionView = _collectionView;
+@synthesize flowLayout = _flowLayout;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -29,23 +29,30 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     [_collectionView setFrame:self.bounds];
+    CGFloat itemWH = _collectionView.frame.size.width / 2;
+    _flowLayout.itemSize = CGSizeMake(itemWH, itemWH * 0.66);
+    _collectionView.pagingEnabled = YES;
+    _collectionView.scrollEnabled = NO;
+    _flowLayout.minimumLineSpacing = 0;
+    _flowLayout.minimumInteritemSpacing = 0;
 }
 
 -(UICollectionView *)collectionView{
     if (!_collectionView) {
         //自动网格布局
-        CustomFlowLayout * flowLayout = [[CustomFlowLayout alloc] init];
+        _flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        
         //网格布局
-        _collectionView = [[UICollectionView alloc] initWithFrame:self.frame collectionViewLayout:flowLayout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:self.frame collectionViewLayout:_flowLayout];
         [_collectionView setBackgroundColor:[UIColor whiteColor]];
         //注册cell
-        [_collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"CustomMenuCell"];
-
+        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"RecomendCell"];
+        
         //设置数据源代理
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
     }
-
+    
     return _collectionView;
 }
 
@@ -67,26 +74,15 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-   
-    if([[self delegate] respondsToSelector:@selector(collectionView:didSelectItemAtIndex:)]){
-        [_delegate collectionView:self didSelectItemAtIndex:indexPath.item];
-    }
-    
+
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-
-    CustomCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CustomMenuCell" forIndexPath:indexPath];
+    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RecomendCell" forIndexPath:indexPath];
+    UIImageView *goodsView = [[UIImageView alloc] initWithFrame:cell.bounds];
+    [goodsView setImage:[UIImage imageNamed:[_itemArray objectAtIndex:indexPath.row]]];
+    [cell addSubview:goodsView];
     
-    for (int i = 0; i < [_itemArray count]; i++) {
-        NSDictionary *dic = [_itemArray objectAtIndex:indexPath.row];
-        UIImage *icon = [UIImage imageNamed:[dic objectForKey:@"ImgUrl"]];
-        NSString *menuName = [dic objectForKey:@"name"];
-        
-        [cell.imgIcon setImage:icon];
-        [cell.menuName setText:menuName];
-    }
-   
     return cell;
 }
 

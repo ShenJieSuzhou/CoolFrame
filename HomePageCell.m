@@ -168,6 +168,45 @@
 @end
 
 
+@implementation HomePageCollectionPattarnTwo
+@synthesize collectionView = _collectionView;
+@synthesize itemArray = _itemArray;
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
+    if(self){
+        _itemArray = [[NSMutableArray alloc] init];
+        [self addSubview:[self collectionView]];
+    }
+    
+    return self;
+}
+
+- (id)init{
+    return [self initWithFrame:CGRectZero];
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    [_collectionView setFrame:self.bounds];
+}
+
+- (void)setItemArray:(NSMutableArray *)itemArray{
+    [[self collectionView] setItemArray:itemArray];
+}
+
+- (GoodsCollectionView *)collectionView{
+    if(!_collectionView){
+        _collectionView = [[GoodsCollectionView alloc] init];
+    }
+    
+    return _collectionView;
+}
+
+@end
+
+
 @implementation HomePageMenuCell
 
 @synthesize delegate = _delegate;
