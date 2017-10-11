@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomNewsBanner.h"
+#import "CustomCollectionView.h"
 
 /*
  * 用于主页当中新闻列表显示
@@ -49,19 +50,31 @@
 @interface HomePageProducts : UITableViewCell
 
 @property (strong, nonatomic) CustomNewsBanner *newsBanner;
+@property (strong, nonatomic) NSMutableArray *itemsArray;
 
 @end
 
 
 /*
- * 用于显示主页中格子布局较多的控件
+ * 用于显示主页中菜单
  */
-@interface HomePageCubeCell : UITableViewCell<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface HomePageCollectionPattarnOne : UITableViewCell<CustomCollectionViewDelegate>
+
+@property (strong, nonatomic) CustomCollectionView *collectionView;
+@property (strong, nonatomic) NSMutableArray *itemArray;
+
+@end
+
+/*
+ * 用于显示主页套餐
+ */
+@interface HomePageCollectionPattarnTwo : UITableViewCell
 
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray *itemArray;
 
 @end
+
 
 /*
  * 自定义菜单按钮

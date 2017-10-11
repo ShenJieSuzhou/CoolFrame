@@ -26,7 +26,6 @@
 @property (strong, nonatomic) UIImageView *imgVCenter;
 @property (strong, nonatomic) UIImageView *imgVRight;
 
-- (void)setNewsBannerInfo:(NSMutableArray *)products;
 
 @end
 

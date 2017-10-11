@@ -75,7 +75,6 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
     CustomCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CustomPkgCell" forIndexPath:indexPath];
     
     for (int i = 0; i < [_itemArray count]; i++) {
@@ -83,7 +82,7 @@
         UIImage *icon = [UIImage imageNamed:[dic objectForKey:@"ImgUrl"]];
         NSString *menuName = [dic objectForKey:@"name"];
         
-        [cell.iconImgV setImage:icon];
+        [cell.imgIcon setImage:icon];
         [cell.menuName setText:menuName];
     }
    

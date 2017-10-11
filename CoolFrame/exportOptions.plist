@@ -4,12 +4,12 @@
 <dict>
 	<key>provisioningProfiles</key>
 	<dict>
-		<key>com.xxxxx.bundleID</key>
-		<string>UniversalDis</string>
+		<key>com.snailgames.coolframe</key>
+		<string>UniversalSnailGamesEntDis</string>
 	</dict>
 	<key>method</key>
 	<string>enterprise</string>
 	<key>teamID</key>
-	<string>XXXXXXXXX</string>
+	<string>8SRP47XFRN</string>
 </dict>
 </plist>

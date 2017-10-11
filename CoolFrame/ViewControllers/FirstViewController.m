@@ -88,7 +88,7 @@
     if(tid == 1 || tid == 3 || tid == 6){
         rows = 1;
     }else if(tid == 2 || tid == 4){
-        rows = 2;
+        rows = 1;
     }else if(tid == 5){
         rows = 5;
     }
@@ -113,12 +113,10 @@
             HomePageProducts *productCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageProducts"];
             if(!productCell){
                 productCell = [[HomePageProducts alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageProducts"];
-                [productCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 160)];
             }
             
-            CustomNewsBanner *newsBanner = [[CustomNewsBanner alloc] initWithFrame:productCell.frame];
-            [newsBanner setNewsBannerInfo:newsArray];
-            [productCell addSubview:newsBanner];
+            [productCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 180)];
+            [productCell setItemsArray:newsArray];
             return productCell;
         }
         case 3:{
@@ -151,36 +149,26 @@
         case 2:{
             // Menu button loaded
             NSMutableArray *menuArray = [dic objectForKey:@"MenuData"];
-            NSMutableDictionary *dic = [menuArray objectAtIndex:indexPath.row];
-            NSArray *submenus = [dic objectForKey:@"subMenus"];
-            HomePageMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomePageMenuCell"];
-            if(!cell){
-                cell = [[HomePageMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageMenuCell"];
+            HomePageCollectionPattarnOne *menuCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageCubeCell_section4"];
+            if(!menuCell){
+                menuCell = [[HomePageCollectionPattarnOne alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageCubeCell_section4"];
             }
             
-            [cell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 80)];
-            NSMutableArray *menuItems = [[NSMutableArray alloc] init];
-            
-            for (NSString *menuName in submenus) {
-                CustomMenuItem *item = [[CustomMenuItem alloc] init];
-                [item setTitle:menuName];
-                [menuItems addObject:item];
-            }
-            
-            [cell setItems:menuItems];
-            return cell;
+            [menuCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 170)];
+            [menuCell setItemArray:menuArray];
+            return menuCell;
         }
         case 4:{
             //collectionUI pattern
             NSMutableArray *pkgArray = [dic objectForKey:@"PkgRecommend"];
-            HomePageCubeCell *cubeCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageCubeCell"];
-            if(!cubeCell){
-                cubeCell = [[HomePageCubeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageCubeCell_section4"];
+            HomePageCollectionPattarnOne *menuCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageCubeCell_section4"];
+            if(!menuCell){
+                menuCell = [[HomePageCollectionPattarnOne alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageCubeCell_section4"];
             }
 
-            [cubeCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 120)];
-            [cubeCell setItemArray:pkgArray];
-            return cubeCell;
+            [menuCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 240)];
+            [menuCell setItemArray:pkgArray];
+            return menuCell;
         }
         case 5:{
             // News column

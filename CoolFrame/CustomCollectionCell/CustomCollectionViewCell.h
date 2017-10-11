@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HomePageCell.h"
+
 @interface CustomCollectionViewCell : UICollectionViewCell
 
-@property (strong, nonatomic) CustomMenuItem *menuItem;
+@property (strong, nonatomic) UIImageView *imgIcon; //按钮菜单图片
+
+@property (strong, nonatomic) UILabel *menuName;    //按钮名称
 
 @end

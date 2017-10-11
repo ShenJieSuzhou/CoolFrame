@@ -83,27 +83,41 @@
 
 @implementation HomePageProducts
 
-- (id)initWithFrame:(CGRect)frame{
-    self = [super initWithFrame:frame];
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
     if(self){
-       
+        [self addSubview:[self newsBanner]];
     }
     
     return self;
 }
+
 
 - (id)init{
     return [self initWithFrame:CGRectZero];
 }
 
 - (void)layoutSubviews{
+    [_newsBanner setFrame:self.bounds];
+}
+
+- (void)setItemsArray:(NSMutableArray *)itemsArray{
+    [[self newsBanner] setProductsArray:itemsArray];
+}
+
+- (CustomNewsBanner *)newsBanner{
+    if(!_newsBanner){
+        _newsBanner = [[CustomNewsBanner alloc] initWithFrame:CGRectZero];
+    }
     
+    return _newsBanner;
 }
 
 @end
 
 
-@implementation HomePageCubeCell
+@implementation HomePageCollectionPattarnOne
 @synthesize collectionView = _collectionView;
 @synthesize itemArray = _itemArray;
 
@@ -112,17 +126,7 @@
     
     if(self){
         _itemArray = [[NSMutableArray alloc] init];
-        //初始化布局
-        CustomFlowLayout *flowLayout = [[CustomFlowLayout alloc] init];
-        
-        
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-        [_collectionView setBackgroundColor:[UIColor clearColor]];
-        //注册cell 这一步必须要实现
-        [_collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"CustomCollectionViewCell"];
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
-        [self addSubview:_collectionView];
+        [self addSubview:[self collectionView]];
     }
     
     return self;
@@ -138,43 +142,21 @@
 }
 
 - (void)setItemArray:(NSMutableArray *)itemArray{
-    
-    for (int i = 0; i < [itemArray count]; i++) {
-        NSDictionary *dic = [itemArray objectAtIndex:i];
-        
-        CustomMenuItem *item = [[CustomMenuItem alloc] init];
-        UIImage *finishedImage = [UIImage imageNamed:[dic objectForKey:@"ImgUrl"]];
-        UIImage *unfinishedImage = [UIImage imageNamed:[dic objectForKey:@"ImgUrl"]];
-        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
-        [item setFinishedSelectedImage:finishedImage withFinishedUnselectedImage:unfinishedImage];
-        [item setTitle:[dic objectForKey:@"name"]];
-        item.unselectedTitleAttributes= @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(255, 255, 255),};
-        item.selectedTitleAttributes = @{NSFontAttributeName: NQFONT(10), NSForegroundColorAttributeName: RGB(255, 255, 255),};
-        
-        [_itemArray addObject:item];
+    [[self collectionView] setItemArray:itemArray];
+}
+
+- (CustomCollectionView *)collectionView{
+    if(!_collectionView){
+        _collectionView = [[CustomCollectionView alloc] init];
+        _collectionView.delegate = self;
     }
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 1;
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return _itemArray.count;
-}
-
-- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CustomCollectionViewCell" forIndexPath:indexPath];
     
-    cell.menuItem = [_itemArray objectAtIndex:indexPath.row];
-    
-    return cell;
+    return _collectionView;
 }
 
-
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"%@", indexPath);
+#pragma mark- CustomCollectionViewDelegate
+- (void)collectionView:(CustomCollectionView *)collectionView didSelectItemAtIndex:(NSInteger)index{
+    NSLog(@"you click the item at index:%ld", index);
 }
 
 @end
