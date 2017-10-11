@@ -14,7 +14,6 @@
 
 @end
 
-
 @interface CustomVeriSlider : UIView<UIScrollViewDelegate>
 
 @property (strong, nonatomic) UIScrollView *scrollView;

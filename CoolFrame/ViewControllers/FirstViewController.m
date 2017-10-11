@@ -50,7 +50,7 @@
      */
     self.tableDataArray = [HomePageController getInstance].getHomePageData;
     
-    _homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.customNavbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.customNavbar.frame.size.height) style:UITableViewStyleGrouped];
+    _homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.customNavbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.customNavbar.frame.size.height - 40.0f) style:UITableViewStyleGrouped];
     
     [_homeTableView setBackgroundColor:RGB(220, 220, 220)];
     _homeTableView.delegate = self;
@@ -121,13 +121,11 @@
         }
         case 3:{
             NSMutableArray *tnewsArray = [dic objectForKey:@"FastLook"];
-            
-            HomePageProducts *tCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageFastLook"];
+            UITableViewCell* tCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageFastLook"];
             if(!tCell){
-                tCell = [[HomePageProducts alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageFastLook"];
-                [tCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 45)];
+                tCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageFastLook"];
             }
-            
+            [tCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 45)];
             CustomVeriSlider *veriSlider = [[CustomVeriSlider alloc] initWithFrame:tCell.frame];
             [veriSlider setProductArray:tnewsArray];
             [tCell addSubview:veriSlider];
@@ -135,16 +133,15 @@
         }
         case 6:{
             NSMutableArray *originalArray = [dic objectForKey:@"OriginalTopic"];
-            HomePageProducts *productCell = [tableView dequeueReusableCellWithIdentifier:@"HomePageProducts6"];
-            if(!productCell){
-                productCell = [[HomePageProducts alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageProducts6"];
-                [productCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 200)];
+            UITableViewCell* originaCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageProducts6"];
+            if(!originaCell){
+                originaCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageProducts6"];
             }
-            
-            CustomHorizSlider *slider = [[CustomHorizSlider alloc] initWithFrame:productCell.frame];
+            [originaCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 180)];
+            CustomHorizSlider *slider = [[CustomHorizSlider alloc] initWithFrame:originaCell.frame];
             [slider setProductArray:originalArray];
-            [productCell addSubview:slider];
-            return productCell;
+            [originaCell addSubview:slider];
+            return originaCell;
         }
         case 2:{
             // Menu button loaded
@@ -191,7 +188,7 @@
             return cell;
         }
         default:{
-             UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"defaultCell"];
+            UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"defaultCell"];
             return cell;
         }
     }
