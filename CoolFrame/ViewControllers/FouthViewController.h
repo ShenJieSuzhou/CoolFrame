@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomViewController.h"
+@interface FouthViewController : CustomViewController<UITableViewDataSource, UITableViewDelegate>
 
-@interface FouthViewController : UIViewController
+@property (nonatomic, strong) UITableView *mineTableView;
 
-@property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) NSArray *itemArray;
 
 @end

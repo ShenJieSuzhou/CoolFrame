@@ -73,7 +73,7 @@
     UIImage *finishedImage = [UIImage imageNamed:@"tabbar_back_selected"];
     UIImage *unfinishedImage = [UIImage imageNamed:@"tabbar_back_normal"];
     NSArray *tabBarItemImages = @[@"latest",@"rank", @"contest", @"me"];
-    NSArray *tabBarItemTitles = @[NSLocalizedString(@"微信", nil),NSLocalizedString(@"通信录", nil),NSLocalizedString(@"发现", nil), NSLocalizedString(@"我", nil)];
+    NSArray *tabBarItemTitles = @[NSLocalizedString(@"首页", nil),NSLocalizedString(@"排行", nil),NSLocalizedString(@"发现", nil), NSLocalizedString(@"我的", nil)];
     NSInteger index = 0;
     for (CustomTabBarItem *item in [[tabBarController customTarbar] items])
     {

@@ -33,6 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor clearColor]];
+    [self.customNavbar setM_background:[UIImage imageNamed:@"default"]];
     
     /*
      * 主页搜索框设置

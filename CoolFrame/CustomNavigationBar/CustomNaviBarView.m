@@ -78,7 +78,7 @@
     self.labelTitle.textAlignment = NSTextAlignmentCenter;
     
     self.imgViewBg = [[UIImageView alloc] initWithFrame:self.bounds];
-    self.imgViewBg.image = [[UIImage imageNamed:@"nav_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+//    self.imgViewBg.image = [[UIImage imageNamed:@"default"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
 
     self.labelTitle.frame = [[self class] titleViewFrame];
    
@@ -92,8 +92,29 @@
     return _imgViewBg.image;
 }
 
+- (void)setM_background:(UIImage *)m_background{
+    if(_imgViewBg){
+         [_imgViewBg setImage:nil];
+    }
+   
+    [_imgViewBg setImage:m_background];
+}
+
 - (void)setTitle:(NSString *)titleStr{
     [self.labelTitle setText:titleStr];
+}
+
+- (void)setLabelTitle:(UILabel *)labelTitle{
+    if(_labelTitle){
+        [_labelTitle removeFromSuperview];
+        _labelTitle = nil;
+    }
+    
+    _labelTitle = labelTitle;
+    if(_labelTitle){
+        [_labelTitle setFrame:[[self class] titleViewFrame]];
+        [self addSubview:_labelTitle];
+    }
 }
 
 - (void)setLeftBtn:(UIButton *)btn{
