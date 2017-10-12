@@ -15,7 +15,7 @@
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if(self){
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"default"]];
         self.imgIcon = [[UIImageView alloc] init];
         self.name = [[UILabel alloc] init];
         

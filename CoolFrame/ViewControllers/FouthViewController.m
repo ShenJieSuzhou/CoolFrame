@@ -40,6 +40,11 @@
     [_mineTableView setBackgroundColor:RGB(220, 220, 220)];
     _mineTableView.delegate = self;
     _mineTableView.dataSource = self;
+    
+    HeadCollectionViewCell *headView = [[HeadCollectionViewCell alloc] initWithFrame:CGRectMake(0, -1000, _mineTableView.frame.size.width, 120.0f)];
+    _mineTableView.contentInset = UIEdgeInsetsMake(headView.frame.size.height, 0, 0, 0);
+    [_mineTableView addSubview:headView];
+    
     [self.view addSubview:_mineTableView];
     
 }
@@ -81,13 +86,13 @@
     }
 }
 
-- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    HeadCollectionViewCell *headView = [[HeadCollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 120.0f)];
-
-    headView.layer.borderWidth = 0;
-    
-    return headView;
-}
+//- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    HeadCollectionViewCell *headView = [[HeadCollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 120.0f)];
+//
+//    headView.layer.borderWidth = 0;
+//
+//    return headView;
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
