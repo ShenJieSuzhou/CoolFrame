@@ -32,26 +32,42 @@
     [self setNaviBarTitle:@"我的"];
     [self setNaviBarLeftBtn:nil];
     [self setNaviBarRightBtn:settingBtn];
-    
     [self.customNavbar setM_background:nil];
     
-    _mineTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.customNavbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - - self.customNavbar.frame.size.height - 40.0f) style:UITableViewStyleGrouped];
+    HeadCollectionViewCell *headView = [[HeadCollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, _mineTableView.frame.size.width, 120.0f)];
     
-    [_mineTableView setBackgroundColor:RGB(220, 220, 220)];
-    _mineTableView.delegate = self;
-    _mineTableView.dataSource = self;
-    
-    HeadCollectionViewCell *headView = [[HeadCollectionViewCell alloc] initWithFrame:CGRectMake(0, -1000, _mineTableView.frame.size.width, 120.0f)];
-    _mineTableView.contentInset = UIEdgeInsetsMake(headView.frame.size.height, 0, 0, 0);
     [_mineTableView addSubview:headView];
     
-    [self.view addSubview:_mineTableView];
+    [self.view addSubview:[self mineTableView]];
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+/**
+ * UITableView 懒加载
+ */
+- (UITableView *)mineTableView{
+    if(_mineTableView){
+        _mineTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 40.0f) style:UITableViewStylePlain];
+
+        _mineTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        _mineTableView.estimatedRowHeight = 0;
+        _mineTableView.estimatedSectionHeaderHeight = 0;
+        _mineTableView.estimatedSectionFooterHeight = 0;
+        
+        _mineTableView.backgroundColor = [UIColor clearColor];
+        _mineTableView.scrollsToTop = YES;
+        _mineTableView.tableFooterView = [[UIView alloc] init];
+        
+        _mineTableView.delegate = self;
+        _mineTableView.dataSource = self;
+    }
+    
+    return _mineTableView;
 }
 
 #pragma mark -tableViewDataSource
