@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomViewController.h"
-@interface FouthViewController : CustomViewController<UITableViewDataSource, UITableViewDelegate>
-
-@property (nonatomic, strong) UITableView *mineTableView;
+#import "UserInfo.h"
+@interface FouthViewController : CustomViewController<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) NSArray *itemArray;
+@property (nonatomic, strong) UICollectionView *mineCollection;
+@property (nonatomic, strong) UserInfo *userInfo;
 
 @end

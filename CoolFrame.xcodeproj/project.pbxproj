@@ -56,6 +56,7 @@
 		E50E44351F78D77E00B2FB20 /* CustomVeriSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E50E44341F78D77E00B2FB20 /* CustomVeriSlider.m */; };
 		E50E44BA1F7DE7BA00B2FB20 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E50E44B91F7DE7BA00B2FB20 /* Stickers.xcassets */; };
 		E50E44C61F7E23DE00B2FB20 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E50E44C51F7E23DE00B2FB20 /* CustomCollectionViewCell.m */; };
+		E5205F2B1F95D7510072B3AF /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5205F2A1F95D7510072B3AF /* UserInfo.m */; };
 		E53FEACE1F3AE90E00E84C2F /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = E53FEACD1F3AE90E00E84C2F /* data.plist */; };
 		E53FEAD21F3AF66000E84C2F /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E53FEAD11F3AF66000E84C2F /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E53FEAD51F3B144600E84C2F /* no_searchresult@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E53FEAD31F3B144600E84C2F /* no_searchresult@2x.png */; };
@@ -174,6 +175,8 @@
 		E50E44BB1F7DE7BA00B2FB20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E50E44C41F7E23DE00B2FB20 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
 		E50E44C51F7E23DE00B2FB20 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		E5205F291F95D7510072B3AF /* UserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		E5205F2A1F95D7510072B3AF /* UserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		E53FEACD1F3AE90E00E84C2F /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
 		E53FEAD01F3AF66000E84C2F /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		E53FEAD11F3AF66000E84C2F /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
@@ -558,6 +561,8 @@
 				E5C4BC6A1F8F4A7600848630 /* HeadCollectionViewCell.m */,
 				E5C4BC6C1F8F54E300848630 /* ProfileCollectionViewCell.h */,
 				E5C4BC6D1F8F54E300848630 /* ProfileCollectionViewCell.m */,
+				E5205F291F95D7510072B3AF /* UserInfo.h */,
+				E5205F2A1F95D7510072B3AF /* UserInfo.m */,
 			);
 			name = Mine;
 			path = CoolFrame/Mine;
@@ -651,7 +656,7 @@
 				TargetAttributes = {
 					448345461F26F3A000E400F6 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 8SRP47XFRN;
+						DevelopmentTeam = WSSN499SLU;
 						ProvisioningStyle = Manual;
 					};
 					E50E44B61F7DE7BA00B2FB20 = {
@@ -755,9 +760,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CoolFrame/Pods-CoolFrame-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -832,6 +840,7 @@
 				E53FEADC1F3C071400E84C2F /* SearchHistoryCell.m in Sources */,
 				44C7034F1F33236100C73340 /* CustomViewController.m in Sources */,
 				E5BFA6331F428E38004E5FED /* DownloadUtil.m in Sources */,
+				E5205F2B1F95D7510072B3AF /* UserInfo.m in Sources */,
 				4483456D1F26F46000E400F6 /* FouthViewController.m in Sources */,
 				E5D2610F1F7F83BD0071711C /* CustomFlowLayout.m in Sources */,
 				448345711F26F54100E400F6 /* CustomTabBarController.m in Sources */,
@@ -960,16 +969,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 8SRP47XFRN;
+				DEVELOPMENT_TEAM = WSSN499SLU;
 				INFOPLIST_FILE = CoolFrame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.coolframe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "758157bd-e5dd-4c9b-9562-684b392d368c";
-				PROVISIONING_PROFILE_SPECIFIER = UniversalSnailGamesEntDis;
+				PROVISIONING_PROFILE = "81d45378-bb33-4d4f-86af-4427b2f9b3ce";
+				PROVISIONING_PROFILE_SPECIFIER = UniversalSnailDev;
 			};
 			name = Debug;
 		};

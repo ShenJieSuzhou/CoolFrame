@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomNaviBarView.h"
+#import <MJRefresh/MJRefresh.h>
 
 @interface CustomViewController : UIViewController
 

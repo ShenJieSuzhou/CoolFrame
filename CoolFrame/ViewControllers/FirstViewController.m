@@ -14,6 +14,7 @@
 #import "CustomHorizSlider.h"
 #import "CustomVeriSlider.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <MJRefresh/MJRefresh.h>
 
 @interface FirstViewController ()
 
@@ -53,10 +54,26 @@
     
     _homeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.customNavbar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.customNavbar.frame.size.height - 40.0f) style:UITableViewStyleGrouped];
     
-    [_homeTableView setBackgroundColor:RGB(220, 220, 220)];
     _homeTableView.delegate = self;
     _homeTableView.dataSource = self;
+    
+    [_homeTableView setBackgroundColor:RGB(220, 220, 220)];
+    
+    //头部刷新
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing)];
+    header.automaticallyChangeAlpha = YES;
+    header.lastUpdatedTimeLabel.hidden = NO;
+    _homeTableView.mj_header = header;
+   
+    //底部刷新
+    _homeTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+    _homeTableView.scrollsToTop = YES;
+    _homeTableView.tableFooterView = [[UIView alloc] init];
+    
     [self.view addSubview:_homeTableView];
+    
+    //开始第一次数据拉取
+    [_homeTableView.mj_header beginRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -315,6 +332,18 @@
 - (void)Menu:(HomePageMenuCell *)menu didSelectItemAtIndex:(NSInteger)index{
     
     
+}
+
+#pragma mark - MJRefresh
+//————— 下拉刷新 —————
+-(void)headerRefreshing{
+    NSLog(@"开始刷新数据");
+    [_homeTableView.mj_header endRefreshing];
+}
+
+// ————— 上拉刷新 —————
+-(void)footerRereshing{
+    [_homeTableView.mj_footer endRefreshing];
 }
 
 
