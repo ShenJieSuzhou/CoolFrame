@@ -17,7 +17,7 @@
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if(self){
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor redColor];
         [self addSubview:self.imgIcon];
         [self addSubview:self.name];
         [self addSubview:self.levelIcon];
@@ -118,7 +118,7 @@
     [super layoutSubviews];
     CGRect rect = self.bounds;
     CGFloat margin = 10.0f;
-    [_persionInfoV setFrame:CGRectMake(0, 60, rect.size.width, (rect.size.height - 60) /2 )];
+    [_persionInfoV setFrame:CGRectMake(0, 0, rect.size.width, (rect.size.height - 60) /2 )];
     [_collectionV setFrame:CGRectMake(0, margin + rect.origin.y + rect.size.height /2, rect.size.width, rect.size.height /2)];
     
     CGFloat itemWH = _collectionV.frame.size.width / 3;
@@ -153,6 +153,12 @@
     return _collectionV;
 }
 
+- (void)setItemArray:(NSMutableArray *)itemArray{
+    if(!itemArray) return;
+    
+    _itemArray = [itemArray copy];
+}
+
 #pragma mark - collectionViewDelegate
 
 //有多少的分组
@@ -171,10 +177,10 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RecomendCell" forIndexPath:indexPath];
-//    UIImageView *goodsView = [[UIImageView alloc] initWithFrame:cell.bounds];
-//    [goodsView setImage:[UIImage imageNamed:[_itemArray objectAtIndex:indexPath.row]]];
-//    [cell addSubview:goodsView];
+    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileMenuCell" forIndexPath:indexPath];
+    UIImageView *menuView = [[UIImageView alloc] initWithFrame:cell.bounds];
+    [menuView setImage:[UIImage imageNamed:[_itemArray objectAtIndex:indexPath.row]]];
+    [cell addSubview:menuView];
     
     return cell;
 }

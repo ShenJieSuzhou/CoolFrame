@@ -25,7 +25,7 @@
 @property (strong, nonatomic) PersionInfoView *persionInfoV;
 @property (strong, nonatomic) UICollectionView *collectionV;
 @property (strong, nonatomic) NSMutableArray *itemArray;
-@property (strong, nonatomic) UICollectionViewFlowLayout *flowlayout
+@property (strong, nonatomic) UICollectionViewFlowLayout *flowlayout;
 
 
 @end

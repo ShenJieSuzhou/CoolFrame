@@ -43,9 +43,9 @@
     
     NSDictionary *question = @{@"titleText":@"我的问答",@"title_icon":@"question.png",@"arrow_icon":@"arrow_icon"};
     NSDictionary *releation = @{@"titleText":@"我的圈子",@"title_icon":@"releations.png",@"arrow_icon":@"arrow_icon"};
-    NSDictionary *share = @{@"titleText":@"我的评价",@"title_icon":@"share.png",@"arrow_icon":@"arrow_icon"};
-    NSDictionary *sign = @{@"titleText":@"我的等分享",@"title_icon":@"sign.png",@"arrow_icon":@"arrow_icon"};
-    NSDictionary *dazhong = @{@"titleText":@"大招评审",@"title_icon":@"dazhong.png",@"arrow_icon":@"arrow_icon"};
+    NSDictionary *share = @{@"titleText":@"我的分享",@"title_icon":@"share.png",@"arrow_icon":@"arrow_icon"};
+    NSDictionary *sign = @{@"titleText":@"我的打卡",@"title_icon":@"sign.png",@"arrow_icon":@"arrow_icon"};
+    NSDictionary *dazhong = @{@"titleText":@"大众评审",@"title_icon":@"dazhong.png",@"arrow_icon":@"arrow_icon"};
     NSDictionary *taobizhong = @{@"titleText":@"淘必中",@"title_icon":@"taobizhong.png",@"arrow_icon":@"arrow_icon"};
     NSDictionary *xiaomi = @{@"titleText":@"我的小蜜",@"title_icon":@"xiaomi.png",@"arrow_icon":@"arrow_icon"};
     
@@ -59,7 +59,7 @@
  */
 - (UICollectionView *)mineCollection{
     if(!_mineCollection){
-        _mineCollection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 40) collectionViewLayout:[[HeadCollectionViewFlowLayout alloc] init]];
+        _mineCollection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) collectionViewLayout:[[HeadCollectionViewFlowLayout alloc] init]];
         _mineCollection.backgroundColor = [UIColor clearColor];
         // 注册cell
         [_mineCollection registerClass:[ProfileCollectionViewCell class] forCellWithReuseIdentifier:@"ProfileCollectionViewCell"];
@@ -84,13 +84,16 @@
 
 }
 
+/*
+ * @brief 设置 HeadCollectionViewCell frame 大小
+ */
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    return CGSizeMake(self.view.bounds.size.width, 260); // 设置headerView的宽高
+    return CGSizeMake(self.view.bounds.size.width, 360); // 设置headerView的宽高
 }
 
 #pragma -mark UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 100;
+    return [_userInfo.services count];
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -98,8 +101,8 @@
     ProfileCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileCollectionViewCell" forIndexPath:indexPath];
     
     NSDictionary *dic = [_userInfo.services objectAtIndex:indexPath.row];
-    NSString *iconName = [dic objectForKey:@"icon"];
-    NSString *tlabel = [dic objectForKey:@"cellname"];
+    NSString *iconName = [dic objectForKey:@"title_icon"];
+    NSString *tlabel = [dic objectForKey:@"titleText"];
     
     [cell.textlabel setText:tlabel];
     [cell.iconView setImage:[UIImage imageNamed:iconName]];
@@ -111,15 +114,30 @@
     
     HeadCollectionViewCell *cell = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeadCollectionViewCell" forIndexPath:indexPath];
     
+    [cell.persionInfoV.imgIcon setImage:[UIImage imageNamed:_userInfo.iconImg]];
     
+    if(_userInfo.CFType == CFUserVerifyTypeNone){
+        [cell.persionInfoV.levelIcon setImage:[UIImage imageNamed:@"avatar_grassroot.png"]];
+    }else if(_userInfo.CFType == CFUserVerifyTypeStandard){
+        [cell.persionInfoV.levelIcon setImage:[UIImage imageNamed:@"avatar_enterprise_vip.png"]];
+    }else if(_userInfo.CFType == CFUserVerifyTypeOrganization){
+        [cell.persionInfoV.levelIcon setImage:[UIImage imageNamed:@"avatar_vip.png"]];
+    }else if(_userInfo.CFType == CFUserVerifyTypeClub){
+        [cell.persionInfoV.levelIcon setImage:[UIImage imageNamed:@"common_icon_membership.png"]];
+    }
+    
+    [cell.persionInfoV.name setText:_userInfo.name];
+    [cell.persionInfoV.level setText:_userInfo.levelName];
+    
+    [cell setItemArray:_userInfo.itemArray];
     
     return cell;
 }
 
 
 #pragma mark - UICollectionViewDelegateFlowLayout
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(0, 0, 0, 0); //设置collectionView的cell上、左、下、右的间距
-}
+//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+//{
+//    return UIEdgeInsetsMake(0, 0, 0, 0); //设置collectionView的cell上、左、下、右的间距
+//}
 @end

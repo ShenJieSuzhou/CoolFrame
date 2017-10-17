@@ -28,14 +28,14 @@
                  level:(NSString *)levelName
                   type:(CFUserVerifyType)type
                  menus:(NSMutableArray *)itemArray
-              services:(NSArray *)services;{
+              services:(NSArray *)services{
     
     self.name = name;
     self.iconImg = iconImg;
     self.levelName = levelName;
     self.CFType = type;
     self.itemArray = itemArray;
-    self.services = _services;
+    self.services = [[NSMutableArray alloc] initWithArray:services];
 }
 
 @end

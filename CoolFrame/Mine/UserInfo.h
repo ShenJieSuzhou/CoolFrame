@@ -23,7 +23,7 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) NSString *levelName;          //名号
 @property (nonatomic, assign) CFUserVerifyType CFType;      //等级icon
 @property (nonatomic, strong) NSMutableArray *itemArray;    //可用功能
-@property (nonatomic, strong) NSArray *services;     //我的服务
+@property (nonatomic, strong) NSMutableArray *services;     //我的服务
 
 - (void)initWithParams:(NSString *)name
                   icon:(NSString *)iconImg
