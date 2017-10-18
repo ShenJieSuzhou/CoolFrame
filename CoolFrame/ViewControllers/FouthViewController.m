@@ -11,7 +11,7 @@
 #import "HeadCollectionViewCell.h"
 #import "ProfileCollectionViewCell.h"
 #import "GlobalDefine.h"
-
+#import <MJRefresh/MJRefresh.h>
 
 @interface FouthViewController ()
 
@@ -27,7 +27,15 @@
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor clearColor]];
     
+    //头部刷新
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(dataRefreshing)];
+    header.automaticallyChangeAlpha = YES;
+    header.lastUpdatedTimeLabel.hidden = NO;
+    self.mineCollection.mj_header = header;
+    
     [self.view addSubview:[self mineCollection]];
+    //开始第一次数据拉取
+    [self.mineCollection.mj_header beginRefreshing];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -59,7 +67,8 @@
  */
 - (UICollectionView *)mineCollection{
     if(!_mineCollection){
-        _mineCollection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) collectionViewLayout:[[HeadCollectionViewFlowLayout alloc] init]];
+        _mineCollection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, -20, self.view.bounds.size.width, self.view.bounds.size.height) collectionViewLayout:[[HeadCollectionViewFlowLayout alloc] init]];
+        _mineCollection.alwaysBounceVertical = YES;
         _mineCollection.backgroundColor = [UIColor clearColor];
         // 注册cell
         [_mineCollection registerClass:[ProfileCollectionViewCell class] forCellWithReuseIdentifier:@"ProfileCollectionViewCell"];
@@ -134,10 +143,10 @@
     return cell;
 }
 
+//————— 下拉刷新 —————
+-(void)dataRefreshing{
+    NSLog(@"开始刷新数据");
+    [self.mineCollection.mj_header endRefreshing];
+}
 
-#pragma mark - UICollectionViewDelegateFlowLayout
-//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-//{
-//    return UIEdgeInsetsMake(0, 0, 0, 0); //设置collectionView的cell上、左、下、右的间距
-//}
 @end

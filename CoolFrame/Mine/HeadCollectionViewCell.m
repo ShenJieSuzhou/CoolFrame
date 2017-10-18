@@ -118,7 +118,7 @@
     [super layoutSubviews];
     CGRect rect = self.bounds;
     CGFloat margin = 10.0f;
-    [_persionInfoV setFrame:CGRectMake(0, 0, rect.size.width, (rect.size.height - 60) /2 )];
+    [_persionInfoV setFrame:CGRectMake(0, 0, rect.size.width, rect.size.height /2 )];
     [_collectionV setFrame:CGRectMake(0, margin + rect.origin.y + rect.size.height /2, rect.size.width, rect.size.height /2)];
     
     CGFloat itemWH = _collectionV.frame.size.width / 3;
