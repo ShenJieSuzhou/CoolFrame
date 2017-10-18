@@ -26,7 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor clearColor]];
-    
+        
     //头部刷新
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(dataRefreshing)];
     header.automaticallyChangeAlpha = YES;
@@ -97,7 +97,7 @@
  * @brief 设置 HeadCollectionViewCell frame 大小
  */
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    return CGSizeMake(self.view.bounds.size.width, 360); // 设置headerView的宽高
+    return CGSizeMake(self.view.bounds.size.width, 400); // 设置headerView的宽高
 }
 
 #pragma -mark UICollectionViewDataSource
@@ -115,7 +115,8 @@
     
     [cell.textlabel setText:tlabel];
     [cell.iconView setImage:[UIImage imageNamed:iconName]];
-    
+    [cell.sep setBackgroundColor:RGB(220, 220, 220)];
+    [cell.arrow setImage:[UIImage imageNamed:@"arrow_icon"]];
     return cell;
 }
 

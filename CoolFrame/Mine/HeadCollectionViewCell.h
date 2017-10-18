@@ -18,6 +18,8 @@
 
 @property (strong, nonatomic) UIImageView *levelIcon; //级别icon
 
+@property (strong, nonatomic) UIButton *settingBtn;  //设置
+
 @end
 
 @interface HeadCollectionViewCell : UICollectionReusableView<UICollectionViewDelegate, UICollectionViewDataSource>

@@ -14,4 +14,8 @@
 
 @property (strong, nonatomic) UIImageView *iconView;
 
+@property (strong, nonatomic) UIImageView *arrow;
+
+@property (strong, nonatomic) UIImageView *sep;
+
 @end

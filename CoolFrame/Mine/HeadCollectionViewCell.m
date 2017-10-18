@@ -13,6 +13,7 @@
 @synthesize levelIcon = _levelIcon;
 @synthesize name = _name;
 @synthesize level = _level;
+@synthesize settingBtn = _settingBtn;
 
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -22,6 +23,7 @@
         [self addSubview:self.name];
         [self addSubview:self.levelIcon];
         [self addSubview:self.level];
+        [self addSubview:self.settingBtn];
     }
     
     return self;
@@ -33,16 +35,23 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    [self.imgIcon setFrame:CGRectMake(30, (self.frame.size.height - 70)/2, 70, 70)];
-    CGFloat nameX = self.imgIcon.frame.origin.x + self.imgIcon.frame.size.width + 50.0f;
-    CGFloat nameY = self.imgIcon.frame.origin.x;
-    [self.name setFrame:CGRectMake(nameX, nameY, 150, 20)];
+    [self.imgIcon setFrame:CGRectMake(20, 40, 80, 80)];
+    _imgIcon.layer.cornerRadius = _imgIcon.frame.size.width/2;      //裁成圆角
+    _imgIcon.layer.masksToBounds = YES;                             //隐藏裁剪掉的部分
+    _imgIcon.layer.borderWidth = 1.5f;                              //边框宽度
+    _imgIcon.layer.borderColor = [UIColor whiteColor].CGColor;      //边框颜色
     
-    CGFloat leveliconX = self.name.frame.origin.x + self.name.frame.size.width + 10.0f;
-    CGFloat leveliconY = self.name.frame.origin.y;
-    [self.levelIcon setFrame:CGRectMake(leveliconX, leveliconY, 30, 30)];
+    CGFloat nameX = self.imgIcon.frame.origin.x + self.imgIcon.frame.size.width + 10.0f;
+    CGFloat nameY = self.imgIcon.frame.origin.y + 10.0f;
+    [self.name setFrame:CGRectMake(nameX, nameY, 100, 20)];
     
-    [self.level setFrame:CGRectMake(nameX, nameY + 25, 150, 20)];
+    CGFloat leveliconX = self.imgIcon.frame.origin.x + self.imgIcon.frame.size.width - 20.0f;
+    CGFloat leveliconY = self.imgIcon.frame.origin.y;
+    [self.levelIcon setFrame:CGRectMake(leveliconX, leveliconY, 15, 15)];
+    
+    [self.level setFrame:CGRectMake(nameX, nameY + 25, 100, 20)];
+    
+    [self.settingBtn setFrame:CGRectMake(self.frame.size.width - 80, nameY, 50, 25)];
 }
 
 /**
@@ -74,6 +83,8 @@
 - (UILabel *)name{
     if(!_name){
         _name = [[UILabel alloc] init];
+        [_name setFont:[UIFont fontWithName:@"Helvetica-Bold" size:15.0f]];
+        [_name setTextColor:[UIColor whiteColor]];
     }
     return _name;
 }
@@ -85,9 +96,23 @@
 - (UILabel *)level{
     if(!_level){
         _level = [[UILabel alloc] init];
+        [_level setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.0f]];
+        [_level setTextColor:[UIColor whiteColor]];
     }
     return _level;
 }
+
+- (UIButton *)settingBtn{
+    if(!_settingBtn){
+        _settingBtn = [[UIButton alloc] init];
+        [_settingBtn setTitle:@"设置" forState:UIControlStateNormal];
+        [_settingBtn.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:15.0f]];
+        [_settingBtn setTintColor:[UIColor whiteColor]];
+    }
+    
+    return _settingBtn;
+}
+
 
 @end
 
@@ -117,9 +142,9 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     CGRect rect = self.bounds;
-    CGFloat margin = 10.0f;
-    [_persionInfoV setFrame:CGRectMake(0, 0, rect.size.width, rect.size.height /2 )];
-    [_collectionV setFrame:CGRectMake(0, margin + rect.origin.y + rect.size.height /2, rect.size.width, rect.size.height /2)];
+
+    [_persionInfoV setFrame:CGRectMake(0, 0, rect.size.width, rect.size.height * 0.34 )];
+    [_collectionV setFrame:CGRectMake(0, _persionInfoV.frame.size.height, rect.size.width, rect.size.height *0.66)];
     
     CGFloat itemWH = _collectionV.frame.size.width / 3;
     _flowlayout.itemSize = CGSizeMake(itemWH, itemWH);
