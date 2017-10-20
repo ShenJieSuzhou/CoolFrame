@@ -7,6 +7,7 @@
 //
 
 #import "HeadCollectionViewCell.h"
+#import "MineViewFuncCell.h"
 
 @implementation PersionInfoView
 @synthesize imgIcon = _imgIcon;
@@ -143,11 +144,12 @@
     [super layoutSubviews];
     CGRect rect = self.bounds;
 
-    [_persionInfoV setFrame:CGRectMake(0, 0, rect.size.width, rect.size.height * 0.34 )];
-    [_collectionV setFrame:CGRectMake(0, _persionInfoV.frame.size.height, rect.size.width, rect.size.height *0.66)];
+    [_persionInfoV setFrame:CGRectMake(0, 0, rect.size.width, rect.size.height * 0.45 )];
+    [_collectionV setFrame:CGRectMake(0, _persionInfoV.frame.size.height, rect.size.width, rect.size.height *0.55)];
     
-    CGFloat itemWH = _collectionV.frame.size.width / 3;
-    _flowlayout.itemSize = CGSizeMake(itemWH, itemWH);
+    CGFloat itemW = _collectionV.frame.size.width / 3;
+    CGFloat itemH = _collectionV.frame.size.height / 2;
+    _flowlayout.itemSize = CGSizeMake(itemW, itemH);
     _collectionV.pagingEnabled = YES;
     _collectionV.scrollEnabled = NO;
     _flowlayout.minimumLineSpacing = 0;
@@ -170,7 +172,7 @@
         _flowlayout = [[UICollectionViewFlowLayout alloc] init];
         _collectionV = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_flowlayout];
         //注册cell
-        [_collectionV registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"ProfileMenuCell"];
+        [_collectionV registerClass:[MineViewFuncCell class] forCellWithReuseIdentifier:@"MineViewFuncCell"];
         _collectionV.dataSource = self;
         _collectionV.delegate = self;
         
@@ -202,10 +204,15 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileMenuCell" forIndexPath:indexPath];
-    UIImageView *menuView = [[UIImageView alloc] initWithFrame:cell.bounds];
-    [menuView setImage:[UIImage imageNamed:[_itemArray objectAtIndex:indexPath.row]]];
-    [cell addSubview:menuView];
+
+    MineViewFuncCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MineViewFuncCell" forIndexPath:indexPath];
+    
+    NSDictionary *dic = [_itemArray objectAtIndex:indexPath.row];
+    UIImage *icon = [UIImage imageNamed:[dic objectForKey:@"title_icon"]];
+    NSString *menuName = [dic objectForKey:@"titleText"];
+    
+    [cell.imgIcon setImage:icon];
+    [cell.menuName setText:menuName];
     
     return cell;
 }

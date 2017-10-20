@@ -42,12 +42,14 @@
     /*
      * 初始化 用户信息
      */
-    NSMutableArray *items = [[NSMutableArray alloc] initWithObjects:@"realname.png",
-                             @"task.png",
-                             @"gift.png",
-                             @"reservation.png",
-                             @"order.png",
-                             @"address.png", nil];
+    NSDictionary *realname = @{@"titleText":@"实名认证",@"title_icon":@"realname.png"};
+    NSDictionary *task = @{@"titleText":@"我的任务",@"title_icon":@"task.png"};
+    NSDictionary *gift = @{@"titleText":@"我的礼包",@"title_icon":@"gift.png"};
+    NSDictionary *reservation = @{@"titleText":@"我的预约",@"title_icon":@"reservation.png"};
+    NSDictionary *order = @{@"titleText":@"我的订单",@"title_icon":@"order.png"};
+    NSDictionary *address = @{@"titleText":@"收货地址",@"title_icon":@"address.png"};
+    
+    NSArray *items = @[realname, task, gift, reservation, order, address];
     
     NSDictionary *question = @{@"titleText":@"我的问答",@"title_icon":@"question.png",@"arrow_icon":@"arrow_icon"};
     NSDictionary *releation = @{@"titleText":@"我的圈子",@"title_icon":@"releations.png",@"arrow_icon":@"arrow_icon"};
@@ -97,7 +99,7 @@
  * @brief 设置 HeadCollectionViewCell frame 大小
  */
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    return CGSizeMake(self.view.bounds.size.width, 400); // 设置headerView的宽高
+    return CGSizeMake(self.view.bounds.size.width, 350); // 设置headerView的宽高
 }
 
 #pragma -mark UICollectionViewDataSource

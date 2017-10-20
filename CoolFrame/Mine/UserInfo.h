@@ -29,7 +29,7 @@ typedef enum : NSUInteger {
                   icon:(NSString *)iconImg
                  level:(NSString *)levelName
                   type:(CFUserVerifyType)type
-                 menus:(NSMutableArray *)itemArray
+                 menus:(NSArray *)itemArray
               services:(NSArray *)services;
 
 @end
