@@ -8,6 +8,7 @@
 
 #import "HeadCollectionViewCell.h"
 #import "MineViewFuncCell.h"
+#import "GlobalDefine.h"
 
 @implementation PersionInfoView
 @synthesize imgIcon = _imgIcon;
@@ -147,13 +148,21 @@
     [_persionInfoV setFrame:CGRectMake(0, 0, rect.size.width, rect.size.height * 0.45 )];
     [_collectionV setFrame:CGRectMake(0, _persionInfoV.frame.size.height, rect.size.width, rect.size.height *0.55)];
     
-    CGFloat itemW = _collectionV.frame.size.width / 3;
+    //间距
+    CGFloat cellSpace = 1 / UIScreen.mainScreen.scale;
+    //水平间隔
+    _flowlayout.minimumInteritemSpacing = cellSpace;
+    //垂直行间距
+    _flowlayout.minimumLineSpacing = cellSpace;
+    
+    //单元格宽度
+    CGFloat itemW = (_collectionV.frame.size.width - 2*cellSpace)/ 3;
+    
+    //单元格高度
     CGFloat itemH = _collectionV.frame.size.height / 2;
     _flowlayout.itemSize = CGSizeMake(itemW, itemH);
     _collectionV.pagingEnabled = YES;
     _collectionV.scrollEnabled = NO;
-    _flowlayout.minimumLineSpacing = 0;
-    _flowlayout.minimumInteritemSpacing = 0;
 }
 
 /**
@@ -171,6 +180,7 @@
     if(!_collectionV){
         _flowlayout = [[UICollectionViewFlowLayout alloc] init];
         _collectionV = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_flowlayout];
+        [_collectionV setBackgroundColor:RGB(220, 220, 220)];
         //注册cell
         [_collectionV registerClass:[MineViewFuncCell class] forCellWithReuseIdentifier:@"MineViewFuncCell"];
         _collectionV.dataSource = self;

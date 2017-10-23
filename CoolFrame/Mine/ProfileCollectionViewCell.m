@@ -50,7 +50,7 @@
     [self.iconView setFrame:CGRectMake(2*margin, (rect.size.height - 25)/2, 25, 25)];
     [self.textlabel setFrame:CGRectMake(3*margin + self.iconView.frame.size.width , (rect.size.height - 20)/2, rect.size.width, 20)];
     [_arrow setFrame:CGRectMake(rect.size.width - 40, (rect.size.height - 20)/2, 20, 20)];
-    [_sep setFrame:CGRectMake(20, 1 , rect.size.width - 40, 1)];
+    [_sep setFrame:CGRectMake(20, rect.size.height - 1 , rect.size.width - 40, 1)];
 }
 
 @end

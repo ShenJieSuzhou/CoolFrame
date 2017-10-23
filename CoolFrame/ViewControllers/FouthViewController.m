@@ -118,6 +118,10 @@
     [cell.textlabel setText:tlabel];
     [cell.iconView setImage:[UIImage imageNamed:iconName]];
     [cell.sep setBackgroundColor:RGB(220, 220, 220)];
+    if(indexPath.row == (_userInfo.services.count - 1)){
+        [cell.sep setBackgroundColor:[UIColor clearColor]];
+    }
+    
     [cell.arrow setImage:[UIImage imageNamed:@"arrow_icon"]];
     return cell;
 }

@@ -726,7 +726,7 @@
 				TargetAttributes = {
 					448345461F26F3A000E400F6 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = T5646BFYTP;
+						DevelopmentTeam = WSSN499SLU;
 						ProvisioningStyle = Manual;
 					};
 					E50E44B61F7DE7BA00B2FB20 = {
@@ -1059,16 +1059,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = T5646BFYTP;
+				DEVELOPMENT_TEAM = WSSN499SLU;
 				INFOPLIST_FILE = CoolFrame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.snailgamesusa.taiji;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.coolframe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "62346a2b-fd2a-4433-9bf2-9dd1409ab0ca";
-				PROVISIONING_PROFILE_SPECIFIER = taijiUSADistribution;
+				PROVISIONING_PROFILE = "81d45378-bb33-4d4f-86af-4427b2f9b3ce";
+				PROVISIONING_PROFILE_SPECIFIER = UniversalSnailDev;
 			};
 			name = Debug;
 		};
@@ -1078,16 +1078,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = T5646BFYTP;
+				DEVELOPMENT_TEAM = WSSN499SLU;
 				INFOPLIST_FILE = CoolFrame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.snailgamesusa.taiji;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.coolframe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "62346a2b-fd2a-4433-9bf2-9dd1409ab0ca";
-				PROVISIONING_PROFILE_SPECIFIER = taijiUSADistribution;
+				PROVISIONING_PROFILE = "81d45378-bb33-4d4f-86af-4427b2f9b3ce";
+				PROVISIONING_PROFILE_SPECIFIER = UniversalSnailDev;
 			};
 			name = Release;
 		};
