@@ -95,7 +95,6 @@
 		E56F5EF11F8E077A0034F1ED /* placehold3.png in Resources */ = {isa = PBXBuildFile; fileRef = E56F5EED1F8E077A0034F1ED /* placehold3.png */; };
 		E56F5EF21F8E077A0034F1ED /* placehold4.png in Resources */ = {isa = PBXBuildFile; fileRef = E56F5EEE1F8E077A0034F1ED /* placehold4.png */; };
 		E56F5EF51F8E08A70034F1ED /* GoodsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E56F5EF41F8E08A70034F1ED /* GoodsCollectionView.m */; };
-		E57935721F4C5B4C00375692 /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57935711F4C5B4C00375692 /* exportOptions.plist */; };
 		E5BFA6331F428E38004E5FED /* DownloadUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BFA6321F428E38004E5FED /* DownloadUtil.m */; };
 		E5C4BC5C1F8F07F900848630 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C4BC5B1F8F07F900848630 /* default.png */; };
 		E5C4BC5F1F8F0A5800848630 /* tabbar_back_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C4BC5D1F8F0A5800848630 /* tabbar_back_normal.png */; };
@@ -243,7 +242,6 @@
 		E56F5EEE1F8E077A0034F1ED /* placehold4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placehold4.png; sourceTree = "<group>"; };
 		E56F5EF31F8E08A70034F1ED /* GoodsCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsCollectionView.h; sourceTree = "<group>"; };
 		E56F5EF41F8E08A70034F1ED /* GoodsCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsCollectionView.m; sourceTree = "<group>"; };
-		E57935711F4C5B4C00375692 /* exportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
 		E5BFA6311F428E38004E5FED /* DownloadUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadUtil.h; sourceTree = "<group>"; };
 		E5BFA6321F428E38004E5FED /* DownloadUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadUtil.m; sourceTree = "<group>"; };
 		E5C4BC5B1F8F07F900848630 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
@@ -420,7 +418,6 @@
 			isa = PBXGroup;
 			children = (
 				E5EB48D51F668AB800FFA1E4 /* fakeData.json */,
-				E57935711F4C5B4C00375692 /* exportOptions.plist */,
 				E53FEACC1F3AE8D700E84C2F /* Temp */,
 				440255591F29B33F007F9428 /* Resources */,
 				4483454B1F26F3A000E400F6 /* main.m */,
@@ -821,7 +818,6 @@
 				44C703561F34499300C73340 /* search_icon@3x.png in Resources */,
 				E5EB48D61F668AB900FFA1E4 /* fakeData.json in Resources */,
 				E53FEAD61F3B144600E84C2F /* no_searchresult@3x.png in Resources */,
-				E57935721F4C5B4C00375692 /* exportOptions.plist in Resources */,
 				E5C4BC5C1F8F07F900848630 /* default.png in Resources */,
 				E56F5EF11F8E077A0034F1ED /* placehold3.png in Resources */,
 				E5205F481F95FEDC0072B3AF /* question.png in Resources */,
