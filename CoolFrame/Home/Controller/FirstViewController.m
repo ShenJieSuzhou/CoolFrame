@@ -181,7 +181,7 @@
                 goodsCell = [[HomePageCollectionPattarnTwo alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageCubeCell_section4"];
             }
 
-            [goodsCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 270)];
+            [goodsCell setFrame:CGRectMake(0, 0, tableView.frame.size.width, 170)];
             [goodsCell setItemArray:pkgArray];
             return goodsCell;
         }

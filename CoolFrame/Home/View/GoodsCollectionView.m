@@ -29,12 +29,12 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     [_collectionView setFrame:self.bounds];
-    CGFloat itemWH = _collectionView.frame.size.width / 2;
-    _flowLayout.itemSize = CGSizeMake(itemWH, itemWH * 0.66);
+    CGFloat itemWH = (_collectionView.frame.size.width-1) / 2;
+    _flowLayout.itemSize = CGSizeMake(itemWH, itemWH * 0.4);
     _collectionView.pagingEnabled = YES;
     _collectionView.scrollEnabled = NO;
-    _flowLayout.minimumLineSpacing = 0;
-    _flowLayout.minimumInteritemSpacing = 0;
+    _flowLayout.minimumLineSpacing = 1;
+    _flowLayout.minimumInteritemSpacing = 1;
 }
 
 -(UICollectionView *)collectionView{
@@ -80,6 +80,7 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RecomendCell" forIndexPath:indexPath];
     UIImageView *goodsView = [[UIImageView alloc] initWithFrame:cell.bounds];
+    goodsView.contentMode = UIViewContentModeScaleAspectFit;
     [goodsView setImage:[UIImage imageNamed:[_itemArray objectAtIndex:indexPath.row]]];
     [cell addSubview:goodsView];
     

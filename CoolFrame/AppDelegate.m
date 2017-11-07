@@ -64,7 +64,6 @@
 //        _navController  = [[CustomNavigationController new] initWithNavigationBarClass:[CustomNavBar class] toolbarClass:[UIToolbar class]];
 //        [_navController pushViewController:_tabBarController animated:NO];
         
-        
         _navController = [[CustomNavigationController alloc] initWithRootViewController:_tabBarController];
     }
 }
