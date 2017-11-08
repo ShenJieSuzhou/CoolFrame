@@ -43,6 +43,8 @@
 		44C703551F34499300C73340 /* search_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C703531F34499300C73340 /* search_icon@2x.png */; };
 		44C703561F34499300C73340 /* search_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C703541F34499300C73340 /* search_icon@3x.png */; };
 		BB0F63914DC5A97C0416A10B /* libPods-CoolFrame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FDB8BDBD61321465ECB8F5D /* libPods-CoolFrame.a */; };
+		E505C2EE1FB2D0E000804205 /* AdPageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E505C2ED1FB2D0E000804205 /* AdPageManager.m */; };
+		E505C2F11FB2DE9300804205 /* adtestimg.png in Resources */ = {isa = PBXBuildFile; fileRef = E505C2F01FB2DE9300804205 /* adtestimg.png */; };
 		E5205F3F1F95FEDC0072B3AF /* address.png in Resources */ = {isa = PBXBuildFile; fileRef = E5205F2D1F95FEDB0072B3AF /* address.png */; };
 		E5205F401F95FEDC0072B3AF /* arrow_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5205F2E1F95FEDB0072B3AF /* arrow_icon@2x.png */; };
 		E5205F411F95FEDC0072B3AF /* avatar_enterprise_vip@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5205F2F1F95FEDB0072B3AF /* avatar_enterprise_vip@3x.png */; };
@@ -166,6 +168,9 @@
 		44C703541F34499300C73340 /* search_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search_icon@3x.png"; sourceTree = "<group>"; };
 		68BD05494C916ACA8B897988 /* Pods-CoolFrame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolFrame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoolFrame/Pods-CoolFrame.debug.xcconfig"; sourceTree = "<group>"; };
 		8FDB8BDBD61321465ECB8F5D /* libPods-CoolFrame.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CoolFrame.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E505C2EC1FB2D0E000804205 /* AdPageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdPageManager.h; sourceTree = "<group>"; };
+		E505C2ED1FB2D0E000804205 /* AdPageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdPageManager.m; sourceTree = "<group>"; };
+		E505C2F01FB2DE9300804205 /* adtestimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adtestimg.png; sourceTree = "<group>"; };
 		E5205F2D1F95FEDB0072B3AF /* address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = address.png; sourceTree = "<group>"; };
 		E5205F2E1F95FEDB0072B3AF /* arrow_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_icon@2x.png"; sourceTree = "<group>"; };
 		E5205F2F1F95FEDB0072B3AF /* avatar_enterprise_vip@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar_enterprise_vip@3x.png"; sourceTree = "<group>"; };
@@ -351,6 +356,7 @@
 		448345491F26F3A000E400F6 /* CoolFrame */ = {
 			isa = PBXGroup;
 			children = (
+				E505C2EB1FB2D08B00804205 /* Manager */,
 				E5D2610B1F7F81310071711C /* MacrosDefine */,
 				E5EB48D11F6682C900FFA1E4 /* Util */,
 				E5BFA6301F428E38004E5FED /* Download */,
@@ -448,6 +454,23 @@
 				8FDB8BDBD61321465ECB8F5D /* libPods-CoolFrame.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E505C2EB1FB2D08B00804205 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E505C2EC1FB2D0E000804205 /* AdPageManager.h */,
+				E505C2ED1FB2D0E000804205 /* AdPageManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		E505C2EF1FB2DE7B00804205 /* Ad */ = {
+			isa = PBXGroup;
+			children = (
+				E505C2F01FB2DE9300804205 /* adtestimg.png */,
+			);
+			path = Ad;
 			sourceTree = "<group>";
 		};
 		E5205F2C1F95FEDB0072B3AF /* mine */ = {
@@ -742,6 +765,7 @@
 		E5EB48DB1F67B53300FFA1E4 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E505C2EF1FB2DE7B00804205 /* Ad */,
 				E5205F2C1F95FEDB0072B3AF /* mine */,
 				E5C4BC5B1F8F07F900848630 /* default.png */,
 				E56F5EEA1F8E077A0034F1ED /* goods */,
@@ -856,6 +880,7 @@
 				E5205F411F95FEDC0072B3AF /* avatar_enterprise_vip@3x.png in Resources */,
 				440255731F29E395007F9428 /* contest@3x.png in Resources */,
 				E56F5EF21F8E077A0034F1ED /* placehold4.png in Resources */,
+				E505C2F11FB2DE9300804205 /* adtestimg.png in Resources */,
 				440255771F29E395007F9428 /* me@3x.png in Resources */,
 				44C703521F3447E200C73340 /* nav_bg@2x.png in Resources */,
 				E5205F451F95FEDC0072B3AF /* dazhong.png in Resources */,
@@ -961,6 +986,7 @@
 				E53FEAD21F3AF66000E84C2F /* JSONKit.m in Sources */,
 				E5EB48D41F6684AF00FFA1E4 /* FileUtil.m in Sources */,
 				E59284401FAC412A00BCDD6D /* CustomNewsBanner.m in Sources */,
+				E505C2EE1FB2D0E000804205 /* AdPageManager.m in Sources */,
 				E592844F1FAC436600BCDD6D /* ThirdViewController.m in Sources */,
 				E59284791FAC4C9800BCDD6D /* CustomUISearchBar.m in Sources */,
 				448345781F2715A300E400F6 /* CustomTabBarItem.m in Sources */,
@@ -1111,6 +1137,7 @@
 			baseConfigurationReference = 68BD05494C916ACA8B897988 /* Pods-CoolFrame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -1130,6 +1157,7 @@
 			baseConfigurationReference = 11BAA4C4696240A288A78EB8 /* Pods-CoolFrame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;

@@ -15,6 +15,7 @@
 #import "SecondViewController.h"
 #import "ThirdViewController.h"
 #import "FouthViewController.h"
+#import "AdPageManager.h"
 
 #define NQFONT(v) [UIFont fontWithName:@"HiraKakuProN-W3" size:v]
 #define RGB(r, g, b)                        [UIColor colorWithRed:(r)/255.f green:(g)/255.f blue:(b)/255.f alpha:1.f]
@@ -61,9 +62,6 @@
     [self customizeTabBarForController:_tabBarController];
     
     if(!_navController){
-//        _navController  = [[CustomNavigationController new] initWithNavigationBarClass:[CustomNavBar class] toolbarClass:[UIToolbar class]];
-//        [_navController pushViewController:_tabBarController animated:NO];
-        
         _navController = [[CustomNavigationController alloc] initWithRootViewController:_tabBarController];
     }
 }
@@ -101,6 +99,10 @@
     
     [self.window setRootViewController:_navController];
     [self.window makeKeyAndVisible];
+    
+    AdPageManager *manager = [[AdPageManager alloc] initWithFrame:[UIScreen mainScreen].bounds withAdUrl:@"adtestimg" withBlock:^{
+        NSLog(@"广告结束");
+    }];
     
     return YES;
 }
