@@ -30,8 +30,8 @@
     if(self){
         [self setBackgroundColor:[UIColor clearColor]];
         self.history = [[UILabel alloc] init];
-        [self.history setTextColor:[UIColor whiteColor]];
-        [self.history setFont:[UIFont systemFontOfSize:17]];
+        [self.history setTextColor:[UIColor blackColor]];
+        [self.history setFont:[UIFont systemFontOfSize:15]];
         [self.contentView addSubview:self.history];
         
         self.clear = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -40,9 +40,8 @@
         [self.contentView addSubview:self.clear];
         
         self.sep = [[UIImageView alloc] init];
-        [self.sep setBackgroundColor:[UIColor clearColor]];
+        [self.sep setBackgroundColor:RGBA(193, 193, 193, 0.2)];
         [self.sep setContentMode:UIViewContentModeBottom];
-        [self.sep setImage:[UIImage imageNamed:@"separator_line"]];
         self.sep.clipsToBounds = YES;
         [self.contentView addSubview:self.sep];
     }
@@ -60,7 +59,7 @@
     CGRect rcBtn = CGRectMake(rcView.size.width - 10*ScreenScale - 18, (rcView.size.height -20)/2, 18, 18);
     self.clear.frame = rcBtn;
     
-    CGRect rcSep = CGRectMake(10*ScreenScale, rcView.size.height -4, rcView.size.width - 20*ScreenScale, 4);
+    CGRect rcSep = CGRectMake(10*ScreenScale, rcView.size.height -4, rcView.size.width - 20*ScreenScale, 1);
     self.sep.frame = rcSep;
 }
 

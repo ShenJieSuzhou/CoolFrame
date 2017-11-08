@@ -47,7 +47,7 @@
         }
     }
     
-    textField.textColor = [UIColor whiteColor];
+    textField.textColor = [UIColor grayColor];
 }
 
 - (void)changeBarCancelButtonWithColor:(UIColor *)textColor bgImageName:(NSString *)bgImageName{

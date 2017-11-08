@@ -43,7 +43,7 @@ static NSArray *hotSearch;
     
     hotSearch = @[@"习近平", @"四川", @"九寨沟", @"地震", @"指示", @"天气预报"];
     
-    [self.view setBackgroundColor:RGBA(31, 27, 38, 1)];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
 
     self.searchController = [[NaviBarSearchController alloc] initWithParentViewCtrl:self];
     self.searchController.delegate = self;

@@ -31,9 +31,10 @@
     for (int i = 0; i < [hotKeyArray count]; i++){
         NSString *hotStr = [hotKeyArray objectAtIndex:i];
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-        [btn setBackgroundColor:[UIColor redColor]];
+        [btn setBackgroundColor:RGBA(193, 193, 193, 0.5)];
         [btn setTitle:hotStr forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [btn.layer setCornerRadius:5.0f];
         
         if(i == 3){
             _prev_X = 0.0f;

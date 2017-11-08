@@ -30,8 +30,8 @@
     if(self){
         [self setBackgroundColor:[UIColor clearColor]];
         self.result = [[UILabel alloc] init];
-        [self.result setTextColor:[UIColor whiteColor]];
-        [self.result setFont:[UIFont systemFontOfSize:17]];
+        [self.result setTextColor:[UIColor blackColor]];
+        [self.result setFont:[UIFont systemFontOfSize:15]];
         [self.contentView addSubview:self.result];
         
         self.sep = [[UIImageView alloc] init];

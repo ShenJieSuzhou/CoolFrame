@@ -20,7 +20,6 @@
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if(self){
-//        self.backgroundColor = [UIColor redColor];
         [self setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"default"]]];
         [self addSubview:self.imgIcon];
         [self addSubview:self.name];

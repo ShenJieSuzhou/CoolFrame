@@ -48,7 +48,8 @@
         [self.btnOp setBackgroundColor:[UIColor clearColor]];
         [self addSubview:self.btnOp];
         
-        self.sep_line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"separator_line"]];
+        self.sep_line = [[UIImageView alloc] init];
+        [self.sep_line setBackgroundColor:RGBA(193, 193, 193, 0.5)];
         [self.sep_line setContentMode:UIViewContentModeBottom];
         self.sep_line.clipsToBounds = YES;
         [self addSubview:self.sep_line];
@@ -66,7 +67,7 @@
     CGRect rcBtn = CGRectMake(rcView.size.width - 10*ScreenScale - 50, (rcView.size.height -20)/2, 50, 20);
     self.btnOp.frame = rcBtn;
     
-    CGRect rcSep = CGRectMake(10*ScreenScale, rcView.size.height -4, rcView.size.width - 20*ScreenScale, 4);
+    CGRect rcSep = CGRectMake(10*ScreenScale, rcView.size.height -4, rcView.size.width - 20*ScreenScale, 1);
     self.sep_line.frame = rcSep;
 }
 
@@ -119,7 +120,7 @@
     [self.m_btnCancel setTitle:@"取消" forState:UIControlStateNormal];
     [self.m_btnCancel.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
     [self.m_btnCancel addTarget:self action:@selector(clickBtnCancel:) forControlEvents:UIControlEventTouchUpInside];
-    [self.m_btnCancel setTintColor:[UIColor whiteColor]];
+    [self.m_btnCancel setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     self.m_btnCancel.hidden = YES;
     
     [self.m_viewNaviBar addSubview:self.m_searchBar];
@@ -400,11 +401,19 @@
     SearchTableHeaderView *view = [[SearchTableHeaderView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
     if(section == 0){
         [view.titleLabel setText:@"热搜"];
+        [view.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:14.0f]];
+        [view.titleLabel setTextColor:[UIColor blackColor]];
         [view.btnOp setTitle:@"换一批" forState:UIControlStateNormal];
+        [view.btnOp.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:14.0f]];
+        [view.btnOp setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [view.btnOp addTarget:self action:@selector(btnNewHotSearchKeys:) forControlEvents:UIControlEventTouchUpInside];
     }else if(section == 1){
         [view.titleLabel setText:@"搜索历史"];
+        [view.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:14.0f]];
+        [view.titleLabel setTextColor:[UIColor blackColor]];
         [view.btnOp setTitle:@"清除" forState:UIControlStateNormal];
+        [view.btnOp.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:14.0f]];
+        [view.btnOp setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [view.btnOp addTarget:self action:@selector(btnClearSearchRecord:) forControlEvents:UIControlEventTouchUpInside];
     }
     
