@@ -11,10 +11,11 @@ CoolFrame 是基于MVC架构的iOS轻量级框架，其中用到了SDWebImage图
 # 预览
 <table>
     <tr>
-        <td><img src="https://github.com/ShenJieSuzhou/CoolFrame/blob/master/screenshot/2.png"></td>
-        <td><img src="https://github.com/ShenJieSuzhou/CoolFrame/blob/master/screenshot/3.png"></td>
-        <td><img src="https://github.com/ShenJieSuzhou/CoolFrame/blob/master/screenshot/4.png"></td>
-        <td><img src="https://github.com/ShenJieSuzhou/CoolFrame/blob/master/screenshot/5.png"></td>
+        <td><img src="https://github.com/ShenJieSuzhou/CoolFrame/blob/master/screenshot/1.jpg"></td>
+        <td><img src="https://github.com/ShenJieSuzhou/CoolFrame/blob/master/screenshot/2.PNG"></td>
+        <td><img src="https://github.com/ShenJieSuzhou/CoolFrame/blob/master/screenshot/3.PNG"></td>
+        <td><img src="https://github.com/ShenJieSuzhou/CoolFrame/blob/master/screenshot/4.PNG"></td>
+        <td><img src="https://github.com/ShenJieSuzhou/CoolFrame/blob/master/screenshot/5.PNG"></td>
     </tr>
 </table>
 
