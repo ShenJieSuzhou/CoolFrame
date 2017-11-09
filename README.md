@@ -19,3 +19,22 @@ CoolFrame 是基于MVC架构的iOS轻量级框架，其中用到了SDWebImage图
     </tr>
 </table>
 
+# 功能介绍
+1. 添加了APP启动图片，以及广告页面。
+2. 首页采用了类似淘宝APP风格的界面布局，采用的方式为自定义UITableView，通过读取json文件来加载布局。
+3. 我的页面风格使用的是UICollectionView方式。
+
+# 安装步骤
+
+**注：强烈建议真机测试，模拟器会出现较多问题**
+1. 下载项目。
+2. 找到并进入 Podfile 文件所在目录，在终端中输入 pod instal。
+
+# 其它
+
+感谢以下第三方库及平台
+*   [AFNetworking](https://github.com/AFNetworking/AFNetworking)
+*   [MJRefresh](https://github.com/CoderMJLee/MJRefresh)
+*   [SDWebImage](https://github.com/rs/SDWebImage)
+
+
